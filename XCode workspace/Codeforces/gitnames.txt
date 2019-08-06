@@ -1,0 +1,11 @@
+./Croc CF 2013/.git
+./Ed CF 50 F/.git
+./CF 511 B/.git
+./CF 511 D/.git
+./CF 511 C/.git
+./Ed CF 51D/.git
+./Ed CF 51C/.git
+./CF Global Round 4/.git
+./Ed CF 51B/.git
+./Ed CF 51E/.git
+./CF Template/.git
