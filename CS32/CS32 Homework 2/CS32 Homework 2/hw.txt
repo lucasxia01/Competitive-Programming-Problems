@@ -1,6 +1,0 @@
-Homework 2 Answers
-2. (3, 5), (3, 6), (3, 4), (2, 4), (1, 4), (1, 3), (1, 2), (1, 1), (2, 1), (3, 3), (4, 5), (5, 5)
-
-4. The stack will visit the directions backwards from the queue. This is because the stack can only access the most recently pushed value while the queue accesses the least recently pushed value. Therefore, the stack will attempt to go as far as it can with each path before moving on, while the queue will expand each path by one step iteratively.
-
-(3, 5), (4, 5), (3, 4), (3, 6), (5, 5), (3, 3), (2, 4), (6, 5), (5, 4), (1, 4), (7, 5), (5, 3)
