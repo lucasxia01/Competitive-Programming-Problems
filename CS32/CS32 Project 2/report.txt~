@@ -1,0 +1,48 @@
+Project 2 Report
+
+Description of doubly-linked list:
+- no dummy nodes, not circular
+- contains head and tail pointers
+- each node has prev, next pointers and value
+- there is no order of elements in the list
+- insert will always insert at the front since order does not matter
+- when empty, both head and tail pointers are nullptr
+- when list contains one node, head and tail both point to it
+
+Pseudocode:
+~Set
+repeatedly iterate through the linkedlist
+           store pointer to next Node, delete current pointer, increment pointer to next with stored value
+
+Set - copy constructor
+set head, tail pointers, and number of items to passed in Set's values
+
+operator =
+deallocate the nodes currently held // basically the destructor
+reset member variables // basically default constructor
+repeatedly iterate through parameter Set and insert values into current Set
+
+insert
+if set already contains value, return false
+allocate memory for new Node
+set value to passed on value
+set next pointer to head
+set prev pointer to nullptr
+set head to pointer to new node
+if next exists, set prev pointer of next to n
+if first item, set tail to new node
+return true
+
+erase
+
+
+unite
+declare temp Set and temp ItemType
+repeatedly insert all nodes of s1 into temp Set with get function
+repeatedly insert all nodes of s2 into temp Set with get function
+set result to temp Set
+
+subtract
+declare temp Set and temp ItemType
+for each element in s1, check if it is contained in s2, if so, insert into temp Set
+set result to temp Set

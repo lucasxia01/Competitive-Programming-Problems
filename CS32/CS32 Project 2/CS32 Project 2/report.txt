@@ -1,0 +1,109 @@
+Project 2 Report
+
+***DESCRIPTION OF DOUBLY-LINKED LIST***
+- no dummy nodes, not circular
+- contains head and tail pointers
+- each node has prev, next pointers and value
+- there is no order of elements in the list
+- insert will always insert at the front since order does not matter
+- when empty, both head and tail pointers are nullptr
+- when list contains one node, head and tail both point to it
+
+***PSEUDOCODE***
+~Set
+repeatedly iterate through the linkedlist
+           store pointer to next Node, delete current pointer, increment pointer to next with stored value
+
+Set - copy constructor
+set head, tail pointers, and number of items to passed in Set's values
+
+operator =
+deallocate the nodes currently held // basically the destructor
+reset member variables // basically default constructor
+repeatedly iterate through parameter Set and insert values into current Set
+
+insert
+if set already contains value, return false
+allocate memory for new Node
+set value to passed on value
+set next pointer to head
+set prev pointer to nullptr
+set head to pointer to new node
+if next exists, set prev pointer of next to n
+if first item, set tail to new node
+return true
+
+erase
+repeatedly iterate through nodes
+	   if value matches
+	      reassign pointers of previous and next node
+	      delete current node
+	      subtract one from number of nodes
+	      return true
+if no match, return false
+
+get
+if i is out of bounds, return false
+for each node in list
+    compare repeatedly with other nodes
+    count how many are smaller
+    if count matches i, set passed in ItemType to current node
+return true
+
+swap
+use temp Node pointers to swap head and tail pointers // very standard swap
+swap n_items
+
+unite
+declare temp Set and temp ItemType
+repeatedly insert all nodes of s1 into temp Set with get function
+repeatedly insert all nodes of s2 into temp Set with get function
+set result to temp Set
+
+subtract
+declare temp Set and temp ItemType
+for each element in s1, check if it is contained in s2, if not, insert into temp Set
+set result to temp Set
+
+***TEST CASES***
+
+Set X, Y, Z; // testing default constructor
+assert(X.empty()); // testing empty
+
+assert(Z.insert("B")); // testing insertion into empty set
+unite(Z, X, Z); // testing unite for empty set and nonempty third set
+assert(Z.size() == 1); // testing size
+
+assert(X.insert("1") && X.insert("2") && X.insert("3")); // testing multiply inserts
+assert(Y.insert("3") && Y.insert("4") && Y.insert("5"));
+
+unite(X, Y, Z); // testing unite with a matching element
+assert(Z.size() == 5);
+subtract(X, Y, Z); // testing subtract with a matching element
+assert(Z.size() == 2);
+Set W = Z; // copy constructor test
+assert(W.size() == 2);
+
+assert(W.contains("1") && W.contains("2")); // testing working contains
+assert(W.erase("1") && W.erase("2")); // testing working erase
+assert(!W.erase("3")); // testing not working erase
+assert(!W.contains("B")); // testing failed contains
+assert(W.size() == 0);
+
+Set W = Z; // testing copy constructor
+assert(W.size() == 2);
+
+W = X; // testing assignment operator
+assert(W.size() == 3);
+
+ItemType temp;
+for (int i = 0; i < 3; i++) assert(W.get(i, temp)); // testing get for valid i
+assert(!W.get(3, temp)); // testing get for invalid i
+assert(!W.get(-1, temp));
+
+assert(W.size() == 3 && Z.size() == 2); // testing swap
+swap(W, Z);
+assert(W.size() == 2 && Z.size() == 3);
+
+// all functions in Set have been testing :D
+std::cout << "All test cases passed!" << std::endl;
