@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C2F024022FB2E8B009D7873 /* D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F023C22FB185B009D7873 /* D.cpp */; };
+		8C2F024122FC88A8009D7873 /* B.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F023822FB1849009D7873 /* B.cpp */; };
+		8C2F024322FCD877009D7873 /* E.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F024222FCD877009D7873 /* E.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		8C2F023822FB1849009D7873 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
 		8C2F023A22FB1853009D7873 /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
 		8C2F023C22FB185B009D7873 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
+		8C2F024222FCD877009D7873 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				8C2F023822FB1849009D7873 /* B.cpp */,
 				8C2F023A22FB1853009D7873 /* C.cpp */,
 				8C2F023C22FB185B009D7873 /* D.cpp */,
+				8C2F024222FCD877009D7873 /* E.cpp */,
 			);
 			path = "Ed CF 70";
 			sourceTree = "<group>";
@@ -124,7 +127,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C2F024022FB2E8B009D7873 /* D.cpp in Sources */,
+				8C2F024122FC88A8009D7873 /* B.cpp in Sources */,
+				8C2F024322FCD877009D7873 /* E.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

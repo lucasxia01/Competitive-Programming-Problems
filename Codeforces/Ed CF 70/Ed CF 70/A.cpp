@@ -74,8 +74,6 @@ int main() {
                 break;
             }
         }
-        
-        
         T--;
     }
     return 0;

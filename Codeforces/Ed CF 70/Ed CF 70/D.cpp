@@ -75,12 +75,11 @@ int main() {
             maxId = max(maxId, x);
             n -= x*(x+1)/2;
         }
-        string s = "73";
+        string s = "13";
         F0R(i, maxId+1) {
-            F0R(j, freq[i]) s += "1";
+            F0R(j, freq[i]) s += "7";
             s += "3";
         }
-        reverse(s.begin(), s.end());
         cout << s << endl;
         t--;
     }

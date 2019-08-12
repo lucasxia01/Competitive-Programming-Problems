@@ -87,6 +87,10 @@ int main() {
         F0R(i, 10) {
             F0R(j, 10) {
                 if (ans[i][j] == -1) continue;
+                if (minSteps[(s[k]-s[k-1]+10)%10][i][j] == -1) {
+                    ans[i][j] = -1;
+                    continue;
+                }
                 ans[i][j] += minSteps[(s[k]-s[k-1]+10)%10][i][j];
             }
         }
