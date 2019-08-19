@@ -52,15 +52,101 @@ const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
 
+int ans = MAX_N;
+ll a[MAX_N];
+vi nodes;
 
+int sol1() {
+    int n_nodes = (int) nodes.size();
+    int mat[n_nodes][n_nodes];
+    int adj[n_nodes][n_nodes];
+    F0R(i, n_nodes)
+        F0R(j, n_nodes) {
+            mat[i][j] = INF; adj[i][j] = INF;
+        }
+    F0R(i, n_nodes) {
+        F0R(j, n_nodes) {
+            //cout << a[nodes[i]] << " " << a[nodes[j]] << endl;
+            if (i != j && (a[nodes[i]]&a[nodes[j]])) {
+                mat[i][j] = 1; adj[i][j] = 1;
+                //if (mat[i][j] != INF) cout << i << " " << j << endl;
+            }
+        }
+    }
+    F0R(k, n_nodes) {
+        F0R(i, k) {
+            F0R(j, k) {
+                if (i != j) {
+                    ans = min(ans, mat[i][j] + adj[i][k] + adj[k][j]);
+                }
+            }
+        }
+        F0R(i, n_nodes) {
+            F0R(j, n_nodes) {
+                if (i == j && mat[i][k] * mat[k][j] == 1) continue;
+                mat[i][j] = min(mat[i][j], mat[i][k] + mat[k][j]);
+            }
+        }
+    }
+    return ans;
+}
+
+int sol2() {
+    int n_nodes = (int) nodes.size();
+    int mat[n_nodes][n_nodes];
+    F0R(i, n_nodes)
+        F0R(j, n_nodes)
+            mat[i][j] = INF;
+    F0R(i, n_nodes) {
+        F0R(j, n_nodes) {
+            if (i != j && (a[nodes[i]]&a[nodes[j]])) {
+                mat[i][j] = 1;
+            }
+        }
+    }
+    F0R(i, n_nodes) {
+        F0R(j, n_nodes) {
+            if (mat[i][j] != INF) {
+                bool marked[n_nodes];
+                F0R(k, n_nodes) marked[k] = false;
+                mat[i][j] = 0;
+                queue<int> q;
+                queue<int> qDist;
+                q.push(i);
+                marked[i] = true;
+                qDist.push(0);
+                while (!q.empty()) {
+                    int x = q.front();
+                    int dist = qDist.front();
+                    if (x == j) {
+                        ans = min(ans, dist+1);
+                        break;
+                    }
+                    q.pop();
+                    qDist.pop();
+                    F0R(k, n_nodes) {
+                        if (mat[x][k] == 1 && !marked[k]) {
+                            q.push(k);
+                            qDist.push(dist+1);
+                            marked[k] = true;
+                        }
+                    }
+                }
+                mat[i][j] = 1;
+            }
+        }
+    }
+                
+    return ans;
+}
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     int n;
     cin >> n;
-    ll a[n];
+    
     static int bits[100011][64];
-    vi nodes;
+    
     F0R(i, n) {
         cin >> a[i];
         int count = 0;
@@ -72,7 +158,7 @@ int main() {
             if (bits[i][j]) count++;
         }
         if (count >= 2) {
-            cout << i << endl;
+            //cout << i << endl;
             nodes.pb(i);
         }
     }
@@ -90,35 +176,9 @@ int main() {
             return 0;
         }
     }
-    int ans = MAX_N;
-    int n_nodes = (int) nodes.size();
-    int mat[2*n_nodes][2*n_nodes];
-    F0R(i, 2*n_nodes)
-        F0R(j, 2*n_nodes)
-            mat[i][j] = INF;
-    F0R(i, n_nodes) {
-        F0R(j, n_nodes) {
-            cout << a[nodes[i]] << " " << a[nodes[j]] << endl;
-            if (i != j && (a[nodes[i]]&a[nodes[j]])) mat[2*i][2*j+1] = 1;
-            //if (mat[i][j] != INF) cout << i << " " << j << endl;
-        }
-    }
-    F0R(i, n_nodes) {
-        mat[2*i+1][2*i] = 1;
-    }
-    F0R(k, n_nodes) {
-        F0R(i, n_nodes) {
-            F0R(j, n_nodes) {
-                if (i == j && mat[i][k] + mat[k][j] == 2) continue;
-                mat[i][j] = min(mat[i][j], mat[i][k] + mat[k][j]);
-            }
-        }
-    }
-    F0R(k, n_nodes) {
-        ans = min(ans, mat[k][k]);
-    }
+    ans = sol2();
     if (ans == MAX_N) cout << -1 << endl;
-    else cout << ans/2 << endl;
+    else cout << ans << endl;
     
     
     return 0;
