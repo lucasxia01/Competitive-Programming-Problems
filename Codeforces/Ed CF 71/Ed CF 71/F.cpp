@@ -54,23 +54,33 @@ const ld PI = 4*atan((ld)1);
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    string s;
-    cin >> s;
-    stack<int> st;
-    stack<int> pos;
-    F0R(i, sz(s)) {
-        if (!st.empty() && st.top() == '1' && s[i] == '0') {
-            st.pop();
-            pos.pop();
+    const int N = 500000;
+    int sqrtN = sqrt(N);
+    int small[800][800] = {};
+    int large[500001] = {};
+    int q, t, x, y;
+    cin >> q;
+    while (q) {
+        cin >> t >> x >> y;
+        if (t == 1) {
+            large[x] += y;
+            FOR(i, 1, sqrtN) {
+                small[i][x % i] += y;
+            }
         } else {
-            st.push(s[i]);
-            pos.push(i);
+            if (x < sqrtN) {
+                cout << small[x][y] << endl;
+            } else {
+                int sum = 0;
+                int i = y;
+                while (i <= N) {
+                    sum += large[i];
+                    i += x;
+                }
+                cout << sum << endl;
+            }
         }
+        q--;
     }
-    while (!pos.empty()) {
-        s[pos.top()] = '0';
-        pos.pop();
-    }
-    cout << s << endl;
     return 0;
 }
