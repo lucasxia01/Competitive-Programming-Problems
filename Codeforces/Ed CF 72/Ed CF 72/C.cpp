@@ -92,43 +92,21 @@ int main() {
             if (s[i] == '1') ones[i]++;
         }
         F0Rd(i, slen) {
-            ll len = 1;
-            while (len <= s.length()) {
-                string curS = "";
+            int len = 1;
+            p = 1;
+            int x = 0;
+            while (len <= l) {
                 if (i-len < -1) break;
-                FORd(j, i-len+1, i+1) {
-                    curS += s[j];
-                }
-                //cout << curS << endl;
-                ll x = 0;
-                p = 1;
-                F0R(j, curS.length()) {
-                    x += p*(curS[j]-'0');
-                    if (x > slen) {
-                        x = -1;
-                        break;
-                    }
-                    if (p <= slen) p*=2;
-                    else {
-                        if (ones[i-len+1]-ones[i-j]) x = -1;
-                        break;
-                    }
-                    
-                }
-                
+                x += (s[i-len+1]-'0')*p;
                 if (len == x) {
-//                    cout << curS << endl;
-//                    cout << x << " " << i << endl;
                     ans++;
                 }
-                //if (i == 7) cout << x << ": " << len << endl;
-                if (x > len) {
-                    len = x;
-                    continue;
-                }
-                if (len > l) break;
-                len = x + pow(len);
+                len++;
+                p*=2;
             }
+            if (i-x+1<0) continue;
+            if (x < len || ones[i-x+1]-ones[i-len+2]) continue;
+            ans++;
         }
         cout << ans << endl;
         t--;
