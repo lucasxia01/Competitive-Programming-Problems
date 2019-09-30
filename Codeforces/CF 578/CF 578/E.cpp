@@ -54,14 +54,45 @@ const ld PI = 4*atan((ld)1);
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    int n;
-    string s;
+    int n, len;
     cin >> n;
     string a[n];
     F0R(i, n) cin >> a[i];
-    s = a[0];
-    F0R(i, 1, n) {
-        
+    string s = a[0];
+    FOR(i, 1, n) {
+        len = (int)a[i].length();
+        int lps[len];
+        lps[0] = 0;
+        int jj = 0;
+        FOR(j, 1, len) {
+            if (a[i][j] == a[i][jj]) {
+                lps[j] = jj+1;
+                jj++;
+            } else {
+                if (jj == 0) {
+                    lps[j] = 0;
+                } else {
+                    jj = lps[jj-1];
+                    j--;
+                }
+            }
+        }
+        int l = max(0, (int)(s.length()-len));
+        int k = 0;
+        while (l < s.length()) {
+            if (s[l] == a[i][k]) k++;
+            else {
+                if (k != 0) {
+                    k = lps[k-1];
+                    l--;
+                }
+            }
+            l++;
+        }
+        for (; k < len; k++) {
+            s += a[i][k];
+        }
     }
+    cout << s << endl;
     return 0;
 }

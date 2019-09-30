@@ -96,6 +96,7 @@ Combo<251> C;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
+    cout.tie(0);
     int n, k;
     cin >> n >> k;
     ll dp[n+1][n+1];
@@ -118,9 +119,8 @@ int main() {
                 temp = (temp*dp[i-l][j-1])%MOD;
                 sum = (sum + temp)%MOD;
             }
-            ll tem = (((pows[n-i]-pows1[n-i])+MOD)*dp[i][j-1])%MOD;
+            ll tem = (((pows[n-i]-pows1[n-i]+MOD)*pows1[i])%MOD*dp[i][j-1])%MOD;
             dp[i][j] = ((sum*pows[n-i])%MOD+tem)%MOD;
-            cout << i << " " << j << " " << tem << " " << dp[i][j] << endl;
         }
     }
     cout << dp[n][n] << endl;
