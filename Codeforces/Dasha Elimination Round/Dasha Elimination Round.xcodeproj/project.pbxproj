@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C2DD07A232D354B00774E5E /* E1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C2DD079232D354B00774E5E /* E1.cpp */; };
+		8C5F8FA023481A1F001FF4B2 /* E2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C5F8F9F23481A1F001FF4B2 /* E2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +30,7 @@
 		8C2DD072232D1C3A00774E5E /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
 		8C2DD074232D1C4600774E5E /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
 		8C2DD079232D354B00774E5E /* E1.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E1.cpp; sourceTree = "<group>"; };
+		8C5F8F9F23481A1F001FF4B2 /* E2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E2.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 				8C2DD072232D1C3A00774E5E /* C.cpp */,
 				8C2DD074232D1C4600774E5E /* D.cpp */,
 				8C2DD079232D354B00774E5E /* E1.cpp */,
+				8C5F8F9F23481A1F001FF4B2 /* E2.cpp */,
 			);
 			path = "Dasha Elimination Round";
 			sourceTree = "<group>";
@@ -128,7 +130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C2DD07A232D354B00774E5E /* E1.cpp in Sources */,
+				8C5F8FA023481A1F001FF4B2 /* E2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

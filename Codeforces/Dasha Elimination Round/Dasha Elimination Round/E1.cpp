@@ -54,81 +54,36 @@ const ld PI = 4*atan((ld)1);
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    int t, n, m;
+    int t, n, m, sum;
     cin >> t;
-    while (t) {
+    while (t--) {
         cin >> n >> m;
         int a[n][m];
-        int used[n][m];
-        int b[n*m];
-        F0R(i, n) {
-            F0R(j, m) {
-                cin >> a[i][j];
-                used[i][j] = 0;
-                b[i*m+j] = a[i][j];
-            }
-        }
-        sort(b, b+(n*m));
-        int ans = 0;
-        vpi rows;
-        int cols[101];
-        F0R(i, min(n, 3)) {
-            ans += b[n*m-1-i];
-            F0R(x, n) {
-                F0R(y, m) {
-                    if (!used[x][y] && a[x][y] == b[n*m-1-i]) {
-                        used[x][y] = 1;
-                        cols[y]++;
-                        rows.pb(mp(x, y));
-                        y = m; x = n; break;
+        F0R(i, n) F0R(j, m) cin >> a[i][j];
+        int best[m][1<<n];
+        F0R(i, m) {
+            F0R(mask, 1<<n) {
+                best[i][mask] = 0;
+                F0R(shift, n) {
+                    sum = 0;
+                    for (int pow = 1, c = 0; c < n; pow<<=1, c++) {
+                        if (pow&mask) sum += a[(c+shift)%n][i];
                     }
+                    best[i][mask] = max(best[i][mask], sum);
                 }
             }
         }
-        if (n <= 3) {
-            cout << ans << endl;
-        } else {
-            int k = 3;
-            
-            int col = -1, row = -1;
-            F0R(x, n) {
-                F0R(y, m) {
-                    if (!used[x][y] && a[x][y] == b[n*m-1-k]) {
-                        used[x][y] = 1;
-                        col = y;
-                        row = x;
-                        y = m; x = n; break;
-                    }
+        int dp[m+1][1<<n];
+        F0R(mask, 1<<n) dp[0][mask] = 0;
+        F0R(i, m) {
+            F0R(mask, 1<<n) {
+                dp[i+1][mask] = dp[i][0]+best[i][mask];
+                for (int s = mask; s; s = ((s-1) & mask)) {
+                    dp[i+1][mask] = max(dp[i+1][mask], dp[i][s]+best[i][mask^s]);
                 }
-            }
-            int count = 0;
-            cols[col]++;
-            F0R(i, m) {
-                if (cols[i] >= 2) count++;
-            }
-            if (count == 2) {
-                int ans = 0;
-                F0R(i, m) {
-                    F0R(j, m) {
-                        if (i != j) {
-                            FOR(diff, 1, 3) {
-                                F0R(s1, 4) {
-                                    F0R(s2, 4) {
-                                        ans = max(ans, a[i][s1] + a[i][(s1+diff)%4] + a[j][s2] + a[j][(s2+diff)%4]);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                cout << ans << endl;
-                
-            } else {
-                ans += b[n*m-4];
-                cout << ans << endl;
             }
         }
-        t--;
+        cout << dp[m][(1<<n)-1] << endl;
     }
     return 0;
 }
