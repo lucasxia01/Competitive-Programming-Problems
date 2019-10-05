@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		8C0924DC2340E2B7007A5B5E /* CF 589 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CF 589"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C0924DF2340E2B7007A5B5E /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
+		8C0924DF2340E2B7007A5B5E /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; wrapsLines = 0; };
 		8C0924E62340E2DA007A5B5E /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
 		8C0924E82340E2E3007A5B5E /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
 		8C0924EA2340E2F0007A5B5E /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };

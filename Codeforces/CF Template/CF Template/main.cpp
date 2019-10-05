@@ -1,15 +1,8 @@
-#include <vector>
-#include <stack>
 #include <iostream>
 #include <cstdio>
-#include <string>
 #include <cmath>
 #include <algorithm>
-#include <map>
 #include <functional>
-#include <set>
-#include <cstring>
-#include <queue>
 #include <stdlib.h>
 #include <time.h>
 #include <complex>
@@ -17,6 +10,15 @@
 #include <regex>
 #include <fstream>
 #include <utility>
+#include <vector>
+#include <string>
+#include <cstring>
+#include <stack>
+#include <queue>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
 
 using namespace std;
 
@@ -53,12 +55,10 @@ const ld PI = 4*atan((ld)1);
 
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(0);
+    cin.tie(0); cout.tie(0);
     int n, k;
     cin >> n >> k;
     int a[n];
-    int count = 0;
     F0R(i, n) cin >> a[i];
-    cout << count << endl;
     return 0;
 }
