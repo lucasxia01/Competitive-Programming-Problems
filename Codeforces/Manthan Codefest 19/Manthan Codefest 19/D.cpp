@@ -51,55 +51,62 @@ const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
 int n;
-ll t[2 * MAX_N];
+ll fenw[MAX_N+1];
 
-void build() {  // build the tree
-    for (int i = n - 1; i > 0; --i) t[i] = t[i<<1] + t[i<<1|1];
-}
-
-void modify(int l, int r, ll value) {
-    for (l += n, r += n; l < r; l >>= 1, r >>= 1) {
-        if (l&1) t[l++] += value;
-        if (r&1) t[--r] += value;
-        cout << l << " " << r << endl;;
+void upd(int i, ll val) {
+    while (i <= n) {
+        fenw[i] += val;
+        i += (i&-i);
     }
 }
-int query(int p) {
-    int res = 0;
-    for (p += n; p > 0; p >>= 1) res += t[p];
-    return res;
+
+ll get(int i) {
+    ll sum = 0;
+    while (i > 0) {
+        sum += fenw[i];
+        i -= (i&-i);
+    }
+    return sum;
+}
+
+int query(ll sum) {
+    int LOGN = 0;
+    ll pow = 1;
+    while (pow <= n) {
+        LOGN++;
+        pow *= 2;
+    }
+    int pos = 0;
+    ll cur = 0;
+    F0Rd(i, LOGN) {
+        ll add = (1LL<<i);
+        if (pos+add <= n && cur + fenw[pos+add] <= sum) {
+            pos += add;
+            cur += fenw[pos];
+        }
+    }
+    return pos+1;
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(0);
+    cin.tie(0); cout.tie(0);
     cin >> n;
-    ll s[n], ans[n];
-    t[n] = 0;
+    ll s[n];
     F0R(i, n) {
         cin >> s[i];
-        t[i+n+1] = t[n+i] + i+1;
+        upd(i+1, i+1);
     }
-    build();
-    F0R(i, 2*n) {
-        cout << t[i] << " ";
-    } cout << endl;
-    modify(0, 5, 1);
-    cout << query(4) << endl;
-    F0R(i, 2*n) {
-        cout << t[i] << " ";
-    } cout << endl;
+    
+    int ans[n];
     F0Rd(i, n) {
-        ll* pos = lower_bound(t+n, t+2*n, s[i]);
-        int p = pos - (t+n);
-        cout << s[i] << " " << p << " " << t[p+n] << " ";
-        modify(p+1, n, (t+n)-pos-1);
-        F0R(i, 2*n) {
-            cout << t[i] << " ";
-        } cout << endl;
-        ans[i] = (pos-(t+n)+1);
+        int val = query(s[i]);
+//        F0R(i, n+1) {
+//            cout << fenw[i] << " ";
+//        } cout << endl;
+        upd(val, -val);
+        ans[i] = val;
     }
-
     F0R(i, n) {
         cout << ans[i] << " ";
     } cout << endl;
