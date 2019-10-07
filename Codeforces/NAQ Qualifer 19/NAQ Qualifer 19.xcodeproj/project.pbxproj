@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C5F8FA1234829DF001FF4B2 /* E.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C1751F72312D34100CA4A5A /* E.cpp */; };
+		8C5F8FD02349A020001FF4B2 /* L.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C5F8FCF2349A020001FF4B2 /* L.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8C1751E32312D30200CA4A5A /* CopyFiles */ = {
+		8C5F8FA9234913BA001FF4B2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,17 +23,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C1751E52312D30200CA4A5A /* Manthan Codefest 19 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Manthan Codefest 19"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C1751E82312D30200CA4A5A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		8C1751EF2312D31800CA4A5A /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
-		8C1751F12312D32600CA4A5A /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
-		8C1751F32312D32F00CA4A5A /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
-		8C1751F52312D33800CA4A5A /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
-		8C1751F72312D34100CA4A5A /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
+		8C5F8FAB234913BA001FF4B2 /* NAQ Qualifer 19 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "NAQ Qualifer 19"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C5F8FAE234913BA001FF4B2 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
+		8C5F8FB52349165D001FF4B2 /* G.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = G.cpp; sourceTree = "<group>"; };
+		8C5F8FB723491810001FF4B2 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
+		8C5F8FBA23491CDF001FF4B2 /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
+		8C5F8FBC23491F0F001FF4B2 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
+		8C5F8FBE2349218E001FF4B2 /* M.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = M.cpp; sourceTree = "<group>"; };
+		8C5F8FC023492623001FF4B2 /* K.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = K.cpp; sourceTree = "<group>"; };
+		8C5F8FC823493A3F001FF4B2 /* J.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = J.cpp; sourceTree = "<group>"; };
+		8C5F8FCA23493C13001FF4B2 /* I.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = I.cpp; sourceTree = "<group>"; };
+		8C5F8FCC23493E6B001FF4B2 /* H.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = H.cpp; sourceTree = "<group>"; };
+		8C5F8FCF2349A020001FF4B2 /* L.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = L.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8C1751E22312D30200CA4A5A /* Frameworks */ = {
+		8C5F8FA8234913BA001FF4B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,99 +48,105 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C1751DC2312D30200CA4A5A = {
+		8C5F8FA2234913BA001FF4B2 = {
 			isa = PBXGroup;
 			children = (
-				8C1751E72312D30200CA4A5A /* Manthan Codefest 19 */,
-				8C1751E62312D30200CA4A5A /* Products */,
+				8C5F8FAD234913BA001FF4B2 /* NAQ Qualifer 19 */,
+				8C5F8FAC234913BA001FF4B2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8C1751E62312D30200CA4A5A /* Products */ = {
+		8C5F8FAC234913BA001FF4B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C1751E52312D30200CA4A5A /* Manthan Codefest 19 */,
+				8C5F8FAB234913BA001FF4B2 /* NAQ Qualifer 19 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C1751E72312D30200CA4A5A /* Manthan Codefest 19 */ = {
+		8C5F8FAD234913BA001FF4B2 /* NAQ Qualifer 19 */ = {
 			isa = PBXGroup;
 			children = (
-				8C1751E82312D30200CA4A5A /* main.cpp */,
-				8C1751EF2312D31800CA4A5A /* A.cpp */,
-				8C1751F12312D32600CA4A5A /* B.cpp */,
-				8C1751F32312D32F00CA4A5A /* C.cpp */,
-				8C1751F52312D33800CA4A5A /* D.cpp */,
-				8C1751F72312D34100CA4A5A /* E.cpp */,
+				8C5F8FB723491810001FF4B2 /* A.cpp */,
+				8C5F8FBC23491F0F001FF4B2 /* B.cpp */,
+				8C5F8FBA23491CDF001FF4B2 /* C.cpp */,
+				8C5F8FAE234913BA001FF4B2 /* D.cpp */,
+				8C5F8FB52349165D001FF4B2 /* G.cpp */,
+				8C5F8FC823493A3F001FF4B2 /* J.cpp */,
+				8C5F8FC023492623001FF4B2 /* K.cpp */,
+				8C5F8FCC23493E6B001FF4B2 /* H.cpp */,
+				8C5F8FCA23493C13001FF4B2 /* I.cpp */,
+				8C5F8FCF2349A020001FF4B2 /* L.cpp */,
+				8C5F8FBE2349218E001FF4B2 /* M.cpp */,
 			);
-			path = "Manthan Codefest 19";
+			path = "NAQ Qualifer 19";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C1751E42312D30200CA4A5A /* Manthan Codefest 19 */ = {
+		8C5F8FAA234913BA001FF4B2 /* NAQ Qualifer 19 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C1751EC2312D30200CA4A5A /* Build configuration list for PBXNativeTarget "Manthan Codefest 19" */;
+			buildConfigurationList = 8C5F8FB2234913BA001FF4B2 /* Build configuration list for PBXNativeTarget "NAQ Qualifer 19" */;
 			buildPhases = (
-				8C1751E12312D30200CA4A5A /* Sources */,
-				8C1751E22312D30200CA4A5A /* Frameworks */,
-				8C1751E32312D30200CA4A5A /* CopyFiles */,
+				8C5F8FA7234913BA001FF4B2 /* Sources */,
+				8C5F8FA8234913BA001FF4B2 /* Frameworks */,
+				8C5F8FA9234913BA001FF4B2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Manthan Codefest 19";
-			productName = "Manthan Codefest 19";
-			productReference = 8C1751E52312D30200CA4A5A /* Manthan Codefest 19 */;
+			name = "NAQ Qualifer 19";
+			productName = "NAQ Qualifer 19";
+			productReference = 8C5F8FAB234913BA001FF4B2 /* NAQ Qualifer 19 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8C1751DD2312D30200CA4A5A /* Project object */ = {
+		8C5F8FA3234913BA001FF4B2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Lucas Xia";
 				TargetAttributes = {
-					8C1751E42312D30200CA4A5A = {
-						CreatedOnToolsVersion = 10.3;
+					8C5F8FAA234913BA001FF4B2 = {
+						CreatedOnToolsVersion = 11.0;
 					};
 				};
 			};
-			buildConfigurationList = 8C1751E02312D30200CA4A5A /* Build configuration list for PBXProject "Manthan Codefest 19" */;
+			buildConfigurationList = 8C5F8FA6234913BA001FF4B2 /* Build configuration list for PBXProject "NAQ Qualifer 19" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
-			mainGroup = 8C1751DC2312D30200CA4A5A;
-			productRefGroup = 8C1751E62312D30200CA4A5A /* Products */;
+			mainGroup = 8C5F8FA2234913BA001FF4B2;
+			productRefGroup = 8C5F8FAC234913BA001FF4B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C1751E42312D30200CA4A5A /* Manthan Codefest 19 */,
+				8C5F8FAA234913BA001FF4B2 /* NAQ Qualifer 19 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8C1751E12312D30200CA4A5A /* Sources */ = {
+		8C5F8FA7234913BA001FF4B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C5F8FA1234829DF001FF4B2 /* E.cpp in Sources */,
+				8C5F8FD02349A020001FF4B2 /* L.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8C1751EA2312D30200CA4A5A /* Debug */ = {
+		8C5F8FB0234913BA001FF4B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -167,7 +178,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -194,7 +204,7 @@
 			};
 			name = Debug;
 		};
-		8C1751EB2312D30200CA4A5A /* Release */ = {
+		8C5F8FB1234913BA001FF4B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -226,7 +236,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -246,7 +255,7 @@
 			};
 			name = Release;
 		};
-		8C1751ED2312D30200CA4A5A /* Debug */ = {
+		8C5F8FB3234913BA001FF4B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -254,7 +263,7 @@
 			};
 			name = Debug;
 		};
-		8C1751EE2312D30200CA4A5A /* Release */ = {
+		8C5F8FB4234913BA001FF4B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -265,25 +274,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C1751E02312D30200CA4A5A /* Build configuration list for PBXProject "Manthan Codefest 19" */ = {
+		8C5F8FA6234913BA001FF4B2 /* Build configuration list for PBXProject "NAQ Qualifer 19" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C1751EA2312D30200CA4A5A /* Debug */,
-				8C1751EB2312D30200CA4A5A /* Release */,
+				8C5F8FB0234913BA001FF4B2 /* Debug */,
+				8C5F8FB1234913BA001FF4B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C1751EC2312D30200CA4A5A /* Build configuration list for PBXNativeTarget "Manthan Codefest 19" */ = {
+		8C5F8FB2234913BA001FF4B2 /* Build configuration list for PBXNativeTarget "NAQ Qualifer 19" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C1751ED2312D30200CA4A5A /* Debug */,
-				8C1751EE2312D30200CA4A5A /* Release */,
+				8C5F8FB3234913BA001FF4B2 /* Debug */,
+				8C5F8FB4234913BA001FF4B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8C1751DD2312D30200CA4A5A /* Project object */;
+	rootObject = 8C5F8FA3234913BA001FF4B2 /* Project object */;
 }
