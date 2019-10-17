@@ -8,4 +8,4 @@ As of 2018, it has over 600 000 registered users.
 ### Handle
 My handle is as usual: lucasxia01  
 https://codeforces.com/profile/lucasxia01  
-Current Rating: 1745, Expert
+Current Rating: 1926, Candidate Master
