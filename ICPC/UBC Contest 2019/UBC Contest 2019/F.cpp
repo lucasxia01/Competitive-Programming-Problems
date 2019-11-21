@@ -18,6 +18,7 @@
 #include <set>
 #include <unordered_map>
 #include <unordered_set>
+#include <iomanip>
 
 using namespace std;
 
@@ -101,25 +102,41 @@ int main() {
     F0R(i, n) F0R(j, 2) cin >> p[i][j];
     int count[n][n][2];
     F0R(i, n) F0R(j, n) {
-        if (i == j) count[i][j][0] = count[i][j][1] = -1;
-        int c = 0;
-        F0R(k, n) {
-            if (k != i && k != j && (ld)(p[i][1]-p[j][1])/(p[i][0]-p[j][0])*(p[k][0]-p[i][0])+p[i][1] > p[k][1]) c++;
+        if (i == j) {
+            count[i][j][0] = count[i][j][1] = -1;
+            continue;
         }
-        count[i][j][0] = c;
-        count[i][j][1] = n-2-c;
+        count[i][j][0] = count[i][j][1] = 0;
+        //printf("%d %d, %d %d\n", p[i][0], p[i][1], p[j][0], p[j][1]);
+        F0R(k, n) {
+            ll temp = (p[i][1]-p[j][1])*(p[k][0]-p[i][0])+(p[i][0]-p[j][0])*(p[i][1] - p[k][1]);
+            if (k != i && k != j && temp > 0) count[i][j][0]++;
+            if (k != i && k != j && temp < 0) count[i][j][1]++;
+            if (k != i && k != j && temp == 0)
+                if ((p[k][0]-p[i][0])*(p[k][0]-p[j][0]) <= 0 && (p[k][1]-p[i][1])*(p[k][1]-p[j][1]) <= 0) {
+                    count[i][j][0]++;
+                    count[i][j][1]++;
+                }
+        }
+        //cout << "above " << count[i][j][1] << ", and below " << count[i][j][0] << endl;
     }
     ld ans[n];
     F0R(i, n) {
-        
+        ans[i] = (ld) 2/((i+3)*(i+2)*(i+1));
     }
     F0R(i, n) {
         ld ret = 0;
         F0R(j, n) F0R(k, j) {
-            bool b = (p[j][1]-p[k][1])/(p[j][0]-p[k][0])*(p[i][0]-p[j][0])+p[j][1] < p[i][1];
-            ret += ans[count[j][k][b]];
+            //printf("%d %d, %d %d, %d %d\n", p[i][0], p[i][1], p[j][0], p[j][1], p[k][0], p[k][1]);
+            int d = (p[j][1]-p[k][1])*(p[i][0]-p[j][0])+(p[j][0]-p[k][0])*(p[j][1]-p[i][1]);
+            if (d == 0) continue;
+            bool b = d > 0;
+//            cout << "area " << d << endl;
+//            cout << "count of same side " <<  count[j][k][!b] << " and other side " << count[j][k][b] << endl;
+            ret += 0.5 * abs(d) * ans[count[j][k][!b]-1];
         }
-        cout << ans << endl;
+        cout << fixed;
+        cout << setprecision(8) << ret << endl;
     }
     return 0;
 }
