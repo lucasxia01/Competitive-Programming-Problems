@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <cstdio>
 #include <cmath>
 #include <algorithm>
@@ -47,7 +46,7 @@ typedef vector<pl> vpl;
 #define lb lower_bound
 #define ub upper_bound
 
-const int MAX_N = 100011;
+const int MAX_N = 1000011;
 const ll INF = (1<<29) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
@@ -57,9 +56,41 @@ const ld PI = 4*atan((ld)1);
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n;
+    int n, q;
     cin >> n;
     int a[n];
-    F0R(i, n) cin >> a[i];
+    int prev[MAX_N] = {}, ans[MAX_N] = {};
+    int curSum = 0, prevSum = 0, maxVal = 0;
+    F0R(i, n) {
+        cin >> a[i];
+        maxVal = max(maxVal, a[i]);
+        prevSum = curSum;
+        F0R(j, a[i]) {
+            prev[curSum] = prevSum;
+            curSum++;
+        }
+    }
+    cin >> q;
+    int t;
+    while (q--) {
+        cin >> t;
+        if (t < maxVal) {
+            cout << "Impossible" << endl;
+        } else if (t > curSum) {
+            cout << 1 << endl;
+        } else if (ans[t]) {
+            cout << ans[t] << endl;
+        } else {
+            int sum = 0;
+            int count = 0;
+            while (sum < curSum) {
+                sum = prev[sum];
+                sum += t;
+                count++;
+            }
+            ans[t] = count;
+            cout << count << endl;
+        }
+    }
     return 0;
 }
