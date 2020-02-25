@@ -57,46 +57,45 @@ const ld PI = 4*atan((ld)1);
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    freopen("distribution.in", "r", stdin);
-    freopen("distribution.out", "w", stdout);
-    int t;
+    int t, a, b, c;
     cin >> t;
-    ll pow = 1, high = 1;
-    F0R(i, 18) high *= 10;
-    ll powers2[63];
-    int p = 0;
-    while (pow < high) {
-        powers2[p] = pow;
-        pow *= 2; p++;
-    }
-    ll powers3[50];
-    pow = 1;
-    p = 0;
-    while (pow < high) {
-        powers3[p] = pow;
-        pow *= 3; p++;
-    }
-    ll x;
     while (t--) {
-        vector<ll> ans;
-        cin >> x;
-        int curPow2 = 0;
-        int curPow3 = p-1;
-        while (x) {
-            if (x % 2 == 0) {
-                curPow2++;
-                x /= 2;
-                continue;
+        cin >> a >> b >> c;
+        int minCost = INF;
+        int x, y, z;
+        int p = -1, q = -1, r = -1;
+        int P = -1, Q = -1, R = -1;
+        for (int B = 1; B <= 20000; B++) {
+            y = abs(B-b);
+            int C;
+            if (c < B) {
+                z = B-c;
+                C = B;
+            } else {
+                z = min(c%B, B-(c%B));
+                if (c%B < B-(c%B)) C = c - (c%B);
+                else C = c + (B - (c%B));
             }
-            if (powers3[curPow3] <= x) {
-                ans.pb(powers2[curPow2]*powers3[curPow3]);
-                x -= powers3[curPow3];
+            for (int A = 1; A*A <= B; A++) {
+                if (B % A == 0) {
+                    x = abs(A-a);
+                    if (minCost > x+y+z) {
+                        p = x; q = y; r = z;
+                        P = A; Q = B; R = C;
+                        minCost = x+y+z;
+                    }
+                    x = abs(B/A-a);
+                    if (minCost > x+y+z) {
+                        p = x; q = y; r = z;
+                        P = B/A; Q = B; R = C;
+                        minCost = x+y+z;
+                    }
+                }
             }
-            curPow3--;
         }
-        cout << ans.size() << endl;
-        trav(a, ans) cout << a << " ";
-        cout << endl;
+        cout << minCost << endl;
+        printf("%d %d %d\n", P, Q, R);
+        fflush(stdout);
     }
     return 0;
 }

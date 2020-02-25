@@ -59,6 +59,7 @@ int n, m;
 int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};
 void dfs(int x, int y, int v) {
     if (x < 0 || x >= n || y < 0 || y >= m || a[x][y] == '#' || mat[x][y]) return;
+    //cout << x << " " << y << " " << v << endl;
     mat[x][y] = v;
     F0R(i, 4) {
         dfs(x + dx[i], y + dy[i], v);
@@ -70,11 +71,14 @@ int main() {
     freopen("cave.in", "r", stdin);
     freopen("cave.out", "w", stdout);
     cin >> n >> m;
+    //cout << n << endl;
     int numComps = 0;
     F0R(i, n) cin >> a[i];
+    //cout << m << endl;
     F0R(i, n) {
         F0R(j, m) {
-            if (a[i][j] == '.' && mat[i][j] == 0) {
+            //cout << numComps << endl;
+            if (mat[i][j] == 0 && a[i][j] == '.') {
                 numComps++;
                 dfs(i, j, numComps);
             }
@@ -100,6 +104,7 @@ int main() {
     F0R(i, numComps+1) ans[i] = 0;
     unordered_set<int> count[numComps+1];
     unordered_set<int> modComps;
+    cout << "does it get here" << endl;
     FORd(i, 1, n-2) {
         F0R(j, m) {
             if (a[i][j] == '#') state[j] = 0;

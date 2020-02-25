@@ -57,46 +57,18 @@ const ld PI = 4*atan((ld)1);
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    freopen("distribution.in", "r", stdin);
-    freopen("distribution.out", "w", stdout);
-    int t;
-    cin >> t;
-    ll pow = 1, high = 1;
-    F0R(i, 18) high *= 10;
-    ll powers2[63];
-    int p = 0;
-    while (pow < high) {
-        powers2[p] = pow;
-        pow *= 2; p++;
-    }
-    ll powers3[50];
-    pow = 1;
-    p = 0;
-    while (pow < high) {
-        powers3[p] = pow;
-        pow *= 3; p++;
-    }
-    ll x;
-    while (t--) {
-        vector<ll> ans;
-        cin >> x;
-        int curPow2 = 0;
-        int curPow3 = p-1;
-        while (x) {
-            if (x % 2 == 0) {
-                curPow2++;
-                x /= 2;
-                continue;
-            }
-            if (powers3[curPow3] <= x) {
-                ans.pb(powers2[curPow2]*powers3[curPow3]);
-                x -= powers3[curPow3];
-            }
-            curPow3--;
-        }
-        cout << ans.size() << endl;
-        trav(a, ans) cout << a << " ";
-        cout << endl;
+    freopen("hash.in", "r", stdin);
+    freopen("hash.out", "w", stdout);
+    int n;
+    cin >> n;
+    string s = "";
+    F0R(i, 1000) s += 'a';
+    // 'aa' can be replaced with 'bB'
+    cout << s << endl;
+    F0R(i, n-1) {
+        s[i] = 'b'; s[i+1] = 'B';
+        cout << s << endl;
+        s[i] = 'a'; s[i+1] = 'a';
     }
     return 0;
 }

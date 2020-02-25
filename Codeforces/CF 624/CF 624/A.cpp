@@ -57,46 +57,16 @@ const ld PI = 4*atan((ld)1);
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    freopen("distribution.in", "r", stdin);
-    freopen("distribution.out", "w", stdout);
-    int t;
+    int t, a, b, ans;
     cin >> t;
-    ll pow = 1, high = 1;
-    F0R(i, 18) high *= 10;
-    ll powers2[63];
-    int p = 0;
-    while (pow < high) {
-        powers2[p] = pow;
-        pow *= 2; p++;
-    }
-    ll powers3[50];
-    pow = 1;
-    p = 0;
-    while (pow < high) {
-        powers3[p] = pow;
-        pow *= 3; p++;
-    }
-    ll x;
     while (t--) {
-        vector<ll> ans;
-        cin >> x;
-        int curPow2 = 0;
-        int curPow3 = p-1;
-        while (x) {
-            if (x % 2 == 0) {
-                curPow2++;
-                x /= 2;
-                continue;
-            }
-            if (powers3[curPow3] <= x) {
-                ans.pb(powers2[curPow2]*powers3[curPow3]);
-                x -= powers3[curPow3];
-            }
-            curPow3--;
-        }
-        cout << ans.size() << endl;
-        trav(a, ans) cout << a << " ";
-        cout << endl;
+        cin >> a >> b;
+        if (a == b) ans = 0;
+        else if (b > a && (a-b)%2) ans = 1;
+        else if (b < a && (b-a)%2==0) ans = 1;
+        else ans = 2;
+        cout << ans << endl;
+        
     }
     return 0;
 }

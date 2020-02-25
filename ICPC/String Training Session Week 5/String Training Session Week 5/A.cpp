@@ -57,46 +57,39 @@ const ld PI = 4*atan((ld)1);
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    freopen("distribution.in", "r", stdin);
-    freopen("distribution.out", "w", stdout);
-    int t;
-    cin >> t;
-    ll pow = 1, high = 1;
-    F0R(i, 18) high *= 10;
-    ll powers2[63];
-    int p = 0;
-    while (pow < high) {
-        powers2[p] = pow;
-        pow *= 2; p++;
+    string s;
+    cin >> s;
+    int len = (int) s.length();
+    bool pal[len][len];
+    F0R(i, len) F0R(j, len) {
+        if (i != j) pal[i][j] = 0; else pal[i][j] = 1;
     }
-    ll powers3[50];
-    pow = 1;
-    p = 0;
-    while (pow < high) {
-        powers3[p] = pow;
-        pow *= 3; p++;
-    }
-    ll x;
-    while (t--) {
-        vector<ll> ans;
-        cin >> x;
-        int curPow2 = 0;
-        int curPow3 = p-1;
-        while (x) {
-            if (x % 2 == 0) {
-                curPow2++;
-                x /= 2;
-                continue;
-            }
-            if (powers3[curPow3] <= x) {
-                ans.pb(powers2[curPow2]*powers3[curPow3]);
-                x -= powers3[curPow3];
-            }
-            curPow3--;
+    FOR(l, 1, len) {
+        F0R(i, len-l) {
+            if (s[i] == s[i+l] && (pal[i+1][i+l-1] || l == 1))
+                pal[i][i+l] = pal[i+1][i+l-1] + 1;
         }
-        cout << ans.size() << endl;
-        trav(a, ans) cout << a << " ";
-        cout << endl;
     }
+    int ans[len][len];
+    F0R(i, len) F0R(j, len) {
+        if (i != j) ans[i][j] = 0; else ans[i][j] = 1;
+    }
+    FOR(l, 1, len) {
+        F0R(i, len-l) {
+            if (pal[i][i+l]) {
+                ans[i][i+l] = ans[i][i+(l-1)/2]+1;
+                //cout << i << " " << i+l << " " << ans[i][i+l] << endl;
+            }
+        }
+    }
+    int freq[len];
+    F0R(i, len) freq[i] = 0;
+    F0R(i, len) F0R(j, len) if (ans[i][j]) freq[ans[i][j]-1]++;
+    int a[len]; a[len-1] = freq[len-1];
+//    F0R(i, len) cout << freq[i] << " ";
+//    cout << endl;
+    F0Rd(i, len-1) a[i] = a[i+1] + freq[i];
+    F0R(i, len) cout << a[i] << " ";
+    cout << endl;
     return 0;
 }

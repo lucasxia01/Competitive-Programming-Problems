@@ -54,49 +54,48 @@ const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
 
+ll gcd(ll a, ll b) {
+    if (a == 0) return b;
+    else if (b < a) return gcd(b, a);
+    return gcd(b%a, a);
+}
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    freopen("distribution.in", "r", stdin);
-    freopen("distribution.out", "w", stdout);
     int t;
+    ll a, m;
     cin >> t;
-    ll pow = 1, high = 1;
-    F0R(i, 18) high *= 10;
-    ll powers2[63];
-    int p = 0;
-    while (pow < high) {
-        powers2[p] = pow;
-        pow *= 2; p++;
-    }
-    ll powers3[50];
-    pow = 1;
-    p = 0;
-    while (pow < high) {
-        powers3[p] = pow;
-        pow *= 3; p++;
-    }
-    ll x;
-    while (t--) {
-        vector<ll> ans;
-        cin >> x;
-        int curPow2 = 0;
-        int curPow3 = p-1;
-        while (x) {
-            if (x % 2 == 0) {
-                curPow2++;
-                x /= 2;
-                continue;
+    vl primes;
+    bool marks[(int)1e5+100] = {};
+    for (ll i = 2; i*i < 1e10 + 1000; i++) {
+        if (!marks[i]) {
+            primes.pb(i);
+            for (ll j = i; j < (int)1e5+100; j+=i) {
+                marks[i] = 1;
             }
-            if (powers3[curPow3] <= x) {
-                ans.pb(powers2[curPow2]*powers3[curPow3]);
-                x -= powers3[curPow3];
-            }
-            curPow3--;
         }
-        cout << ans.size() << endl;
-        trav(a, ans) cout << a << " ";
-        cout << endl;
+    }
+    while (t--) {
+        cin >> a >> m;
+        ll g = gcd(a, m);
+        m = m/g;
+        int i = 0;
+        ll ans = m;
+        //totient
+        while (primes[i]*primes[i] <= m) {
+            if (m % primes[i] == 0) {
+                ans /= primes[i];
+                ans *= primes[i]-1;
+                while (m % primes[i] == 0) m /= primes[i];
+            }
+            i++;
+        }
+        if (m > 1) {
+            ans /= m;
+            ans *= m-1;
+        }
+        cout << ans << endl;
     }
     return 0;
 }

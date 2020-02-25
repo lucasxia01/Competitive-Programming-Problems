@@ -57,46 +57,32 @@ const ld PI = 4*atan((ld)1);
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    freopen("distribution.in", "r", stdin);
-    freopen("distribution.out", "w", stdout);
-    int t;
-    cin >> t;
-    ll pow = 1, high = 1;
-    F0R(i, 18) high *= 10;
-    ll powers2[63];
-    int p = 0;
-    while (pow < high) {
-        powers2[p] = pow;
-        pow *= 2; p++;
-    }
-    ll powers3[50];
-    pow = 1;
-    p = 0;
-    while (pow < high) {
-        powers3[p] = pow;
-        pow *= 3; p++;
-    }
-    ll x;
-    while (t--) {
-        vector<ll> ans;
-        cin >> x;
-        int curPow2 = 0;
-        int curPow3 = p-1;
-        while (x) {
-            if (x % 2 == 0) {
-                curPow2++;
-                x /= 2;
-                continue;
-            }
-            if (powers3[curPow3] <= x) {
-                ans.pb(powers2[curPow2]*powers3[curPow3]);
-                x -= powers3[curPow3];
-            }
-            curPow3--;
+    int n;
+    cin >> n;
+    int a[n], t[n];
+    F0R(i, n) cin >> a[i];
+    F0R(i, n) cin >> t[i];
+    vpi v;
+    F0R(i, n) v.pb(mp(a[i], t[i]));
+    sort(v.begin(), v.end());
+    ll ans = 0;
+    ll total = 0;
+    priority_queue<ll> pq;
+    int cur = 0;
+    F0R(i, n) {
+        cur = v[i].f;
+        pq.push(v[i].s);
+        total += v[i].s;
+        //cout << v[i].f << endl;
+        while (pq.size() && (i == n-1 || cur < v[i+1].f)) {
+            //cout << cur << " " << pq.top() << endl;
+            total -= pq.top();
+            pq.pop();
+            cur++;
+            ans += total;
         }
-        cout << ans.size() << endl;
-        trav(a, ans) cout << a << " ";
-        cout << endl;
+        
     }
+    cout << ans << endl;
     return 0;
 }

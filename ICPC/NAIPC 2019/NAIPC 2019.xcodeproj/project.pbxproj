@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C370DC023DA74790091C7ED /* J.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C370DBF23DA74790091C7ED /* J.cpp */; };
+		8C370DD723E56EE80091C7ED /* G.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C370DD623E56EE80091C7ED /* G.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8C370D9823D128F50091C7ED /* CopyFiles */ = {
+		8C370DC823E5634A0091C7ED /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,16 +23,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C370D9A23D128F50091C7ED /* NEERC Northern 15 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "NEERC Northern 15"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C370D9D23D128F50091C7ED /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		8C370DA423D129100091C7ED /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
-		8C370DA623D135700091C7ED /* H.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = H.cpp; sourceTree = "<group>"; };
-		8C370DBD23DA6FE10091C7ED /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
-		8C370DBF23DA74790091C7ED /* J.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = J.cpp; sourceTree = "<group>"; };
+		8C370DCA23E5634A0091C7ED /* NAIPC 2019 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "NAIPC 2019"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C370DCD23E5634A0091C7ED /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8C370DD423E5635E0091C7ED /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
+		8C370DD623E56EE80091C7ED /* G.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = G.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8C370D9723D128F50091C7ED /* Frameworks */ = {
+		8C370DC723E5634A0091C7ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,69 +40,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C370D9123D128F50091C7ED = {
+		8C370DC123E5634A0091C7ED = {
 			isa = PBXGroup;
 			children = (
-				8C370D9C23D128F50091C7ED /* NEERC Northern 15 */,
-				8C370D9B23D128F50091C7ED /* Products */,
+				8C370DCC23E5634A0091C7ED /* NAIPC 2019 */,
+				8C370DCB23E5634A0091C7ED /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8C370D9B23D128F50091C7ED /* Products */ = {
+		8C370DCB23E5634A0091C7ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C370D9A23D128F50091C7ED /* NEERC Northern 15 */,
+				8C370DCA23E5634A0091C7ED /* NAIPC 2019 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C370D9C23D128F50091C7ED /* NEERC Northern 15 */ = {
+		8C370DCC23E5634A0091C7ED /* NAIPC 2019 */ = {
 			isa = PBXGroup;
 			children = (
-				8C370D9D23D128F50091C7ED /* main.cpp */,
-				8C370DA423D129100091C7ED /* C.cpp */,
-				8C370DBD23DA6FE10091C7ED /* D.cpp */,
-				8C370DA623D135700091C7ED /* H.cpp */,
-				8C370DBF23DA74790091C7ED /* J.cpp */,
+				8C370DCD23E5634A0091C7ED /* main.cpp */,
+				8C370DD423E5635E0091C7ED /* A.cpp */,
+				8C370DD623E56EE80091C7ED /* G.cpp */,
 			);
-			path = "NEERC Northern 15";
+			path = "NAIPC 2019";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C370D9923D128F50091C7ED /* NEERC Northern 15 */ = {
+		8C370DC923E5634A0091C7ED /* NAIPC 2019 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C370DA123D128F50091C7ED /* Build configuration list for PBXNativeTarget "NEERC Northern 15" */;
+			buildConfigurationList = 8C370DD123E5634B0091C7ED /* Build configuration list for PBXNativeTarget "NAIPC 2019" */;
 			buildPhases = (
-				8C370D9623D128F50091C7ED /* Sources */,
-				8C370D9723D128F50091C7ED /* Frameworks */,
-				8C370D9823D128F50091C7ED /* CopyFiles */,
+				8C370DC623E5634A0091C7ED /* Sources */,
+				8C370DC723E5634A0091C7ED /* Frameworks */,
+				8C370DC823E5634A0091C7ED /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "NEERC Northern 15";
-			productName = "NEERC Northern 15";
-			productReference = 8C370D9A23D128F50091C7ED /* NEERC Northern 15 */;
+			name = "NAIPC 2019";
+			productName = "NAIPC 2019";
+			productReference = 8C370DCA23E5634A0091C7ED /* NAIPC 2019 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8C370D9223D128F50091C7ED /* Project object */ = {
+		8C370DC223E5634A0091C7ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lucas Xia";
 				TargetAttributes = {
-					8C370D9923D128F50091C7ED = {
+					8C370DC923E5634A0091C7ED = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8C370D9523D128F50091C7ED /* Build configuration list for PBXProject "NEERC Northern 15" */;
+			buildConfigurationList = 8C370DC523E5634A0091C7ED /* Build configuration list for PBXProject "NAIPC 2019" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,29 +108,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 8C370D9123D128F50091C7ED;
-			productRefGroup = 8C370D9B23D128F50091C7ED /* Products */;
+			mainGroup = 8C370DC123E5634A0091C7ED;
+			productRefGroup = 8C370DCB23E5634A0091C7ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C370D9923D128F50091C7ED /* NEERC Northern 15 */,
+				8C370DC923E5634A0091C7ED /* NAIPC 2019 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8C370D9623D128F50091C7ED /* Sources */ = {
+		8C370DC623E5634A0091C7ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C370DC023DA74790091C7ED /* J.cpp in Sources */,
+				8C370DD723E56EE80091C7ED /* G.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8C370D9F23D128F50091C7ED /* Debug */ = {
+		8C370DCF23E5634B0091C7ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -192,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		8C370DA023D128F50091C7ED /* Release */ = {
+		8C370DD023E5634B0091C7ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -243,7 +239,7 @@
 			};
 			name = Release;
 		};
-		8C370DA223D128F50091C7ED /* Debug */ = {
+		8C370DD223E5634B0091C7ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -251,7 +247,7 @@
 			};
 			name = Debug;
 		};
-		8C370DA323D128F50091C7ED /* Release */ = {
+		8C370DD323E5634B0091C7ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -262,25 +258,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C370D9523D128F50091C7ED /* Build configuration list for PBXProject "NEERC Northern 15" */ = {
+		8C370DC523E5634A0091C7ED /* Build configuration list for PBXProject "NAIPC 2019" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C370D9F23D128F50091C7ED /* Debug */,
-				8C370DA023D128F50091C7ED /* Release */,
+				8C370DCF23E5634B0091C7ED /* Debug */,
+				8C370DD023E5634B0091C7ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C370DA123D128F50091C7ED /* Build configuration list for PBXNativeTarget "NEERC Northern 15" */ = {
+		8C370DD123E5634B0091C7ED /* Build configuration list for PBXNativeTarget "NAIPC 2019" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C370DA223D128F50091C7ED /* Debug */,
-				8C370DA323D128F50091C7ED /* Release */,
+				8C370DD223E5634B0091C7ED /* Debug */,
+				8C370DD323E5634B0091C7ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8C370D9223D128F50091C7ED /* Project object */;
+	rootObject = 8C370DC223E5634A0091C7ED /* Project object */;
 }

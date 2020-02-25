@@ -57,46 +57,33 @@ const ld PI = 4*atan((ld)1);
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    freopen("distribution.in", "r", stdin);
-    freopen("distribution.out", "w", stdout);
-    int t;
+    int t, n, m;
     cin >> t;
-    ll pow = 1, high = 1;
-    F0R(i, 18) high *= 10;
-    ll powers2[63];
-    int p = 0;
-    while (pow < high) {
-        powers2[p] = pow;
-        pow *= 2; p++;
-    }
-    ll powers3[50];
-    pow = 1;
-    p = 0;
-    while (pow < high) {
-        powers3[p] = pow;
-        pow *= 3; p++;
-    }
-    ll x;
     while (t--) {
-        vector<ll> ans;
-        cin >> x;
-        int curPow2 = 0;
-        int curPow3 = p-1;
-        while (x) {
-            if (x % 2 == 0) {
-                curPow2++;
-                x /= 2;
-                continue;
-            }
-            if (powers3[curPow3] <= x) {
-                ans.pb(powers2[curPow2]*powers3[curPow3]);
-                x -= powers3[curPow3];
-            }
-            curPow3--;
+        cin >> n >> m;
+        int a[n], c[n], p[m];
+        F0R(i, n) {
+            cin >> a[i];
+            c[i] = a[i];
         }
-        cout << ans.size() << endl;
-        trav(a, ans) cout << a << " ";
-        cout << endl;
+        F0R(i, m) cin >> p[i];
+        sort(p, p+m);
+        sort(a, a+n);
+        int prev = p[0]-1;
+        bool ok = true;
+        FOR(i, 1, m) {
+            if (i == m || p[i-1]+1 != p[i]) {
+                //printf("%d %d\n", prev, p[i-1]);
+                sort(c+prev, c+p[i-1]+1);
+                if (i != m) prev = p[i]-1;
+            }
+        }
+        F0R(i, n) {
+            //cout << c[i] << " ";
+            if (c[i] != a[i]) ok = false;
+        } //cout << endl;
+        if (!ok) cout << "NO" << endl;
+        else cout << "YES" << endl;
     }
     return 0;
 }

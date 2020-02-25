@@ -57,46 +57,57 @@ const ld PI = 4*atan((ld)1);
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    freopen("distribution.in", "r", stdin);
-    freopen("distribution.out", "w", stdout);
-    int t;
+    int t, n, d;
     cin >> t;
-    ll pow = 1, high = 1;
-    F0R(i, 18) high *= 10;
-    ll powers2[63];
-    int p = 0;
-    while (pow < high) {
-        powers2[p] = pow;
-        pow *= 2; p++;
+    int tri[5011];
+    tri[0] = 0;
+    F0R(i, 5010) {
+        tri[i+1] = tri[i] + i;
     }
-    ll powers3[50];
-    pow = 1;
-    p = 0;
-    while (pow < high) {
-        powers3[p] = pow;
-        pow *= 3; p++;
-    }
-    ll x;
     while (t--) {
-        vector<ll> ans;
-        cin >> x;
-        int curPow2 = 0;
-        int curPow3 = p-1;
-        while (x) {
-            if (x % 2 == 0) {
-                curPow2++;
-                x /= 2;
-                continue;
-            }
-            if (powers3[curPow3] <= x) {
-                ans.pb(powers2[curPow2]*powers3[curPow3]);
-                x -= powers3[curPow3];
-            }
-            curPow3--;
+        cin >> n >> d;
+        int total = 0;
+        int pow = 1;
+        int count = 0;
+        int minD = 0;
+        int a[n];
+        F0R(i, n) a[i] = 0;
+        while (total+pow <= n) {
+            a[count] = pow;
+            total += pow;
+            minD += count * pow;
+            count++;
+            pow *= 2;
         }
-        cout << ans.size() << endl;
-        trav(a, ans) cout << a << " ";
-        cout << endl;
+        minD += (n-total)*count;
+        a[count] += n-total;
+        //cout << minD << " " << tri[n] << endl;
+        if (d >= minD && d <= tri[n]) {
+            cout << "YES" << endl;
+            F0R(i, d-minD) {
+                F0Rd(j, n-1) {
+                    if (a[j] > 1) {
+                        a[j]--;
+                        a[j+1]++;
+                        break;
+                    }
+                }
+            }
+            int par = 1;
+            int cur = 2, nextPar = 0;
+            FOR(i, 1, n-1) {
+                int count = 0;
+                nextPar = cur;
+                while (a[i]--) {
+                    cout << par << " ";
+                    cur++;
+                    count++;
+                    if (count % 2 == 0) par++;
+                }
+                par =  nextPar;
+            }
+            cout << endl;
+        } else cout << "NO" << endl;
     }
     return 0;
 }

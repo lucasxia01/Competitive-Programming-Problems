@@ -54,49 +54,57 @@ const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
 
+int fenw[2*MAX_N];
+int n;
+void mod(int i, int v) {
+    while (i <= n) {
+        fenw[i] += v;
+        i += i&-i;
+    }
+}
+
+int query(int i) {
+    int sum = 0;
+    while (i > 0) {
+        sum += fenw[i];
+        i -= i&-i;
+    }
+    return sum;
+}
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    freopen("distribution.in", "r", stdin);
-    freopen("distribution.out", "w", stdout);
-    int t;
-    cin >> t;
-    ll pow = 1, high = 1;
-    F0R(i, 18) high *= 10;
-    ll powers2[63];
-    int p = 0;
-    while (pow < high) {
-        powers2[p] = pow;
-        pow *= 2; p++;
+    cin >> n;
+    vpi p;
+    int x[n], v[n];
+    F0R(i, n) cin >> x[i];
+    F0R(i, n) {
+        cin >> v[i];
+        p.pb(mp(v[i], x[i]));
     }
-    ll powers3[50];
-    pow = 1;
-    p = 0;
-    while (pow < high) {
-        powers3[p] = pow;
-        pow *= 3; p++;
+    // coord compress
+    unordered_map<int, int> m;
+    int rev_map[n];
+    sort(x, x+n);
+    F0R(i, n) {
+        //printf("%d %d\n", x[i], i+1);
+        m[x[i]] = i+1;
+        rev_map[i] = x[i];
     }
-    ll x;
-    while (t--) {
-        vector<ll> ans;
-        cin >> x;
-        int curPow2 = 0;
-        int curPow3 = p-1;
-        while (x) {
-            if (x % 2 == 0) {
-                curPow2++;
-                x /= 2;
-                continue;
-            }
-            if (powers3[curPow3] <= x) {
-                ans.pb(powers2[curPow2]*powers3[curPow3]);
-                x -= powers3[curPow3];
-            }
-            curPow3--;
-        }
-        cout << ans.size() << endl;
-        trav(a, ans) cout << a << " ";
-        cout << endl;
+    F0R(i, n) {
+        p[i].s = m[p[i].s];
     }
+    sort(p.begin(), p.end());
+    ll ans = 0;
+    F0R(i, n) {
+        int q = query(p[i].s);
+        //cout << p[i].s << " " << q << endl;
+        ans +=  1LL*q * rev_map[p[i].s-1];
+        ans -= 1LL*((n-i-1)-(p[i].s-1-q)) * rev_map[p[i].s-1];
+        mod(p[i].s, 1);
+    }
+    cout << ans << endl;
+    
     return 0;
 }
