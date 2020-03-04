@@ -48,26 +48,33 @@ typedef vector<pl> vpl;
 #define ub upper_bound
 
 const int MAX_N = 100011;
-const int MX = 1<<20;
 const ll INF = (1<<29) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
 
-template <typename T> bool ckmin(T& a, const T& b) {
-    return a > b ? a=b, 1 : 0;
-}
-template <typename T> bool ckmax(T& a, const T& b) {
-    return b > a ? a=b, 1 : 0;
-}
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
     int n;
     cin >> n;
-    int a[n];
-    F0R(i, n) cin >> a[i];
+    int b[n], prev[n];
+    F0R(i, n) cin >> b[i];
+    unordered_map<int, int> d;
+    F0R(i, n) {
+        if (d.find(b[i]-i) == d.end()) {
+            prev[i] = -1;
+        } else prev[i] = d[b[i]-i];
+        d[b[i]-i] = i;
+    }
+    ll ans = 0;
+    ll dp[n];
+    F0R(i, n) {
+        if (prev[i] == -1) dp[i] = 1LL*b[i];
+        else dp[i] = dp[prev[i]]+1LL*b[i];
+        if (dp[i] > ans) ans = dp[i];
+    }
+    cout << ans << endl;
     return 0;
 }

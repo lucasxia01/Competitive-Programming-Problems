@@ -49,7 +49,7 @@ typedef vector<pl> vpl;
 
 const int MAX_N = 100011;
 const int MX = 1<<20;
-const ll INF = (1<<29) + 123;
+const ll INF = (1LL<<50) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
@@ -65,9 +65,42 @@ template <typename T> bool ckmax(T& a, const T& b) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n;
-    cin >> n;
-    int a[n];
+    int n, p, k;
+    cin >> n >> p >> k;
+    ll a[n], s[n][p];
     F0R(i, n) cin >> a[i];
+    F0R(i, n) F0R(j, p) cin >> s[i][j];
+    vl m[n+1];
+    F0R(i, p+1) m[0].pb(0);
+    F0R(i, n) {
+        m[i+1].pb(a[i]);
+        F0R(j, p) {
+            m[i+1].pb(s[i][j]);
+        }
+    }
+    sort(m+1, m+n+1, greater<vl>());
+    ll dp[n+1][1<<p];
+    F0R(i, n) {
+        F0R(j, 1<<p) dp[i][j] = -INF;
+    }
+    dp[0][0] = 0;
+    FOR(i, 1, n) {
+        F0R(j, 1<<p) {
+            int count = 0;
+            F0R(l, p) if (j&(1<<l)) count++;
+            if (i > k+count) dp[i][j] = dp[i-1][j];
+            else dp[i][j] = dp[i-1][j] + m[i][0];
+            F0R(l, p) {
+                if (j&(1<<l)) {
+                    if (dp[i][j] < dp[i-1][j-(1<<l)] + m[i][l+1]) {
+                        dp[i][j] = dp[i-1][j-(1<<l)] + m[i][l+1];
+                    }
+                }
+            }
+//            bitset<2> x(j);
+//            cout << i << " " << x << " " << dp[i][j] << endl;
+        }
+    }
+    cout << dp[n][(1<<p)-1] << endl;
     return 0;
 }

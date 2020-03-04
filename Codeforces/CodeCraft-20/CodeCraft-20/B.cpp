@@ -62,12 +62,36 @@ template <typename T> bool ckmax(T& a, const T& b) {
     return b > a ? a=b, 1 : 0;
 }
 
+string reverse(string s) {
+    string rev = "";
+    F0Rd(i, s.length()) rev += s[i];
+    return rev;
+}
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n;
-    cin >> n;
-    int a[n];
-    F0R(i, n) cin >> a[i];
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        string s;
+        cin >> n >> s;
+        string ans = s;
+        int num = 1;
+        string t, u, v;
+        FOR(k, 1, n) {
+            t = s.substr(0, k-1);
+            u = s.substr(k-1);
+            if ((n-k+1) % 2) v = u + reverse(t);
+            else v = u + t;
+            if (v < ans) {
+                ans = v;
+                num = k;
+                
+            }
+        }
+        cout << ans << endl << num << endl;
+    }
     return 0;
 }

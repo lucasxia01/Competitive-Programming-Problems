@@ -56,18 +56,60 @@ const ld PI = 4*atan((ld)1);
 #define sz(x) (int)x.size()
 
 template <typename T> bool ckmin(T& a, const T& b) {
-    return a > b ? a=b, 1 : 0;
+    return a < b ? 0 : (a=b, 1);
 }
 template <typename T> bool ckmax(T& a, const T& b) {
-    return b > a ? a=b, 1 : 0;
+    return a > b ? 0 : (a=b, 1);
 }
+
+const ll N = 1000000;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
     int n;
     cin >> n;
-    int a[n];
-    F0R(i, n) cin >> a[i];
+    ll a[n];
+    ll ans = 0;
+    F0R(i, n) {
+        cin >> a[i];
+        if (a[i]&1) ans++;
+    }
+    vl check;
+    bool isPrime[N] = {};
+    for (ll i = 3; i < N; i+=2) {
+        if (!isPrime[i]) {
+            check.pb(i);
+            for (ll j = 3*i; j < N; j += 2*i) {
+                isPrime[j] = true;
+            }
+        }
+    }
+    ll div = 1;
+    while (1) {
+        if ((a[0]+ans)/div < N) break;
+        for(ll i = (a[0]-ans)/div; i <= (a[0]+ans)/div; i++) {
+            if (i < N) {
+                i = 1e6;
+                continue;
+            }
+            if (i%2 && i%3 && i%5 && i%7 && i%11 && i%13) check.pb(i);
+        }
+        div++;
+    }
+    ll u, v;
+    trav(m, check) {
+        ll count = 0;
+        F0R(i, n) {
+            u = a[i]%m;
+            v = m-(a[i]%m);
+            if (a[i] < m) count += v;
+            else if (u < v) count += u;
+            else count += v;
+            if (count >= ans) break;
+        }
+        ckmin(ans, count);
+    }
+    cout << ans << endl;
     return 0;
 }

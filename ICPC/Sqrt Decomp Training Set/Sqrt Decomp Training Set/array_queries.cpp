@@ -48,26 +48,42 @@ typedef vector<pl> vpl;
 #define ub upper_bound
 
 const int MAX_N = 100011;
-const int MX = 1<<20;
 const ll INF = (1<<29) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
 
-template <typename T> bool ckmin(T& a, const T& b) {
-    return a > b ? a=b, 1 : 0;
-}
-template <typename T> bool ckmax(T& a, const T& b) {
-    return b > a ? a=b, 1 : 0;
-}
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n;
+    int n, q, p, k;
     cin >> n;
     int a[n];
     F0R(i, n) cin >> a[i];
+    int SQRTN = sqrt(n) + 1;
+    int dp[n][SQRTN];
+    F0R(i, SQRTN) {
+        F0Rd(j, n) {
+            if (j + a[j] + i >= n) dp[j][i] = 1;
+            else dp[j][i] = dp[j + a[j] + i][i] + 1;
+            //cout << j << " " << dp[j][i] << endl;
+        }
+    }
+    cin >> q;
+    while (q--) {
+        cin >> p >> k;
+        if (k >= SQRTN) {
+            p--;
+            int ans = 0;
+            while (p < n) {
+                p += a[p] + k;
+                ans++;
+            }
+            cout << ans << endl;
+        } else {
+            cout << dp[p-1][k] << endl;
+        }
+    }
     return 0;
 }

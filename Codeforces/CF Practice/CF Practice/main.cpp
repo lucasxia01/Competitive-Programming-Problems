@@ -11,28 +11,36 @@ using namespace std;
 #define MAX 1000000
 #define F0R(i, n) for (int i = 0, i < n; i++)
 
+/*
+ * Segment Tree
+ * Single Element Modification
+ * Range Query
+ * Supports ints and long longs
+ */
+template <class T, int SZ>
 struct SegTree {
-    int a[MAX];
-    int n;
-    SegTree(int array[], int size) {
-        n = size;
-        for (int i = 0; i < n; i++) {
-            update(i, array[i]);
+    T segTree[2*SZ];
+    SegTree() {
+        F0R(i, 2*SZ) segTree.pb(0);
+    }
+    void build(int pos, T v) {
+        for (segTree[pos += SZ] = v; pos > 1; pos >>= 1) {
+            segTree[pos>>1] = combine(segTree[pos], segTree[pos^1]);
         }
     }
-    int update(int pos, int v) {
-        int i = pos + n;
-        a[i] = v;
-        int count = 0;
-        while (i > 1) {
-            i /= 2;
-            if (count % 2 == 0) a[i] = a[2 * i] | a[2 * i + 1];
-            else a[i] = a[2 * i] ^ a[2 * i + 1];
-            count++;
+    T query(int l, int r) {
+        T ans = 0;
+        for (l+=SZ, r+=SZ; l<r; l>>=1, r>>=1) {
+            if (l&1) ans = combine(ans, segTree[l++]);
+            if (r&1) ans = combine(ans, segTree[--r]);
         }
-        return a[1];
+        return ans;
+    }
+    T combine(T a, T b) const {
+        return a + b;
     }
 };
+
 int main(int argc, const char * argv[]) {
     int n, m;
     cin >> n >> m;

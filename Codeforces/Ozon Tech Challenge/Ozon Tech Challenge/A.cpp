@@ -56,18 +56,28 @@ const ld PI = 4*atan((ld)1);
 #define sz(x) (int)x.size()
 
 template <typename T> bool ckmin(T& a, const T& b) {
-    return a > b ? a=b, 1 : 0;
+    return a < b ? 0 : 1, a=b;
 }
 template <typename T> bool ckmax(T& a, const T& b) {
-    return b > a ? a=b, 1 : 0;
+    return a > b ? 0 : 1, a=b;
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n;
-    cin >> n;
-    int a[n];
-    F0R(i, n) cin >> a[i];
+    int t, n;
+    cin >> t;
+    while (t--) {
+        cin >> n;
+        int a[n], b[n];
+        F0R(i, n) cin >> a[i];
+        F0R(i, n) cin >> b[i];
+        sort(a, a+n);
+        sort(b, b+n);
+        F0R(i, n) cout << a[i] << " ";
+        cout << endl;
+        F0R(i, n) cout << b[i] << " ";
+        cout << endl;
+    }
     return 0;
 }
