@@ -47,20 +47,13 @@ typedef vector<pl> vpl;
 #define lb lower_bound
 #define ub upper_bound
 
-const int MAX_N = 100011;
+const int MAX_N = 200011;
 const ll INF = (1<<29) + 123;
 const ll LLINF = (1LL<<50) + 777;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
-
-template <typename T> bool ckmin(T& a, const T& b) {
-    return a > b ? a=b, 1 : 0;
-}
-template <typename T> bool ckmax(T& a, const T& b) {
-    return b > a ? a=b, 1 : 0;
-}
 
 /*
  * Lazy Segment Tree
@@ -151,38 +144,26 @@ struct LazySegTree {
 };
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0); cout.tie(0);
     int n;
     cin >> n;
-    int p[n], a[n];
-    F0R(i, n) cin >> p[i];
-    F0R(i, n) cin >> a[i];
-    vpi b;
-    F0R(i, n) b.pb(mp(p[i], a[i]));
-    sort(b.begin(), b.end());
-    LazySegTree<ll, false> t(n+1); // min range query
-    ll ans[n+1];
-    ans[0] = 0;
-    F0R(i, n) ans[i+1] = ans[i] + b[i].s;
-    F0R(i, n+1) {
-        t.upd(i, ans[i]);
+    LazySegTree<ll, false> t(n);
+    F0R(i, n) cin >> t.segTree[i+n];
+    int m, l, r;
+    cin >> m;
+    string s;
+    getline(cin, s);
+    while (m--) {
+        getline(cin, s);
+        vector<string> res;
+        stringstream ss(s);
+        for (string str; ss>>str;) res.pb(str);
+        l = atoi(res[0]); r = atoi(res[1]);
+        if (l < r) {
+            if (res.size() == 2) cout << t.query(l, r+1) << endl;
+            else t.upd(l, r+1, atoi(res[2]));
+        } else {
+            
+        }
     }
-    FOR(j, 1, 2*n+1) cout << t.segTree[j] << " ";
-    cout << endl;
-    ll ret = LLINF;
-    for (int i = 0; i < n-1; i++) {
-        t.upd(0, p[i], a[i]);
-        t.upd(p[i], n+1, -a[i]);
-        FOR(j, 1, 2*n+1) cout << t.segTree[j] << " ";
-        cout << endl;
-        FOR(j, 1, n-1) cout << t.lazy[j] << " ";
-        cout << endl;
-        F0R(j, n+1) {
-            cout << t.query(i) << " ";
-        } cout << endl;
-        ckmin(ret, t.query(0, n+1));
-    }
-    cout << ret << endl;
     return 0;
 }
