@@ -54,65 +54,82 @@ const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
 
-struct bucketPair {
-    int l, r, bSize, index;
-    bool operator< (bucketPair const& other) const {
-        if (l/bSize == other.l/bSize) return r < other.r;
-        return l/bSize < other.l/bSize;
+int SQRTN;
+
+struct Query {
+    int l, r, k, index;
+    
+    bool operator< (Query const& other) const {
+        if (l/SQRTN == other.l/SQRTN) return (r < other.r);
+        return (l/SQRTN < other.l/SQRTN);
     }
 };
+
+const int MX = 100005;
+vi edges[MX];
+int startT[MX], endT[MX], c[MX], color[MX];
+int clk = 0;
+
+void dfs(int r, int p) {
+    c[clk] = color[r-1];
+    startT[r] = clk++;
+    trav(v, edges[r])
+        if (v != p) dfs(v, r);
+    endT[r] = clk;
+}
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n, q, Q;
-    cin >> n >> q;
-    Q = q;
-    int c[n];
-    ll ans[q];
-    F0R(i, n) cin >> c[i+1];
-    int SQRTN = sqrt(n) + 1000;
-    vector<bucketPair> v;
-    while (q--) {
-        bucketPair range;
-        cin >> range.l >> range.r;
-        range.l--; range.r--;
-        range.bSize = SQRTN;
-        range.index = Q-q-1;
-        v.pb(range);
+    int n, m, a, b, u, k;
+    cin >> n >> m;
+    SQRTN = sqrt(n);
+    ll ans[m];
+    F0R(i, n) cin >> color[i];
+    F0R(i, n-1) {
+        cin >> a >> b;
+        edges[a].pb(b);
+        edges[b].pb(a);
+    }
+    dfs(1, 0);
+    vector<Query> v;
+    F0R(q, m) {
+        Query qry;
+        cin >> u >> k;
+        qry.l = startT[u];
+        qry.r = endT[u];
+        qry.index = q;
+        qry.k = k;
+        v.pb(qry);
     }
     sort(v.begin(), v.end());
     int l = 0, r = 0;
-    ll total = 0;
-    ll freq[(int) 1e6+5] = {};
-    ll f;
+    ll freq[MX] = {}; // counts frequencies of each color
+    ll freqfreq[2*MX] = {}; // counts number of frequencies above i, padded by MX
     trav(a, v) {
+        //cout << a.l << " " << a.r << " " << a.k << endl;
         while (l < a.l) {
+            freqfreq[freq[c[l]]+MX]--;
             freq[c[l]]--;
-            f = freq[c[l]];
-            total += (f*f - (f+1)*(f+1))*c[l];
             l++;
         }
         while (l > a.l) {
             l--;
             freq[c[l]]++;
-            f = freq[c[l]];
-            total += (f*f - (f-1)*(f-1))*c[l];
+            freqfreq[freq[c[l]]+MX]++;
         }
-        while (r-1 < a.r) {
+        while (r < a.r) {
             freq[c[r]]++;
-            f = freq[c[r]];
-            total += (f*f - (f-1)*(f-1))*c[r];
+            freqfreq[freq[c[r]]+MX]++;
             r++;
         }
-        while (r-1 > a.r) {
+        while (r > a.r) {
             r--;
+            freqfreq[freq[c[r]]+MX]--;
             freq[c[r]]--;
-            f = freq[c[r]];
-            total += (f*f - (f+1)*(f+1))*c[r];
         }
-        ans[a.index] = total;
+        ans[a.index] = freqfreq[a.k+MX];
     }
-    F0R(i, Q) cout << ans[i] << endl;
+    F0R(i, m) cout << ans[i] << endl;
     return 0;
 }

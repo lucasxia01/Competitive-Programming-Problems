@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CF3F7252414896200A01E78 /* tree_and_queries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3F6A6240BA3CF00A01E78 /* tree_and_queries.cpp */; };
+		8CF3F71F24142D6600A01E78 /* D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3F71E24142D6600A01E78 /* D.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8CF3F68524088C0D00A01E78 /* CopyFiles */ = {
+		8CF3F71924142D6600A01E78 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,14 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8CF3F68724088C0D00A01E78 /* Sqrt Decomp Training Set */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Sqrt Decomp Training Set"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CF3F68A24088C0D00A01E78 /* array_queries.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = array_queries.cpp; sourceTree = "<group>"; };
-		8CF3F6912408ED6C00A01E78 /* powerful_array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = powerful_array.cpp; sourceTree = "<group>"; };
-		8CF3F6A6240BA3CF00A01E78 /* tree_and_queries.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tree_and_queries.cpp; sourceTree = "<group>"; };
+		8CF3F71B24142D6600A01E78 /* CF 626 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CF 626"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF3F71E24142D6600A01E78 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8CF3F68424088C0D00A01E78 /* Frameworks */ = {
+		8CF3F71824142D6600A01E78 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,67 +38,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8CF3F67E24088C0D00A01E78 = {
+		8CF3F71224142D6600A01E78 = {
 			isa = PBXGroup;
 			children = (
-				8CF3F68924088C0D00A01E78 /* Sqrt Decomp Training Set */,
-				8CF3F68824088C0D00A01E78 /* Products */,
+				8CF3F71D24142D6600A01E78 /* CF 626 */,
+				8CF3F71C24142D6600A01E78 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8CF3F68824088C0D00A01E78 /* Products */ = {
+		8CF3F71C24142D6600A01E78 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8CF3F68724088C0D00A01E78 /* Sqrt Decomp Training Set */,
+				8CF3F71B24142D6600A01E78 /* CF 626 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8CF3F68924088C0D00A01E78 /* Sqrt Decomp Training Set */ = {
+		8CF3F71D24142D6600A01E78 /* CF 626 */ = {
 			isa = PBXGroup;
 			children = (
-				8CF3F68A24088C0D00A01E78 /* array_queries.cpp */,
-				8CF3F6912408ED6C00A01E78 /* powerful_array.cpp */,
-				8CF3F6A6240BA3CF00A01E78 /* tree_and_queries.cpp */,
+				8CF3F71E24142D6600A01E78 /* D.cpp */,
 			);
-			path = "Sqrt Decomp Training Set";
+			path = "CF 626";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8CF3F68624088C0D00A01E78 /* Sqrt Decomp Training Set */ = {
+		8CF3F71A24142D6600A01E78 /* CF 626 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8CF3F68E24088C0D00A01E78 /* Build configuration list for PBXNativeTarget "Sqrt Decomp Training Set" */;
+			buildConfigurationList = 8CF3F72224142D6600A01E78 /* Build configuration list for PBXNativeTarget "CF 626" */;
 			buildPhases = (
-				8CF3F68324088C0D00A01E78 /* Sources */,
-				8CF3F68424088C0D00A01E78 /* Frameworks */,
-				8CF3F68524088C0D00A01E78 /* CopyFiles */,
+				8CF3F71724142D6600A01E78 /* Sources */,
+				8CF3F71824142D6600A01E78 /* Frameworks */,
+				8CF3F71924142D6600A01E78 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Sqrt Decomp Training Set";
-			productName = "Sqrt Decomp Training Set";
-			productReference = 8CF3F68724088C0D00A01E78 /* Sqrt Decomp Training Set */;
+			name = "CF 626";
+			productName = "CF 626";
+			productReference = 8CF3F71B24142D6600A01E78 /* CF 626 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8CF3F67F24088C0D00A01E78 /* Project object */ = {
+		8CF3F71324142D6600A01E78 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lucas Xia";
 				TargetAttributes = {
-					8CF3F68624088C0D00A01E78 = {
+					8CF3F71A24142D6600A01E78 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8CF3F68224088C0D00A01E78 /* Build configuration list for PBXProject "Sqrt Decomp Training Set" */;
+			buildConfigurationList = 8CF3F71624142D6600A01E78 /* Build configuration list for PBXProject "CF 626" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -108,29 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 8CF3F67E24088C0D00A01E78;
-			productRefGroup = 8CF3F68824088C0D00A01E78 /* Products */;
+			mainGroup = 8CF3F71224142D6600A01E78;
+			productRefGroup = 8CF3F71C24142D6600A01E78 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8CF3F68624088C0D00A01E78 /* Sqrt Decomp Training Set */,
+				8CF3F71A24142D6600A01E78 /* CF 626 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8CF3F68324088C0D00A01E78 /* Sources */ = {
+		8CF3F71724142D6600A01E78 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CF3F7252414896200A01E78 /* tree_and_queries.cpp in Sources */,
+				8CF3F71F24142D6600A01E78 /* D.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8CF3F68C24088C0D00A01E78 /* Debug */ = {
+		8CF3F72024142D6600A01E78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		8CF3F68D24088C0D00A01E78 /* Release */ = {
+		8CF3F72124142D6600A01E78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -239,7 +235,7 @@
 			};
 			name = Release;
 		};
-		8CF3F68F24088C0D00A01E78 /* Debug */ = {
+		8CF3F72324142D6600A01E78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -247,7 +243,7 @@
 			};
 			name = Debug;
 		};
-		8CF3F69024088C0D00A01E78 /* Release */ = {
+		8CF3F72424142D6600A01E78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -258,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8CF3F68224088C0D00A01E78 /* Build configuration list for PBXProject "Sqrt Decomp Training Set" */ = {
+		8CF3F71624142D6600A01E78 /* Build configuration list for PBXProject "CF 626" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8CF3F68C24088C0D00A01E78 /* Debug */,
-				8CF3F68D24088C0D00A01E78 /* Release */,
+				8CF3F72024142D6600A01E78 /* Debug */,
+				8CF3F72124142D6600A01E78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8CF3F68E24088C0D00A01E78 /* Build configuration list for PBXNativeTarget "Sqrt Decomp Training Set" */ = {
+		8CF3F72224142D6600A01E78 /* Build configuration list for PBXNativeTarget "CF 626" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8CF3F68F24088C0D00A01E78 /* Debug */,
-				8CF3F69024088C0D00A01E78 /* Release */,
+				8CF3F72324142D6600A01E78 /* Debug */,
+				8CF3F72424142D6600A01E78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8CF3F67F24088C0D00A01E78 /* Project object */;
+	rootObject = 8CF3F71324142D6600A01E78 /* Project object */;
 }

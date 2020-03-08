@@ -56,9 +56,10 @@ const ld PI = 4*atan((ld)1);
 
 struct bucketPair {
     int l, r, bSize, index;
-    bool operator< (bucketPair const& other) const {
-        if (l/bSize == other.l/bSize) return r < other.r;
-        return l/bSize < other.l/bSize;
+    bool operator< (bucketPair const& a) const {
+        if (l/bSize == a.l/bSize && index % 2 == 0) return (r < a.r);
+        else if (l/bSize == a.l/bSize && index % 2) return (r > a.r);
+        return (l/bSize < a.l/bSize);
     }
 };
 
@@ -71,14 +72,14 @@ int main() {
     int A[n];
     ll ans[q];
     F0R(i, n) cin >> A[i];
-    int SQRTN = sqrt(n) + 1000;
+    int SQRTN = sqrt(n) + 1;
     vector<bucketPair> v;
     while (q--) {
         bucketPair range;
         cin >> range.l >> range.r;
         range.l--; range.r--;
         range.bSize = SQRTN;
-        range.index = Q-q-1;
+        range.index = q;
         v.pb(range);
     }
     sort(v.begin(), v.end());
@@ -118,6 +119,6 @@ int main() {
         }
         ans[a.index] = total;
     }
-    F0R(i, Q) cout << ans[i] << endl;
+    F0Rd(i, Q) cout << ans[i] << endl;
     return 0;
 }

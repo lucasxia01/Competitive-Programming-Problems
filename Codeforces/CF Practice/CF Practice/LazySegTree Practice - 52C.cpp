@@ -157,10 +157,10 @@ int main() {
         vector<string> res;
         stringstream ss(s);
         for (string str; ss>>str;) res.pb(str);
-        l = atoi(res[0]); r = atoi(res[1]);
+        l = stoi(res[0]); r = stoi(res[1]);
         if (l < r) {
             if (res.size() == 2) cout << t.query(l, r+1) << endl;
-            else t.upd(l, r+1, atoi(res[2]));
+            else t.upd(l, r+1, stoi(res[2]));
         } else {
             
         }
