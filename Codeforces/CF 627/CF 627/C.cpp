@@ -47,36 +47,32 @@ typedef vector<pl> vpl;
 #define lb lower_bound
 #define ub upper_bound
 
-const int MAX_N = 200011;
+const int MAX_N = 100011;
 const ll INF = (1<<29) + 123;
-const ll LLINF = (1LL<<50) + 777;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
-#define all(v) v.begin(),v.end()
 
 int main() {
-    int n;
-    cin >> n;
-    ll a[n];
-    F0R(i, n) cin >> a[i];
-    ll ans = 0;
-    FOR(i, 1, 28) { // for each bit, we want to see the number of 1s in each sum
-        vl t;
-        F0R(j, n) t.pb(a[j]%(1<<i)); // we truncate up to that bit
-        sort(t.begin(), t.end()); // sort to set up binary search
-        ll count = 0;
-        trav(v, t) { // for each number, we look for how many numbers sum to get a 1 in the ith position
-            // first range is [2^(i-1), 2^i)
-            count += (ll) (lower_bound(all(t), (1<<i)-v) - lower_bound(all(t), (1<<(i-1))-v));
-            if (2*v >= (1<<(i-1)) && 2*v < (1<<i)) count--;
-            // second range is [2^(i-1)+2^i, 2^(i+1))
-            count += (ll) (t.end() - lower_bound(all(t), (1<<(i-1))+(1<<i)-v));
-            if (2*v >= (1<<(i-1))+(1<<i) && 2*v < (1<<(i+1))) count--;
+    ios_base::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        string s;
+        cin >> s;
+        int prev = -1;
+        int ans = 0;
+        s += 'R';
+        F0R(i, (int) s.length()) {
+            if (s[i] == 'R') {
+                ans = max(ans, i-prev);
+                prev = i;
+            }
         }
-        if ((count>>1)&1) ans += (1<<(i-1)); // double counted so divide by 2
+        cout << ans << endl;
     }
-    cout << ans << endl;
+    
     return 0;
 }

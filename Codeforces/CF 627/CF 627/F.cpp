@@ -47,36 +47,51 @@ typedef vector<pl> vpl;
 #define lb lower_bound
 #define ub upper_bound
 
-const int MAX_N = 200011;
+const int MAX_N = 100011;
 const ll INF = (1<<29) + 123;
-const ll LLINF = (1LL<<50) + 777;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
-#define all(v) v.begin(),v.end()
+const int MX = (int)2e5+5;
+vi edges[MX];
+int a[MX], dp[MX], ans[MX];
+
+void dfs1(int p, int v) {
+    dp[v] = -1;
+    if (a[v]) dp[v] = 1;
+    trav(a, edges[v]) {
+        if (a != p) {
+            dfs1(v, a);
+            dp[v] += max(dp[a], 0);
+        }
+    }
+}
+
+void dfs2(int p, int v, int pd) {
+    ans[v] = dp[v] + pd;
+    trav(a, edges[v]) {
+        if (a != p) dfs2(v, a, max(ans[v]-max(dp[a], 0), 0));
+    }
+}
 
 int main() {
-    int n;
+    ios_base::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+    int n, u=0, v=0;
     cin >> n;
-    ll a[n];
-    F0R(i, n) cin >> a[i];
-    ll ans = 0;
-    FOR(i, 1, 28) { // for each bit, we want to see the number of 1s in each sum
-        vl t;
-        F0R(j, n) t.pb(a[j]%(1<<i)); // we truncate up to that bit
-        sort(t.begin(), t.end()); // sort to set up binary search
-        ll count = 0;
-        trav(v, t) { // for each number, we look for how many numbers sum to get a 1 in the ith position
-            // first range is [2^(i-1), 2^i)
-            count += (ll) (lower_bound(all(t), (1<<i)-v) - lower_bound(all(t), (1<<(i-1))-v));
-            if (2*v >= (1<<(i-1)) && 2*v < (1<<i)) count--;
-            // second range is [2^(i-1)+2^i, 2^(i+1))
-            count += (ll) (t.end() - lower_bound(all(t), (1<<(i-1))+(1<<i)-v));
-            if (2*v >= (1<<(i-1))+(1<<i) && 2*v < (1<<(i+1))) count--;
-        }
-        if ((count>>1)&1) ans += (1<<(i-1)); // double counted so divide by 2
+    F0R(i, n) cin >> a[i+1];
+    F0R(i, n-1) {
+        cin >> u >> v;
+        edges[u].pb(v);
+        edges[v].pb(u);
     }
-    cout << ans << endl;
+    dfs1(0, 1);
+    dfs2(0, 1, 0);
+    F0R(i, n) {
+        cout << ans[i+1] << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
