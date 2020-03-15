@@ -1,9 +1,34 @@
-//
-//  A.cpp
-//  Ed CF 83
-//
-//  Created by Lucas Xia on 3/15/20.
-//  Copyright © 2020 Lucas Xia. All rights reserved.
-//
-
-#include <stdio.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <algorithm>
+#include <functional>
+#include <stdlib.h>
+#include <time.h>
+#include <complex>
+#include <iterator>
+#include <regex>
+#include <fstream>
+#include <utility>
+#include <vector>
+#include <string>
+#include <cstring>
+#include <stack>
+#include <queue>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+using namespace std;
+ 
+int main() {
+    int t, n, m;
+    cin >> t;
+    while (t--) {
+        cin >> n >> m;
+        if (n % m) cout << "NO" << endl;
+        else cout << "YES" << endl;
+    }
+    return 0;
+}

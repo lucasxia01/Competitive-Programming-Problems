@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CF3F773241EE78000A01E78 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3F772241EE78000A01E78 /* main.cpp */; };
+		8CF3F773241EE78000A01E78 /* E.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3F772241EE78000A01E78 /* E.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,11 @@
 
 /* Begin PBXFileReference section */
 		8CF3F76F241EE78000A01E78 /* Ed CF 83 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Ed CF 83"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CF3F772241EE78000A01E78 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8CF3F772241EE78000A01E78 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; wrapsLines = 0; };
+		8CF3F779241EF1DD00A01E78 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
+		8CF3F77B241EF1E400A01E78 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
+		8CF3F77D241EF1EA00A01E78 /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
+		8CF3F77F241EF1F000A01E78 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,11 @@
 		8CF3F771241EE78000A01E78 /* Ed CF 83 */ = {
 			isa = PBXGroup;
 			children = (
-				8CF3F772241EE78000A01E78 /* main.cpp */,
+				8CF3F779241EF1DD00A01E78 /* A.cpp */,
+				8CF3F77B241EF1E400A01E78 /* B.cpp */,
+				8CF3F77D241EF1EA00A01E78 /* C.cpp */,
+				8CF3F77F241EF1F000A01E78 /* D.cpp */,
+				8CF3F772241EE78000A01E78 /* E.cpp */,
 			);
 			path = "Ed CF 83";
 			sourceTree = "<group>";
@@ -119,7 +127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CF3F773241EE78000A01E78 /* main.cpp in Sources */,
+				8CF3F773241EE78000A01E78 /* E.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
