@@ -78,11 +78,9 @@ int bfs(int s) {
     while (!q.empty()) {
         int x = q.front(), p = par.front();
         if (marked[x]) {
-            //cout << s << " " << x << endl;
             ckmin(ret, dist[x] + minDistMarked+2);
             ckmin(minDistMarked, dist[x]);
         }
-        //cout << x << endl;
         q.pop(); par.pop();
         trav(a, edges[x]) {
             if (dist[a] == -1) {
@@ -97,11 +95,11 @@ int bfs(int s) {
     return ret;
 }
 
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
     F0R(i, MX) dist[i] = INF;
+    // sieve up to 1000
     vi primes;
     primes.pb(2);
     for (int i = 3; i <= sqrt(MX); i+=2) {
@@ -120,6 +118,7 @@ int main() {
     vi f[n];
     set<int> check;
     F0R(i, n) {
+        // prime factorize each number to reduce
         for (int j = 0; j < primes.size(); j++) {
             int count = 0;
             while (!(a[i]%primes[j])) {
@@ -132,15 +131,15 @@ int main() {
             f[i].pb(a[i]);
             dist[a[i]] = -1;
         }
+        // if its a square it has no odd factors so return 1
         if (f[i].size() == 0) {
             cout << 1 << endl;
             return 0;
-        } else if (f[i].size() == 1) marked[f[i][0]] = true;
+        } else if (f[i].size() == 1) marked[f[i][0]] = true; // mark it if its a single number since they're special
     }
     F0R(i, n) {
         int prod = 1;
         trav(a, f[i]) prod *= a;
-        
         int SZ = (int)check.size();
         check.insert(prod);
         if (SZ == check.size()) {
@@ -152,18 +151,14 @@ int main() {
         if (f[i].size() == 2) {
             edges[f[i][0]].pb(f[i][1]);
             edges[f[i][1]].pb(f[i][0]);
-            //cout << f[i][0] << " " << f[i][1] << endl;
         }
     }
     int ans = INF;
     trav(p, primes) {
         int ret = bfs(p);
         ckmin(ans, ret);
-        //cout << p << " " << ret << endl;
     }
     if (ans == INF) cout << -1 << endl;
     else cout << ans << endl;
-    
-    
     return 0;
 }

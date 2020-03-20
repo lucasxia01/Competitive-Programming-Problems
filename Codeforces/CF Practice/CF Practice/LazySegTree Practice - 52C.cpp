@@ -70,7 +70,7 @@ struct LazySegTree {
     int height;
     LazySegTree(int n) {
         SZ = n;
-        F0R(i, SZ) segTree.pb(LLINF);
+        F0R(i, SZ) segTree.pb(INF);
         F0R(i, SZ) {
             lazy.pb(0);
             segTree.pb(0);
@@ -130,7 +130,7 @@ struct LazySegTree {
         push(r-1);
         T ans;
         if (sum) ans = 0;
-        else ans = LLINF; // only for sums, also can do: ans = -INF;
+        else ans = INF; // only for sums, also can do: ans = -INF;
         for (; l<r; l>>=1, r>>=1) {
             if (l&1) ans = combine(ans, segTree[l++]);
             if (r&1) ans = combine(ans, segTree[--r]);
@@ -146,7 +146,7 @@ struct LazySegTree {
 int main() {
     int n;
     cin >> n;
-    LazySegTree<ll, false> t(n);
+    LazySegTree<int, false> t(n);
     F0R(i, n) cin >> t.segTree[i+n];
     int m, l, r;
     cin >> m;
@@ -162,8 +162,14 @@ int main() {
             if (res.size() == 2) cout << t.query(l, r+1) << endl;
             else t.upd(l, r+1, stoi(res[2]));
         } else {
-            
+            if (res.size() == 2) {
+                cout << min(t.query(l, n), t.query(0, r+1)) << endl;
+            } else {
+                t.upd(l, n, stoi(res[2]));
+                t.upd(0, r+1, stoi(res[2]));
+            }
         }
+        cout << t.segTree[n] << endl;
     }
     return 0;
 }

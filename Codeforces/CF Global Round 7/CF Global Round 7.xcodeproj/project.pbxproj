@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C370DB523D661930091C7ED /* cave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C370DB423D661930091C7ED /* cave.cpp */; };
+		8CF3F7A02423D77D00A01E78 /* E.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3F79F2423D77D00A01E78 /* E.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8C370DAF23D661930091C7ED /* CopyFiles */ = {
+		8CF3F7882423BA3B00A01E78 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,14 +23,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C370DB123D661930091C7ED /* USACO Plat January 2020 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "USACO Plat January 2020"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C370DB423D661930091C7ED /* cave.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cave.cpp; sourceTree = "<group>"; };
-		8C370DBB23D669A40091C7ED /* cave.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = cave.in; sourceTree = "<group>"; };
-		8C370DBC23D66A100091C7ED /* cave.out */ = {isa = PBXFileReference; lastKnownFileType = text; path = cave.out; sourceTree = "<group>"; };
+		8CF3F78A2423BA3B00A01E78 /* CF Global Round 7 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CF Global Round 7"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF3F78D2423BA3B00A01E78 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
+		8CF3F7942423BA8300A01E78 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
+		8CF3F7962423BA8900A01E78 /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
+		8CF3F7982423BA9000A01E78 /* D2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D2.cpp; sourceTree = "<group>"; };
+		8CF3F79F2423D77D00A01E78 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8C370DAE23D661930091C7ED /* Frameworks */ = {
+		8CF3F7872423BA3B00A01E78 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,67 +42,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C370DA823D661930091C7ED = {
+		8CF3F7812423BA3B00A01E78 = {
 			isa = PBXGroup;
 			children = (
-				8C370DB323D661930091C7ED /* USACO Plat January 2020 */,
-				8C370DB223D661930091C7ED /* Products */,
-				8C370DBB23D669A40091C7ED /* cave.in */,
-				8C370DBC23D66A100091C7ED /* cave.out */,
+				8CF3F78C2423BA3B00A01E78 /* CF Global Round 7 */,
+				8CF3F78B2423BA3B00A01E78 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8C370DB223D661930091C7ED /* Products */ = {
+		8CF3F78B2423BA3B00A01E78 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C370DB123D661930091C7ED /* USACO Plat January 2020 */,
+				8CF3F78A2423BA3B00A01E78 /* CF Global Round 7 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C370DB323D661930091C7ED /* USACO Plat January 2020 */ = {
+		8CF3F78C2423BA3B00A01E78 /* CF Global Round 7 */ = {
 			isa = PBXGroup;
 			children = (
-				8C370DB423D661930091C7ED /* cave.cpp */,
+				8CF3F78D2423BA3B00A01E78 /* A.cpp */,
+				8CF3F7942423BA8300A01E78 /* B.cpp */,
+				8CF3F7962423BA8900A01E78 /* C.cpp */,
+				8CF3F7982423BA9000A01E78 /* D2.cpp */,
+				8CF3F79F2423D77D00A01E78 /* E.cpp */,
 			);
-			path = "USACO Plat January 2020";
+			path = "CF Global Round 7";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C370DB023D661930091C7ED /* USACO Plat January 2020 */ = {
+		8CF3F7892423BA3B00A01E78 /* CF Global Round 7 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C370DB823D661930091C7ED /* Build configuration list for PBXNativeTarget "USACO Plat January 2020" */;
+			buildConfigurationList = 8CF3F7912423BA3B00A01E78 /* Build configuration list for PBXNativeTarget "CF Global Round 7" */;
 			buildPhases = (
-				8C370DAD23D661930091C7ED /* Sources */,
-				8C370DAE23D661930091C7ED /* Frameworks */,
-				8C370DAF23D661930091C7ED /* CopyFiles */,
+				8CF3F7862423BA3B00A01E78 /* Sources */,
+				8CF3F7872423BA3B00A01E78 /* Frameworks */,
+				8CF3F7882423BA3B00A01E78 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "USACO Plat January 2020";
-			productName = "USACO Plat January 2020";
-			productReference = 8C370DB123D661930091C7ED /* USACO Plat January 2020 */;
+			name = "CF Global Round 7";
+			productName = "CF Global Round 7";
+			productReference = 8CF3F78A2423BA3B00A01E78 /* CF Global Round 7 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8C370DA923D661930091C7ED /* Project object */ = {
+		8CF3F7822423BA3B00A01E78 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lucas Xia";
 				TargetAttributes = {
-					8C370DB023D661930091C7ED = {
+					8CF3F7892423BA3B00A01E78 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8C370DAC23D661930091C7ED /* Build configuration list for PBXProject "USACO Plat January 2020" */;
+			buildConfigurationList = 8CF3F7852423BA3B00A01E78 /* Build configuration list for PBXProject "CF Global Round 7" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -108,29 +112,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 8C370DA823D661930091C7ED;
-			productRefGroup = 8C370DB223D661930091C7ED /* Products */;
+			mainGroup = 8CF3F7812423BA3B00A01E78;
+			productRefGroup = 8CF3F78B2423BA3B00A01E78 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C370DB023D661930091C7ED /* USACO Plat January 2020 */,
+				8CF3F7892423BA3B00A01E78 /* CF Global Round 7 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8C370DAD23D661930091C7ED /* Sources */ = {
+		8CF3F7862423BA3B00A01E78 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C370DB523D661930091C7ED /* cave.cpp in Sources */,
+				8CF3F7A02423D77D00A01E78 /* E.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8C370DB623D661930091C7ED /* Debug */ = {
+		8CF3F78F2423BA3B00A01E78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +192,7 @@
 			};
 			name = Debug;
 		};
-		8C370DB723D661930091C7ED /* Release */ = {
+		8CF3F7902423BA3B00A01E78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -239,7 +243,7 @@
 			};
 			name = Release;
 		};
-		8C370DB923D661930091C7ED /* Debug */ = {
+		8CF3F7922423BA3B00A01E78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -247,7 +251,7 @@
 			};
 			name = Debug;
 		};
-		8C370DBA23D661930091C7ED /* Release */ = {
+		8CF3F7932423BA3B00A01E78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -258,25 +262,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C370DAC23D661930091C7ED /* Build configuration list for PBXProject "USACO Plat January 2020" */ = {
+		8CF3F7852423BA3B00A01E78 /* Build configuration list for PBXProject "CF Global Round 7" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C370DB623D661930091C7ED /* Debug */,
-				8C370DB723D661930091C7ED /* Release */,
+				8CF3F78F2423BA3B00A01E78 /* Debug */,
+				8CF3F7902423BA3B00A01E78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C370DB823D661930091C7ED /* Build configuration list for PBXNativeTarget "USACO Plat January 2020" */ = {
+		8CF3F7912423BA3B00A01E78 /* Build configuration list for PBXNativeTarget "CF Global Round 7" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C370DB923D661930091C7ED /* Debug */,
-				8C370DBA23D661930091C7ED /* Release */,
+				8CF3F7922423BA3B00A01E78 /* Debug */,
+				8CF3F7932423BA3B00A01E78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8C370DA923D661930091C7ED /* Project object */;
+	rootObject = 8CF3F7822423BA3B00A01E78 /* Project object */;
 }
