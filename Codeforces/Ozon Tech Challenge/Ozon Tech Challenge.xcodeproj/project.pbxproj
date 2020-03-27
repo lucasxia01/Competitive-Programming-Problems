@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CF3F6EF240EDD9400A01E78 /* F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3F6EE240EDD9400A01E78 /* F.cpp */; };
+		8C44A9D4242DC80E009B66A4 /* F (random alg).cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C44A9D3242DC80E009B66A4 /* F (random alg).cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C44A9D3242DC80E009B66A4 /* F (random alg).cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "F (random alg).cpp"; sourceTree = "<group>"; };
 		8CF3F6DB240EA35B00A01E78 /* Ozon Tech Challenge */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Ozon Tech Challenge"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF3F6DE240EA35B00A01E78 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
 		8CF3F6E5240EA48E00A01E78 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 				8CF3F6E9240EA9D500A01E78 /* D.cpp */,
 				8CF3F6EC240EBB5700A01E78 /* E.cpp */,
 				8CF3F6EE240EDD9400A01E78 /* F.cpp */,
+				8C44A9D3242DC80E009B66A4 /* F (random alg).cpp */,
 			);
 			path = "Ozon Tech Challenge";
 			sourceTree = "<group>";
@@ -129,7 +131,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CF3F6EF240EDD9400A01E78 /* F.cpp in Sources */,
+				8C44A9D4242DC80E009B66A4 /* F (random alg).cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
