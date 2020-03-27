@@ -46,14 +46,12 @@ typedef vector<pl> vpl;
 #define pb push_back
 #define lb lower_bound
 #define ub upper_bound
+#define sz(x) (int)x.size()
 
 const int MAX_N = 100011;
-const int MX = 1<<20;
 const ll INF = (1<<29) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
-
-#define sz(x) (int)x.size()
 
 template <typename T> bool ckmin(T& a, const T& b) {
     return a > b ? a=b, 1 : 0;
@@ -61,6 +59,8 @@ template <typename T> bool ckmin(T& a, const T& b) {
 template <typename T> bool ckmax(T& a, const T& b) {
     return b > a ? a=b, 1 : 0;
 }
+
+const int MX = 1<<20;
 
 int main() {
     ios_base::sync_with_stdio(false);
