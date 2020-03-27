@@ -109,7 +109,7 @@ int lca(int u, int v) {
 
 vector<pair<int, pi> > qs[MX];
 int freq[MX], c[MX];
-const int N_ITER = 14;
+const int N_ITER = 15;
 vi ans[MX];
 
 void dfs2(int s = 1, int p = 0) { // calculates frequencies of colors and answers queries about them for each node
