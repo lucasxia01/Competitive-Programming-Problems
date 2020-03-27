@@ -78,7 +78,7 @@ struct stringHash {
             //cout << hash << endl;
         }
         int pow = 1;
-        for (int i = 0; i <= len/2; i++) {
+        for (int i = 0; i < len; i++) { // can be changed to len/2 for optimization
             basePowers.push_back(pow);
             pow = (1LL * pow * base) % mod;
         }

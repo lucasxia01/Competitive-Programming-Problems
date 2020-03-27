@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C2501D7226BAAB30091C2CE /* D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C2501D6226BAAB30091C2CE /* D.cpp */; };
+		8CF3F7A22426B0F300A01E78 /* E.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3F7A12426B0F300A01E78 /* E.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +27,7 @@
 		8C2501CD226B995C0091C2CE /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
 		8C2501D4226B9C3D0091C2CE /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
 		8C2501D6226BAAB30091C2CE /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
+		8CF3F7A12426B0F300A01E78 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 				8C2501CD226B995C0091C2CE /* B.cpp */,
 				8C2501D4226B9C3D0091C2CE /* C.cpp */,
 				8C2501D6226BAAB30091C2CE /* D.cpp */,
+				8CF3F7A12426B0F300A01E78 /* E.cpp */,
 			);
 			path = "Forethought Future Cup";
 			sourceTree = "<group>";
@@ -122,7 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C2501D7226BAAB30091C2CE /* D.cpp in Sources */,
+				8CF3F7A22426B0F300A01E78 /* E.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
