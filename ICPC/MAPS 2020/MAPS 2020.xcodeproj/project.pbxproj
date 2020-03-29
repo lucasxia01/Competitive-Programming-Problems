@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C44A9D0242D6C2D009B66A4 /* F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C44A9CF242D6C2D009B66A4 /* F.cpp */; };
+		8C44A9E8242FAF0C009B66A4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C44A9E7242FAF0C009B66A4 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8CF3F7BD2428966C00A01E78 /* CopyFiles */ = {
+		8C44A9E2242FAF0C009B66A4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,17 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C44A9CF242D6C2D009B66A4 /* F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F.cpp; sourceTree = "<group>"; };
-		8CF3F7BF2428966C00A01E78 /* Ed CF 84 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Ed CF 84"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CF3F7C22428966C00A01E78 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
-		8CF3F7C92428968300A01E78 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
-		8CF3F7CB2428968C00A01E78 /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
-		8CF3F7CD2428969300A01E78 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
-		8CF3F7CF2428969A00A01E78 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
+		8C44A9E4242FAF0C009B66A4 /* MAPS 2020 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "MAPS 2020"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C44A9E7242FAF0C009B66A4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8CF3F7BC2428966C00A01E78 /* Frameworks */ = {
+		8C44A9E1242FAF0C009B66A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,70 +38,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8CF3F7B62428966C00A01E78 = {
+		8C44A9DB242FAF0B009B66A4 = {
 			isa = PBXGroup;
 			children = (
-				8CF3F7C12428966C00A01E78 /* Ed CF 84 */,
-				8CF3F7C02428966C00A01E78 /* Products */,
+				8C44A9E6242FAF0C009B66A4 /* MAPS 2020 */,
+				8C44A9E5242FAF0C009B66A4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8CF3F7C02428966C00A01E78 /* Products */ = {
+		8C44A9E5242FAF0C009B66A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8CF3F7BF2428966C00A01E78 /* Ed CF 84 */,
+				8C44A9E4242FAF0C009B66A4 /* MAPS 2020 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8CF3F7C12428966C00A01E78 /* Ed CF 84 */ = {
+		8C44A9E6242FAF0C009B66A4 /* MAPS 2020 */ = {
 			isa = PBXGroup;
 			children = (
-				8CF3F7C22428966C00A01E78 /* A.cpp */,
-				8CF3F7C92428968300A01E78 /* B.cpp */,
-				8CF3F7CB2428968C00A01E78 /* C.cpp */,
-				8CF3F7CD2428969300A01E78 /* D.cpp */,
-				8CF3F7CF2428969A00A01E78 /* E.cpp */,
-				8C44A9CF242D6C2D009B66A4 /* F.cpp */,
+				8C44A9E7242FAF0C009B66A4 /* main.cpp */,
 			);
-			path = "Ed CF 84";
+			path = "MAPS 2020";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8CF3F7BE2428966C00A01E78 /* Ed CF 84 */ = {
+		8C44A9E3242FAF0C009B66A4 /* MAPS 2020 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8CF3F7C62428966C00A01E78 /* Build configuration list for PBXNativeTarget "Ed CF 84" */;
+			buildConfigurationList = 8C44A9EB242FAF0C009B66A4 /* Build configuration list for PBXNativeTarget "MAPS 2020" */;
 			buildPhases = (
-				8CF3F7BB2428966C00A01E78 /* Sources */,
-				8CF3F7BC2428966C00A01E78 /* Frameworks */,
-				8CF3F7BD2428966C00A01E78 /* CopyFiles */,
+				8C44A9E0242FAF0C009B66A4 /* Sources */,
+				8C44A9E1242FAF0C009B66A4 /* Frameworks */,
+				8C44A9E2242FAF0C009B66A4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Ed CF 84";
-			productName = "Ed CF 84";
-			productReference = 8CF3F7BF2428966C00A01E78 /* Ed CF 84 */;
+			name = "MAPS 2020";
+			productName = "MAPS 2020";
+			productReference = 8C44A9E4242FAF0C009B66A4 /* MAPS 2020 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8CF3F7B72428966C00A01E78 /* Project object */ = {
+		8C44A9DC242FAF0B009B66A4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lucas Xia";
 				TargetAttributes = {
-					8CF3F7BE2428966C00A01E78 = {
+					8C44A9E3242FAF0C009B66A4 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8CF3F7BA2428966C00A01E78 /* Build configuration list for PBXProject "Ed CF 84" */;
+			buildConfigurationList = 8C44A9DF242FAF0B009B66A4 /* Build configuration list for PBXProject "MAPS 2020" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -114,29 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 8CF3F7B62428966C00A01E78;
-			productRefGroup = 8CF3F7C02428966C00A01E78 /* Products */;
+			mainGroup = 8C44A9DB242FAF0B009B66A4;
+			productRefGroup = 8C44A9E5242FAF0C009B66A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8CF3F7BE2428966C00A01E78 /* Ed CF 84 */,
+				8C44A9E3242FAF0C009B66A4 /* MAPS 2020 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8CF3F7BB2428966C00A01E78 /* Sources */ = {
+		8C44A9E0242FAF0C009B66A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C44A9D0242D6C2D009B66A4 /* F.cpp in Sources */,
+				8C44A9E8242FAF0C009B66A4 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8CF3F7C42428966C00A01E78 /* Debug */ = {
+		8C44A9E9242FAF0C009B66A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -194,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		8CF3F7C52428966C00A01E78 /* Release */ = {
+		8C44A9EA242FAF0C009B66A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -245,7 +235,7 @@
 			};
 			name = Release;
 		};
-		8CF3F7C72428966C00A01E78 /* Debug */ = {
+		8C44A9EC242FAF0C009B66A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -253,7 +243,7 @@
 			};
 			name = Debug;
 		};
-		8CF3F7C82428966C00A01E78 /* Release */ = {
+		8C44A9ED242FAF0C009B66A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -264,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8CF3F7BA2428966C00A01E78 /* Build configuration list for PBXProject "Ed CF 84" */ = {
+		8C44A9DF242FAF0B009B66A4 /* Build configuration list for PBXProject "MAPS 2020" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8CF3F7C42428966C00A01E78 /* Debug */,
-				8CF3F7C52428966C00A01E78 /* Release */,
+				8C44A9E9242FAF0C009B66A4 /* Debug */,
+				8C44A9EA242FAF0C009B66A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8CF3F7C62428966C00A01E78 /* Build configuration list for PBXNativeTarget "Ed CF 84" */ = {
+		8C44A9EB242FAF0C009B66A4 /* Build configuration list for PBXNativeTarget "MAPS 2020" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8CF3F7C72428966C00A01E78 /* Debug */,
-				8CF3F7C82428966C00A01E78 /* Release */,
+				8C44A9EC242FAF0C009B66A4 /* Debug */,
+				8C44A9ED242FAF0C009B66A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8CF3F7B72428966C00A01E78 /* Project object */;
+	rootObject = 8C44A9DC242FAF0B009B66A4 /* Project object */;
 }

@@ -118,8 +118,6 @@ int main() {
         F0R(i, n) {
             if (marked[i]) continue;
             dfs(i); // find the "connected component" for each node
-//            F0R(j, cur.size()) cout << cur[j] << " ";
-//            cout << endl;
             solve(); // this will solve for that connected cycle thing
             cur.clear();
         }

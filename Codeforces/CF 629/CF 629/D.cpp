@@ -77,39 +77,39 @@ int main() {
             if (a[i] != a[0]) ok = false;
         }
         if (ok) {
-            cout << 1 << endl;
-            F0R(i, n) cout << 1 << " ";
-            cout << endl;
+            printf("1\n");
+            F0R(i, n) printf("1 ");
+            printf("\n");
         } else {
             bool twoEqual = false, endsNotEqual = (a[0] != a[n-1]);
             F0R(i, n-1) if (a[i] == a[i+1]) twoEqual = true;
             if (n&1 && !twoEqual && endsNotEqual) {
-                cout << 3 << endl;
+                printf("3\n");
                 F0R(i, n-1) {
-                    if (i&1) cout << 1 << " ";
-                    else cout << 2 << " ";
+                    if (i&1) printf("1 ");
+                    else printf("2 ");
                 }
-                cout << 3 << endl;
+                printf("3\n");
             } else if (n&1 && endsNotEqual) {
-                cout << 2 << endl;
+                printf("2\n");
                 int c = 0;
                 F0R(i, n) {
                     if (i && a[i] == a[i-1] && twoEqual) {
                         c++;
                         twoEqual = false;
                     }
-                    if (c&1) cout << 1 << " ";
-                    else cout << 2 << " ";
+                    if (c&1) printf("1 ");
+                    else printf("2 ");
                     c++;
                 }
-                cout << endl;
+                printf("\n");
             } else {
-                cout << 2 << endl;
+                printf("2\n");
                 F0R(i, n) {
-                    if (i&1) cout << 1 << " ";
-                    else cout << 2 << " ";
+                    if (i&1) printf("1 ");
+                    else printf("2 ");
                 }
-                cout << endl;
+                printf("\n");
             }
         }
     }

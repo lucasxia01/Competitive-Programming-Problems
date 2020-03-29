@@ -48,7 +48,6 @@ typedef vector<pl> vpl;
 #define ub upper_bound
 
 const int MAX_N = 100011;
-const int MX = 1<<20;
 const ll INF = (1<<29) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
@@ -61,17 +60,62 @@ template <typename T> bool ckmin(T& a, const T& b) {
 template <typename T> bool ckmax(T& a, const T& b) {
     return b > a ? a=b, 1 : 0;
 }
+const int MX = 1e5+5;
+const int sqrtMX = 1e3;
+vi edges[MX];
+int level[MX];
+vi levelCount[sqrtMX];
+bool marked[MX];
+int n, sqrtn;
+bool foundCycle = 0;
+
+// this one searches for the cycle
+int dfs(int v, int l = 0) {
+    marked[v] = 1;
+    level[v] = l;
+    levelCount[l%(sqrtn-1)].pb(v);
+    trav(u, edges[v]) {
+        if (!marked[u]) {
+            int ret = dfs(u, l+1);
+            if (ret) cout << v << " ";
+            if (ret == v) return 0;
+            else if (ret) return ret;
+            else if (foundCycle) return 0;
+        }
+        else {
+            if (l-level[u]+1 >= sqrtn) {
+                foundCycle = 1;
+                cout << 2 << '\n' << l-level[u]+1 << '\n';
+                cout << v << " ";
+                return u;
+            }
+        }
+    }
+    return 0;
+}
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int t;
-    cin >> t;
-    while (t--) {
-        ll n, k;
-        cin >> n >> k;
-        if (n < k*k || (n-k)%2) cout << "NO" << endl;
-        else cout << "YES" << endl;
+    int m, u, v;
+    cin >> n >> m;
+    F0R(i, n) if (i*i >= n) {
+        sqrtn = i; break;
     }
+    F0R(i, m) {
+        cin >> u >> v;
+        edges[u].pb(v);
+        edges[v].pb(u);
+    }
+    dfs(1);
+    if (foundCycle) return 0;
+    // from now on, we know no backedge goes >=sqrtn-1 levels up, so we can pick the independent set by jumping by sqrtn-1
+    // the ind set could start the root or from its children
+    cout << 1 << endl;
+    F0R(i, sqrtn-1) {
+        if (sz(levelCount[i]) < sqrtn) continue;
+        F0R(j, sqrtn) cout << levelCount[i][j] << " ";
+        break;
+    } cout << endl;
     return 0;
 }

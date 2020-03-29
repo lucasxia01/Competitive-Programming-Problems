@@ -86,6 +86,7 @@ int main() {
         cout << ans << " ";
     }
     cout << 10 << endl;
+    // this part is the brute force checker for 1 blocks
 //    ll count = 0;
 //    F0R(i, binpow(10, n)) {
 //        int prev = -1;

@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-#define F0R(i,n) for (int i = 0; i < n; i++)
-
 typedef long long ll;
 using namespace std;
 int main() {
@@ -12,16 +10,15 @@ int main() {
     cin >> t;
     while (t--) {
         cin >> n >> k;
-        k--;
+        k--; // 0-indexed is always better
         int s = 0, c = 0;
-        while (s <= k) {
+        while (s <= k) { // make it go over by 1
             c++;
             s += c;
         }
-        s -= c;
+        s -= c; // go back by 1
         c--;
-        string ans = "";
-        F0R(i, n) ans += 'a';
+        string ans(n, 'a');
         ans[n-1-(k-s)] = ans[n-2-c] = 'b';
         cout << ans << endl;
         

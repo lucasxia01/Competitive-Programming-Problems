@@ -1,25 +1,21 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-#define F0R(i,n) for (int i = 0; i < n; i++)
-#define FOR(i,a,b) for (int i = a; i <= b; i++)
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
     int t, n;
     cin >> t;
-    string x;
+    string s;
     while (t--) {
-        cin >> n >> x;
+        cin >> n >> s;
         string a = "1", b = "1";
         int flag = 0; // marks if a is bigger than b, set it when a must become larger
-        FOR(i, 1, n-1) {
-            if (x[i] == '0') {
+        for (int i = 1; i < n; i++) {
+            if (s[i] == '0') {
                 a += '0';
                 b += '0';
-            } else if (x[i] == '1') {
+            } else if (s[i] == '1') {
                 if (flag == 1) {
                     b += '1';
                     a += '0';
@@ -38,7 +34,7 @@ int main() {
                 }
             }
         }
-        cout << a << endl << b << endl;
+        cout << a << '\n' << b << endl;
     }
     return 0;
 }
