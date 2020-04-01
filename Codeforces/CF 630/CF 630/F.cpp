@@ -65,11 +65,10 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 2.5e5 + 5;
-const int LOGMX = 18;
+const int MX = 3e5 + 5;
 vi edges[MX];
 int n;
-ll dp[MX][3];
+ll dp[MX][5];
 
 void dfs(int u, int p) {
     trav(v, edges[u]) {
@@ -77,21 +76,20 @@ void dfs(int u, int p) {
             dfs(v, u);
         }
     }
-    bool leaf = false;
-    if (sz(edges[u]) == 1 && edges[u][0] == p) leaf = true;
-    if (leaf) {
-        dp[u][0] = 1;
-        dp[u][1] = 1;
-        return;
-    }
     dp[u][0] = 1;
     dp[u][1] = 1;
+    dp[u][2] = 1;
+    dp[u][3] = 0;
+    dp[u][4] = 0;
     trav(v, edges[u]) {
         if (v != p) {
-            dp[u][0] = (dp[u][0] * (2*dp[v][0] + dp[v][1]))%MOD;
-            dp[u][1] = (dp[u][1] * 2*dp[v][0])%MOD;
+            dp[u][0] = (dp[u][0] * (dp[v][0] + dp[v][3] + dp[v][4]))%MOD;
+            dp[u][1] = (dp[u][1] * (dp[v][0] + dp[v][1] + dp[v][2] + dp[v][3] + dp[v][4]))%MOD;
+            dp[u][2] = (dp[u][2] * (dp[v][0] + dp[v][1] + dp[v][3] + dp[v][4]))%MOD;
         }
     }
+    dp[u][3] = ((dp[u][1] - dp[u][0])%MOD+MOD)%MOD;
+    dp[u][4] = ((dp[u][2] - dp[u][0])%MOD+MOD)%MOD;
 }
 
 
@@ -106,7 +104,7 @@ int main() {
         edges[v].pb(u);
     }
     dfs(1, 0);
-    cout << (dp[1][0] + dp[1][1])%MOD << endl;
+    cout << (dp[1][0] + dp[1][3] + dp[1][4]-1)%MOD << endl;
     
     return 0;
 }
