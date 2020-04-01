@@ -20,6 +20,8 @@
 #include <set>
 #include <unordered_map>
 #include <unordered_set>
+#include <random>
+#include <chrono>
 
 using namespace std;
 
@@ -59,6 +61,8 @@ template <typename T> bool ckmin(T& a, const T& b) {
 template <typename T> bool ckmax(T& a, const T& b) {
     return b > a ? a=b, 1 : 0;
 }
+
+mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 const int MX = 1<<20;
 
