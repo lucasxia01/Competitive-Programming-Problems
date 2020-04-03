@@ -22,6 +22,7 @@
 #include <unordered_set>
 #include <random>
 #include <chrono>
+#include <cassert>
 
 using namespace std;
 
