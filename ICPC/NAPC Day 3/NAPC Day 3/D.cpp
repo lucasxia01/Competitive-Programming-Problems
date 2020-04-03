@@ -20,6 +20,8 @@
 #include <set>
 #include <unordered_map>
 #include <unordered_set>
+#include <random>
+#include <chrono>
 
 using namespace std;
 
@@ -46,14 +48,12 @@ typedef vector<pl> vpl;
 #define pb push_back
 #define lb lower_bound
 #define ub upper_bound
+#define sz(x) (int)x.size()
 
 const int MAX_N = 100011;
-const int MX = 1<<20;
 const ll INF = (1<<29) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
-
-#define sz(x) (int)x.size()
 
 template <typename T> bool ckmin(T& a, const T& b) {
     return a > b ? a=b, 1 : 0;
@@ -62,10 +62,32 @@ template <typename T> bool ckmax(T& a, const T& b) {
     return b > a ? a=b, 1 : 0;
 }
 
+mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n, k, m;
-    cin >> n >> k >> m;
+    int n, m;
+    cin>>n>>m;
+    string s;
+    cin>>s;
+    int c = 0;
+    int good = 0;
+    bool last = false;
+    F0R(i, n)  {
+        c = (c + s[i]-'0')%m;
+        if (c == 0) good++;
+        if (i == n-1 && c == 0) last = 1;
+        c = (c*10)%m;
+    }
+    if (!last) {
+        cout <<0 << endl;
+    }else {
+        int ans = 1;
+        F0R(i, good-1) {
+            ans = (ans * 2) %MOD;
+        }
+        cout << ans << endl;
+    }
     return 0;
 }

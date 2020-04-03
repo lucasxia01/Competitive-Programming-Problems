@@ -20,6 +20,9 @@
 #include <set>
 #include <unordered_map>
 #include <unordered_set>
+#include <random>
+#include <chrono>
+#include <cassert>
 
 using namespace std;
 
@@ -46,14 +49,12 @@ typedef vector<pl> vpl;
 #define pb push_back
 #define lb lower_bound
 #define ub upper_bound
+#define sz(x) (int)x.size()
 
 const int MAX_N = 100011;
-const int MX = 1<<20;
 const ll INF = (1<<29) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
-
-#define sz(x) (int)x.size()
 
 template <typename T> bool ckmin(T& a, const T& b) {
     return a > b ? a=b, 1 : 0;
@@ -62,10 +63,47 @@ template <typename T> bool ckmax(T& a, const T& b) {
     return b > a ? a=b, 1 : 0;
 }
 
+mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+const int MX = 5e5 +5;
+int n;
+int nextStart[MX], length[MX];
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n, k, m;
-    cin >> n >> k >> m;
+    string s;
+    getline(cin, s);
+    n = (int) s.length();
+    int start = 0;
+    int maxLen = 0;
+    F0R(i, n) {
+        if (i == 0) {
+            int j = 0;
+            while (j < n && s[j] != ' ') j++;
+            length[i] = j;
+            ckmax(maxLen, j);
+        } else if (i != n-1 && s[i] == ' ') {
+            int j = i+1;
+            while (j < n && s[j] != ' ') j++;
+            length[i+1] = j-i-1; // doesn't include the space
+            ckmax(maxLen, length[i+1]);
+            start = i+1;
+        }
+        nextStart[i] = start;
+        assert(start < n);
+    }
+    int a, b;
+    cin >> a >> b;
+    FOR(i, a, b) {
+        // simulate it
+        int ans = 0;
+        for (int j = 0; j < n;) {
+            ans += length[j];
+            ans++; // count the space if it exists or if its the last one
+            if (j+i < n) j = nextStart[j+i];
+            else break;
+        }
+        cout << ans-1 << '\n'; // subtract the space at the end
+    }
     return 0;
 }

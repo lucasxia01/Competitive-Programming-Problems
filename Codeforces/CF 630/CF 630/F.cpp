@@ -76,11 +76,11 @@ void dfs(int u, int p) {
             dfs(v, u);
         }
     }
-    dp[u][0] = 1;
-    dp[u][1] = 1;
-    dp[u][2] = 1;
-    dp[u][3] = 0;
-    dp[u][4] = 0;
+    dp[u][0] = 1; // is not in edge-induced graph, no parent or children edges
+    dp[u][1] = 1; // is in edge-induced graph, parent edge exists, and possibly children, not in the independent set
+    dp[u][2] = 1; // in graph, with parent edge, in the ind set
+    dp[u][3] = 0; // in graph, no parent edge, not in ind set
+    dp[u][4] = 0; // in graph, no parent edge, in ind set
     trav(v, edges[u]) {
         if (v != p) {
             dp[u][0] = (dp[u][0] * (dp[v][0] + dp[v][3] + dp[v][4]))%MOD;
@@ -88,7 +88,7 @@ void dfs(int u, int p) {
             dp[u][2] = (dp[u][2] * (dp[v][0] + dp[v][1] + dp[v][3] + dp[v][4]))%MOD;
         }
     }
-    dp[u][3] = ((dp[u][1] - dp[u][0])%MOD+MOD)%MOD;
+    dp[u][3] = ((dp[u][1] - dp[u][0])%MOD+MOD)%MOD; // 3 is just 1 without the case where it has no children edges (which is somehow equivalent to 0)
     dp[u][4] = ((dp[u][2] - dp[u][0])%MOD+MOD)%MOD;
 }
 

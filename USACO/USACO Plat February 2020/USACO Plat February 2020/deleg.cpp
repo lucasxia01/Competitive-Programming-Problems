@@ -64,11 +64,9 @@ template <typename T> bool ckmax(T& a, const T& b) {
 const int MX = 1e5+5;
 vi edges[MX];
 int n;
-int t;
 
-int check(int k, int v = 1, int p = 0) {
+int check(int k, int v = 1, int p = 0) { // greedy pairing algorithm where you pair each path with the smallest such path that they sum to >= K, this optimizes what value you pass to parent; higher values can never hurt
     multiset<int> roads;
-    int ti = t++;
     trav(u, edges[v]) {
         if (u != p) {
             int ret = check(k, u, v);
@@ -87,7 +85,7 @@ int check(int k, int v = 1, int p = 0) {
         if (it == roads.end() && noMatch == 0) noMatch = *i;
         else if (it == roads.end()) return 0;
         else {
-            if (*it >= k) largestMatchWithK = *i;
+            if (*it >= k) largestMatchWithK = *i; // stupid edge case
             roads.erase(it);
         }
         i = roads.erase(i);
@@ -108,6 +106,7 @@ int main() {
         edges[u].pb(v);
         edges[v].pb(u);
     }
+    // binary search for the answer K
     int l = 1, h = n;
     while (l < h) {
         int mid = (l+h)/2;

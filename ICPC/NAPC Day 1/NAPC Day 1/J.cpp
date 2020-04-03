@@ -65,7 +65,27 @@ template <typename T> bool ckmax(T& a, const T& b) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n, k, m;
-    cin >> n >> k >> m;
-    return 0;
+    int n;
+    ll a, b;
+    cin >> n;
+    while (n--) {
+        cin >> a >> b;
+        if (b == 1) {
+            cout << 1 << " " << 0 << endl;
+            continue;
+        }
+        cout << b << " ";
+        ll count = 0;
+        FOR(i, 2, b) {
+            count += 2*(b-((b-2)/(i-1)+i)+1);
+            if (2*b % i == 0) {
+                count -= 2;
+                if (2*b/i % 2 == 0) count += i-1;
+                if (i % 2 == 0) count += (2*b/i)-1;
+                if (2*b/i % 2 == 0 && i % 2 == 0) count--;
+            }
+        }
+        
+        cout << count << endl;
+    }
 }

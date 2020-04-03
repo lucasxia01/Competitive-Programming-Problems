@@ -65,7 +65,35 @@ template <typename T> bool ckmax(T& a, const T& b) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n, k, m;
-    cin >> n >> k >> m;
-    return 0;
+    ld n, w, u, v, t1, t2, m, l, p;
+    cin >> n >> w >> u >> v >> t1 >> t2;
+    char dir;
+    vector<pair<ld, int> > times; // convert everything based on times
+    F0R(i, n) {
+        cin >> dir;
+        cin >> m;
+        F0R(j, m) {
+            cin >> l >> p;
+            if (dir == 'E') p = -p;
+            p -= (ld)i*u*(w/v); // shift everything to the first lane
+            times.pb(mp(p/u, 1));
+            times.pb(mp((p+l)/u, -1));
+        }
+    }
+    sort(times.begin(), times.end());
+    int c = 0;
+    ld prev = t1;
+    ld ans = 0;
+    trav(a, times) {
+        if (a.f > t2*u) {
+            if (c == 0) ckmax(ans, min(t2, a.f-(w/v))-prev);
+            break;
+        }
+        if (c == 0) ckmax(ans, a.f-prev-(w/v));
+        c += a.s;
+        if (c == 0) prev = max(t1, a.f);
+    }
+    if (c == 0) ckmax(ans, t2-prev);
+    cout.precision(5);
+    cout << fixed << ans << endl;
 }

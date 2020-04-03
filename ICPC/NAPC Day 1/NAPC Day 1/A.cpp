@@ -65,7 +65,17 @@ template <typename T> bool ckmax(T& a, const T& b) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n, k, m;
-    cin >> n >> k >> m;
-    return 0;
+    ld p, a, b, c, d;
+    int n;
+    cin >> p >> a >> b >> c >> d >> n;
+    ld prev = -INF;
+    ld ans = 0;
+    FOR(i, 1, n) {
+        ld cur = p*(sinl(a*i+b)+cosl(c*i+d)+2);
+        //cout << cur << endl;
+        ckmax(ans, prev-cur);
+        ckmax(prev, cur);
+    }
+    cout.precision(8);
+    cout << fixed << ans << endl;
 }

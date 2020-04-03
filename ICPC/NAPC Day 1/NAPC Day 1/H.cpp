@@ -65,7 +65,30 @@ template <typename T> bool ckmax(T& a, const T& b) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n, k, m;
-    cin >> n >> k >> m;
-    return 0;
+    ld w, h;
+    int n;
+    cin >> w >> h >> n;
+    h = h/w;
+    ld x[n+1], cost[n+1];
+    cost[0] = (1+h)*(1+h)/4;
+    FOR(i, 1, n) {
+        // cost[i-1] * x^2 + (((1-h)^2-2h^2) x^2 + 2(h^2-1)x + (1+h)^2)/4 = cost[i]
+        // 2x (4cost[i-1] + (1-h-h^2)) + (2h^2-2) = 0
+        // x = (1-h^2)/(h+h^2-1-4*cost[i-1])
+        x[i] = (1-h*h)/(4*cost[i-1] + (h-1)*(h-1) - 2*h*h);
+        cost[i] = cost[i-1]*x[i]*x[i] + (x[i]*x[i]*((h-1)*(h-1)-2*h*h) + 2*x[i]*(h*h-1) + (h+1)*(h+1))/4;
+    }
+    cout.precision(8);
+    cout << fixed << cost[n]*w*w << endl;
+    ld curX = w;
+    vector<ld> ans;
+    FORd(i, 1, n) {
+        curX *= x[i];
+        if (i <= 10) {
+            ans.pb(curX);
+        }
+    }
+    F0Rd(i, sz(ans)) {
+        cout << fixed << ans[i] << endl;
+    }
 }
