@@ -113,8 +113,8 @@ unordered_map<ll, ll> memo;
 
 ll compute_ans(ll x) {
     ll y = x;
-    if (memo.find(x) != memo.end()) return memo[x];
-    unordered_map<ll, int> f;
+    if (memo.find(x) != memo.end()) return memo[x]; // memoized
+    unordered_map<ll, int> f; // count how many there are of each factor
     int c = 0;
     trav(a, primes) {
         while (x%a==0) {
@@ -126,7 +126,7 @@ ll compute_ans(ll x) {
     if (x > 1) c++;
     ll ret = fac[c];
     trav(a, f) {
-        ret = (ret * com.mod_inv(fac[a.s]))%MOD;
+        ret = (ret * com.mod_inv(fac[a.s]))%MOD; // should be the multinomial of c! divided by the factorials of each frequency
     }
     memo[y] = ret;
     return ret;
@@ -139,11 +139,11 @@ int main() {
     
     int q;
     cin >> q;
-    
+    // the answer for each query is just ordering of primes of each number
     pr.pb(2);
     if (D%2==0) primes.pb(2);
     ll sqrtD = sqrt(D);
-    for (int i = 3; i < sqrtD; i+=2) {
+    for (int i = 3; i < sqrtD; i+=2) { // generates all the primes dividing D
         if (!p[i]) {
             pr.pb(i);
             if (D%i==0) primes.pb(i);
@@ -154,7 +154,7 @@ int main() {
     }
     F0R(i, q) {
         cin >> u >> v;
-        ll g = gcd(u, v);
+        ll g = gcd(u, v); // the gcd can stay
         u /= g; v /= g;
         ll ans = (compute_ans(u) * compute_ans(v)) % MOD;
         cout << ans << '\n';

@@ -65,48 +65,53 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 1005;
+const int MX = 1e5+5;
+
+vi e[MX];
+int dp[MX][2];
+int ans = 0;
+
+void dfs(int v=1, int p=0) {
+    int SZ = sz(e[v]);
+    dp[v][1] += SZ;
+    vpi take, skip;
+    trav(u, e[v]) {
+        if (u != p) {
+            dfs(u, v);
+            take.pb({dp[u][1], u});
+            skip.pb({dp[u][0], u});
+            ckmax(dp[v][0], dp[u][1]);
+            ckmax(dp[v][1], SZ+max(dp[u][1]-2, dp[u][0]-1));
+        }
+    }
+    sort(take.begin(), take.end(), greater<pi>());
+    sort(skip.begin(), skip.end(), greater<pi>());
+    ckmax(ans, dp[v][0]);
+    ckmax(ans, dp[v][1]);
+    // cout << v << " " << dp[v][0] << " " << dp[v][1] << endl;
+    if (sz(take) > 1) {
+        ckmax(ans, take[0].f+take[1].f-1+max(SZ-3,0));
+        ckmax(ans, skip[0].f+skip[1].f+SZ-2);
+        if (take[0].s != skip[0].s) ckmax(ans, take[0].f+skip[0].f+SZ-3);
+        else {
+            ckmax(ans, take[0].f+skip[1].f+SZ-3);
+            ckmax(ans, take[1].f+skip[0].f+SZ-3);
+        }
+    }
+    
+}
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int T;
-    cin >> T;
-    F0R(t, T) {
-        int n;
-        cin >> n;
-        pi a[n];
-        vector<pair<pi, int> > times;
-        F0R(i, n) {
-            cin >> a[i].f >> a[i].s;
-            times.pb(mp(mp(a[i].f, 1), i)); // 1 is start
-            times.pb(mp(mp(a[i].s, -1), i)); // -1 is end
-        }
-        sort(times.begin(), times.end());
-        string ans(n, '0');
-        int c = -1, j = -1;
-        bool ok = true;
-        F0R(i, 2*n) {
-            if (times[i].f.s == 1) { // start
-                if (c == -1) {
-                    c = times[i].s;
-                    ans[times[i].s] = 'C';
-                } else if (j == -1)  {
-                    j = times[i].s;
-                    ans[times[i].s] = 'J';
-                } else {
-                    cout << "Case #" << t+1 << ": IMPOSSIBLE\n";
-                    ok = false;
-                    break;
-                }
-            } else {
-                if (c == times[i].s) c = -1;
-                else if (j == times[i].s) j = -1;
-                else assert(1 == 0);
-            }
-        }
-        if (!ok) continue;
-        cout << "Case #" << t+1 << ": " << ans << "\n";
+    int n, u, v;
+    cin >> n;
+    F0R(i, n-1) {
+        cin >> u >> v;
+        e[u].pb(v);
+        e[v].pb(u);
     }
+    dfs();
+    cout << ans << endl;
     return 0;
 }

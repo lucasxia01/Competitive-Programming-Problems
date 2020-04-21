@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C44AAEE243822D9009B66A4 /* indicium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C44AAED243822D9009B66A4 /* indicium.cpp */; };
+		8C8D1FA82446F15300A94DF1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8D1FA72446F15300A94DF1 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8C44AADB24380B55009B66A4 /* CopyFiles */ = {
+		8C8D1FA22446F15300A94DF1 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,16 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C44AADD24380B55009B66A4 /* Code Jam 2020 Qualification */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Code Jam 2020 Qualification"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C44AAE024380B55009B66A4 /* vestigium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vestigium.cpp; sourceTree = "<group>"; };
-		8C44AAE724380D6D009B66A4 /* nestingDepth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nestingDepth.cpp; sourceTree = "<group>"; };
-		8C44AAE924380F71009B66A4 /* parentPartners.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = parentPartners.cpp; sourceTree = "<group>"; };
-		8C44AAEB24381834009B66A4 /* databaseQuery.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = databaseQuery.cpp; sourceTree = "<group>"; };
-		8C44AAED243822D9009B66A4 /* indicium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = indicium.cpp; sourceTree = "<group>"; };
+		8C8D1FA42446F15300A94DF1 /* CF 635 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CF 635"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C8D1FA72446F15300A94DF1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8C44AADA24380B55009B66A4 /* Frameworks */ = {
+		8C8D1FA12446F15300A94DF1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,69 +38,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C44AAD424380B55009B66A4 = {
+		8C8D1F9B2446F15300A94DF1 = {
 			isa = PBXGroup;
 			children = (
-				8C44AADF24380B55009B66A4 /* Code Jam 2020 Qualification */,
-				8C44AADE24380B55009B66A4 /* Products */,
+				8C8D1FA62446F15300A94DF1 /* CF 635 */,
+				8C8D1FA52446F15300A94DF1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8C44AADE24380B55009B66A4 /* Products */ = {
+		8C8D1FA52446F15300A94DF1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C44AADD24380B55009B66A4 /* Code Jam 2020 Qualification */,
+				8C8D1FA42446F15300A94DF1 /* CF 635 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C44AADF24380B55009B66A4 /* Code Jam 2020 Qualification */ = {
+		8C8D1FA62446F15300A94DF1 /* CF 635 */ = {
 			isa = PBXGroup;
 			children = (
-				8C44AAE024380B55009B66A4 /* vestigium.cpp */,
-				8C44AAE724380D6D009B66A4 /* nestingDepth.cpp */,
-				8C44AAE924380F71009B66A4 /* parentPartners.cpp */,
-				8C44AAEB24381834009B66A4 /* databaseQuery.cpp */,
-				8C44AAED243822D9009B66A4 /* indicium.cpp */,
+				8C8D1FA72446F15300A94DF1 /* main.cpp */,
 			);
-			path = "Code Jam 2020 Qualification";
+			path = "CF 635";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C44AADC24380B55009B66A4 /* Code Jam 2020 Qualification */ = {
+		8C8D1FA32446F15300A94DF1 /* CF 635 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C44AAE424380B55009B66A4 /* Build configuration list for PBXNativeTarget "Code Jam 2020 Qualification" */;
+			buildConfigurationList = 8C8D1FAB2446F15300A94DF1 /* Build configuration list for PBXNativeTarget "CF 635" */;
 			buildPhases = (
-				8C44AAD924380B55009B66A4 /* Sources */,
-				8C44AADA24380B55009B66A4 /* Frameworks */,
-				8C44AADB24380B55009B66A4 /* CopyFiles */,
+				8C8D1FA02446F15300A94DF1 /* Sources */,
+				8C8D1FA12446F15300A94DF1 /* Frameworks */,
+				8C8D1FA22446F15300A94DF1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Code Jam 2020 Qualification";
-			productName = "Code Jam 2020 Qualification";
-			productReference = 8C44AADD24380B55009B66A4 /* Code Jam 2020 Qualification */;
+			name = "CF 635";
+			productName = "CF 635";
+			productReference = 8C8D1FA42446F15300A94DF1 /* CF 635 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8C44AAD524380B55009B66A4 /* Project object */ = {
+		8C8D1F9C2446F15300A94DF1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lucas Xia";
 				TargetAttributes = {
-					8C44AADC24380B55009B66A4 = {
+					8C8D1FA32446F15300A94DF1 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8C44AAD824380B55009B66A4 /* Build configuration list for PBXProject "Code Jam 2020 Qualification" */;
+			buildConfigurationList = 8C8D1F9F2446F15300A94DF1 /* Build configuration list for PBXProject "CF 635" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,29 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 8C44AAD424380B55009B66A4;
-			productRefGroup = 8C44AADE24380B55009B66A4 /* Products */;
+			mainGroup = 8C8D1F9B2446F15300A94DF1;
+			productRefGroup = 8C8D1FA52446F15300A94DF1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C44AADC24380B55009B66A4 /* Code Jam 2020 Qualification */,
+				8C8D1FA32446F15300A94DF1 /* CF 635 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8C44AAD924380B55009B66A4 /* Sources */ = {
+		8C8D1FA02446F15300A94DF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C44AAEE243822D9009B66A4 /* indicium.cpp in Sources */,
+				8C8D1FA82446F15300A94DF1 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8C44AAE224380B55009B66A4 /* Debug */ = {
+		8C8D1FA92446F15300A94DF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -192,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		8C44AAE324380B55009B66A4 /* Release */ = {
+		8C8D1FAA2446F15300A94DF1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -243,7 +235,7 @@
 			};
 			name = Release;
 		};
-		8C44AAE524380B55009B66A4 /* Debug */ = {
+		8C8D1FAC2446F15300A94DF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -251,7 +243,7 @@
 			};
 			name = Debug;
 		};
-		8C44AAE624380B55009B66A4 /* Release */ = {
+		8C8D1FAD2446F15300A94DF1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -262,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C44AAD824380B55009B66A4 /* Build configuration list for PBXProject "Code Jam 2020 Qualification" */ = {
+		8C8D1F9F2446F15300A94DF1 /* Build configuration list for PBXProject "CF 635" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C44AAE224380B55009B66A4 /* Debug */,
-				8C44AAE324380B55009B66A4 /* Release */,
+				8C8D1FA92446F15300A94DF1 /* Debug */,
+				8C8D1FAA2446F15300A94DF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C44AAE424380B55009B66A4 /* Build configuration list for PBXNativeTarget "Code Jam 2020 Qualification" */ = {
+		8C8D1FAB2446F15300A94DF1 /* Build configuration list for PBXNativeTarget "CF 635" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C44AAE524380B55009B66A4 /* Debug */,
-				8C44AAE624380B55009B66A4 /* Release */,
+				8C8D1FAC2446F15300A94DF1 /* Debug */,
+				8C8D1FAD2446F15300A94DF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8C44AAD524380B55009B66A4 /* Project object */;
+	rootObject = 8C8D1F9C2446F15300A94DF1 /* Project object */;
 }

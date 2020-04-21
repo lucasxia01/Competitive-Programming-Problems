@@ -65,34 +65,17 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 105;
-
-int m[MX][MX];
+const int MX = 1<<20;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int T;
-    cin >> T;
-    F0R(t, T) {
-        string s;
-        cin >> s;
-        int n = (int) s.length();
-        string ans = "";
-        F0R(i, s[0]-'0') ans += '(';
-        ans += s[0];
-        F0R(i, n-1) {
-            int diff = (int)(s[i+1] - s[i]);
-            if (diff > 0) {
-                F0R(i, diff) ans += '(';
-            } else if (diff < 0) {
-                F0R(i, -diff) ans += ')';
-            }
-            ans += s[i+1];
-        }
-        F0R(i, s[n-1]-'0') ans += ')';
-        cout << "Case #" << t+1 << ": " << ans << "\n";
-        
-    }
+//    int t;
+//    cin >> t;
+//    while (t--) {
+    int n;
+    cin >> n;
+    int a[n];
+    F0R(i, n) cin >> a[i];
     return 0;
 }

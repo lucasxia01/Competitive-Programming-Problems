@@ -65,64 +65,44 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 100;
-int n, k, t;
-int p[MX][MX];
-int c[MX][MX];
-int trace[MX*MX+1];
+const int MX = 1e5+5;
+vi e[MX];
 
-bool solve(int l = 0) {
-    if (l == n) {
-        // check the trace
-        int tr = 0;
-//        F0R(i, n) {
-//            F0R(j, n) cout << p[i][j] << " ";
-//            cout << endl;
-//        }
-        F0R(i, n) {
-            tr += p[i][i];
+int dfs(int v, int p=0) {
+    int len = 2;
+    trav(u, e[v]) {
+        if (u != p) {
+            int ret = dfs(u, v);
+            if (ret == -1) return -1;
+            if (len == 2) len = ret%2;
+            else if (len != ret%2) return -1;
         }
-        trace[tr] = 1;
-//        if (tr == k) {
-//            cout << "Case #" << t+1 << ": ";
-//            cout << "POSSIBLE\n";
-//            F0R(i, n) {
-//                F0R(j, n) cout << p[i][j] << " ";
-//                cout << endl;
-//            }
-//            return 1;
-//        }
-        return 0;
     }
-    do {
-        bool ok = true;
-        F0R(i, n) if (c[i][p[l][i]-1]) {
-            ok = false;
-            break;
-        }
-        if (!ok) continue;
-        F0R(i, n) c[i][p[l][i]-1] = 1;
-        if (solve(l+1)) return 1;
-        F0R(i, n) c[i][p[l][i]-1] = 0;
-    } while (next_permutation(p[l], p[l]+n));
-    return false;
+    return (len+1)%2;
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int T;
-    cin >> T;
-    for (; t < T; t++) {
-        cin >> n >> k;
-        F0R(j, n) F0R(i, n) p[j][i] = i+1;
-        F0R(j, n) F0R(i, n) c[j][i] = 0;
-        if (!solve()) {
-        cout << "Case #" << t+1 << ": IMPOSSIBLE\n";
-        }
+    int n, u, v;
+    cin >> n;
+    int notLeaf = 0;
+    F0R(i, n-1) {
+        cin >> u >> v;
+        e[u].pb(v);
+        e[v].pb(u);
+        if (sz(e[u]) > 1) notLeaf = u;
     }
-    for (int i = n; i <= n*n; i++) {
-        if (!trace[i]) cout << i << endl;
+    // min is either 1 or 3
+    if (dfs(notLeaf) != -1) cout << 1 << " ";
+    else cout << 3 << " ";
+    int f[n+1];
+    memset(f, 0, 4*n+4);
+    F0R(i, n) {
+        if (sz(e[i+1]) == 1) f[e[i+1][0]]++;
     }
+    int c = 0;
+    F0R(i, n) c += max(0, f[i+1]-1);
+    cout << n-1-c << '\n';
     return 0;
 }

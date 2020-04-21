@@ -52,7 +52,7 @@ typedef vector<pl> vpl;
 #define sz(x) (int)x.size()
 
 const int MAX_N = 100011;
-const ll INF = (1<<29) + 123;
+const ll INF = (1LL<<35) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
@@ -65,45 +65,26 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 105;
-
-int m[MX][MX];
+const int MX = 1<<20;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int T;
-    cin >> T;
-    F0R(t, T) {
+    int t;
+    cin >> t;
+    while (t--) {
         int n;
         cin >> n;
-        F0R(i, n) F0R(j, n) cin >> m[i][j];
-        int trace = 0;
-        F0R(i, n) trace += m[i][i];
-        int rCount = 0, cCount = 0;
+        ll a[n];
+        F0R(i, n) cin >> a[i];
+        ll m = -INF;
+        int ans = 0;
         F0R(i, n) {
-            int freq[MX] = {};
-            F0R(j, n) {
-                if (freq[m[i][j]]) {
-                    rCount++;
-                    break;
-                }
-                freq[m[i][j]]++;
-            }
+            ckmax(m, a[i]);
+            if (m>a[i])ckmax(ans, 64-__builtin_clzll((unsigned long long) m-a[i]));
         }
-        F0R(i, n) {
-            int freq[MX] = {};
-            F0R(j, n) {
-                if (freq[m[j][i]]) {
-                    cCount++;
-                    break;
-                }
-                freq[m[j][i]]++;
-            }
-        }
-        
-        printf("Case #%d: %d %d %d\n", t+1, trace, rCount, cCount);
-        
+        cout << ans << '\n';
     }
+    
     return 0;
 }
