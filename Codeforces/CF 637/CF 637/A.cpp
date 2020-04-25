@@ -70,9 +70,32 @@ const int MX = 1<<20;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n;
-    cin >> n;
-    int a[n];
-    F0R(i, n) cin >> a[i];
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        int a[n], pos[n+1];
+        pos[0] = -2;
+        F0R(i, n) {
+            cin >> a[i];
+            pos[a[i]] = i;
+        }
+        bool ok = true;
+        int left = n;
+        int newLeft = pos[1];
+        FOR(i, 2, n) {
+            if (pos[i-1]+1 != pos[i]) {
+                if (pos[i-1]+1 != left) {
+                    ok = false;
+                    break;
+                } else {
+                    left = newLeft;
+                    newLeft = pos[i];
+                }
+            }
+        }
+        cout << (ok ? "Yes" : "No") << endl;
+    }
     return 0;
 }
