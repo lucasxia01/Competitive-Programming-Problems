@@ -47,8 +47,9 @@ typedef vector<pl> vpl;
 #define lb lower_bound
 #define ub upper_bound
 
+const char nl = '\n';
 const int MAX_N = 200011;
-const ll INF = (1<<29) + 123;
+const ll INF = (1LL<<50) + 123;
 const ll LLINF = (1LL<<50) + 777;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
@@ -58,37 +59,27 @@ const ld PI = 4*atan((ld)1);
 /*
  * Lazy Segment Tree
  * Range Increment Modification
- * Range Sum or Max Query
+ * Range Min Query
  * Supports ints and long longs
  */
-template <class T, bool sum>
+template <class T>
 struct LazySegTree {
     int SZ;
     vector<T> segTree;
     vector<T> lazy;
-    vector<T> subTreeSize;
     int height;
     LazySegTree(int n) {
         SZ = n;
         F0R(i, SZ) segTree.pb(INF);
         F0R(i, SZ) {
             lazy.pb(0);
-            segTree.pb(0);
-            subTreeSize.pb(1);
+            segTree.pb(INF);
         }
         height = 0;
         ll pow = 1;
         while (pow<SZ) {
             height++;
             pow*=2;
-        }
-        if (sum) {
-            F0Rd(i, SZ) {
-                int a = 1, b = 1;
-                if (2*i < SZ) a = subTreeSize[2*i];
-                if (2*i+1 < SZ) b = subTreeSize[2*i+1];
-                subTreeSize[i] = a+b;
-            }
         }
     }
     void apply(int p, T v) { // applies update to node in single function
@@ -107,7 +98,7 @@ struct LazySegTree {
         }
     }
     void pull(int p) { // updates parents of node with correct values while also applying the lazy
-        while (p > 1) p>>=1, segTree[p] = combine(segTree[2*p], segTree[2*p+1]) + subTreeSize[p]*lazy[p];
+        while (p > 1) p>>=1, segTree[p] = combine(segTree[2*p], segTree[2*p+1]) + lazy[p];
     }
     void upd(int p, T v) {
         upd(p, p+1, v);
@@ -129,8 +120,7 @@ struct LazySegTree {
         push(l);
         push(r-1);
         T ans;
-        if (sum) ans = 0;
-        else ans = INF; // only for sums, also can do: ans = -INF;
+        ans = INF; // only for sums, also can do: ans = -INF;
         for (; l<r; l>>=1, r>>=1) {
             if (l&1) ans = combine(ans, segTree[l++]);
             if (r&1) ans = combine(ans, segTree[--r]);
@@ -138,38 +128,37 @@ struct LazySegTree {
         return ans;
     }
     T combine(T a, T b) const { // template for other associative functions
-        if (sum) return a + b;
-        else return a > b ? b : a; // default is sum, also can do: max(a, b); or a > b ? a : b;
+        return a > b ? b : a; // default is sum, also can do: max(a, b); or a > b ? a : b;
     }
 };
 
 int main() {
     int n;
     cin >> n;
-    LazySegTree<int, false> t(n);
+    LazySegTree<ll> t(n);
     F0R(i, n) cin >> t.segTree[i+n];
+    F0R(i, n) t.pull(i+n);
     int m, l, r;
     cin >> m;
     string s;
     getline(cin, s);
     while (m--) {
         getline(cin, s);
-        vector<string> res;
-        stringstream ss(s);
-        for (string str; ss>>str;) res.pb(str);
-        l = stoi(res[0]); r = stoi(res[1]);
-        if (l < r) {
-            if (res.size() == 2) cout << t.query(l, r+1) << endl;
-            else t.upd(l, r+1, stoi(res[2]));
+        istringstream is(s);
+        vector<int> v = vector<int>(istream_iterator<int>(is), istream_iterator<int>());
+        l = v[0]; r = v[1];
+        // cout << l << " " << r << endl;
+        if (l <= r) {
+            if (sz(v) == 2) cout << t.query(l, r+1) << nl;
+            else t.upd(l, r+1, v[2]);
         } else {
-            if (res.size() == 2) {
-                cout << min(t.query(l, n), t.query(0, r+1)) << endl;
+            if (sz(v) == 2) {
+                cout << min(t.query(l, n), t.query(0, r+1)) << nl;
             } else {
-                t.upd(l, n, stoi(res[2]));
-                t.upd(0, r+1, stoi(res[2]));
+                t.upd(l, n, v[2]);
+                t.upd(0, r+1, v[2]);
             }
         }
-        cout << t.segTree[n] << endl;
     }
     return 0;
 }
