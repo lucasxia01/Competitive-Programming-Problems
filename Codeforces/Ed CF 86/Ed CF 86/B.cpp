@@ -51,9 +51,10 @@ typedef vector<pl> vpl;
 #define ub upper_bound
 #define sz(x) (int)x.size()
 
+const char nl = '\n';
 const int MAX_N = 100011;
 const ll INF = (1<<29) + 123;
-const ll MOD = 998244353;
+const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
 template <typename T> bool ckmin(T& a, const T& b) {
@@ -65,31 +66,30 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 3010;
-string s, t;
-ll dp[MX][MX], vis[MX][MX];
-int n, m;
+const int MX = 1<<20;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    cin >> s >> t;
-    n = (int)s.length(); m = (int)t.length();
-    F0R(i, n+1) dp[i][i] = 1;
-    F0R(len, n) {
-        F0R(i, n+1) {
-            // adding to the right side
-            if (i+len+1 <= n && (i+len >= m || t[i+len] == s[len]))
-                dp[i][i+len+1] = (dp[i][i+len+1]+dp[i][i+len])%MOD;
-            // adding to the left side
-            if (i-1 >= 0 && (i-1 >= m || t[i-1] == s[len]))
-                dp[i-1][i+len] = (dp[i-1][i+len]+dp[i][i+len])%MOD;
+    int T;
+    cin >> T;
+    while (T--) {
+        string t;
+        cin >> t;
+        bool same = 1;
+        int len = t.length();
+        F0R(i, len) {
+            if (t[0] != t[i]) {
+                same = 0;
+                break;
+            }
         }
+        if (same) {
+            F0R(i, 2*len) cout << t[0];
+        } else {
+            F0R(i, len) cout << "10";
+        }
+        cout << endl;
     }
-    
-    
-    ll ans = 0;
-    FOR(i, m, n) ans = (ans+dp[0][i])%MOD;
-    cout << ans << endl;
     return 0;
 }

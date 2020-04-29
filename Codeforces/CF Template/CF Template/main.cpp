@@ -51,6 +51,7 @@ typedef vector<pl> vpl;
 #define ub upper_bound
 #define sz(x) (int)x.size()
 
+const char nl = '\n';
 const int MAX_N = 100011;
 const ll INF = (1<<29) + 123;
 const ll MOD = 1000000007; // 998244353

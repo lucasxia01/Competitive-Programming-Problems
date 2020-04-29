@@ -51,9 +51,10 @@ typedef vector<pl> vpl;
 #define ub upper_bound
 #define sz(x) (int)x.size()
 
+const char nl = '\n';
 const int MAX_N = 100011;
 const ll INF = (1<<29) + 123;
-const ll MOD = 998244353;
+const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
 template <typename T> bool ckmin(T& a, const T& b) {
@@ -65,31 +66,35 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 3010;
-string s, t;
-ll dp[MX][MX], vis[MX][MX];
-int n, m;
+const int MX = 1<<20;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    cin >> s >> t;
-    n = (int)s.length(); m = (int)t.length();
-    F0R(i, n+1) dp[i][i] = 1;
-    F0R(len, n) {
-        F0R(i, n+1) {
-            // adding to the right side
-            if (i+len+1 <= n && (i+len >= m || t[i+len] == s[len]))
-                dp[i][i+len+1] = (dp[i][i+len+1]+dp[i][i+len])%MOD;
-            // adding to the left side
-            if (i-1 >= 0 && (i-1 >= m || t[i-1] == s[len]))
-                dp[i-1][i+len] = (dp[i-1][i+len]+dp[i][i+len])%MOD;
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        int a[n];
+        F0R(i, n) cin >> a[i];
+        int dp[n+1][1<<n][n+1]; // the minimum possible value of the previous element in the array, states are current index, previous index, and current bitmask of elements used
+        pi p[n+1][1<<n][n+1];
+        memset(dp, INF, sizeof dp);
+        
+        dp[0][0][0] = 0;
+        F0R(i, n) {
+            F0R(mask, 1<<n) {
+                F0R(prev, n) {
+                    if (dp[i][mask][prev] == INF) continue;
+                    int newMask = mask ^ ((1<<n)-1);
+                    for (int m = newMask; m != 0; m = (m-1)&newMask) {
+                        dp[i+1][mask|m][prev];
+                    }
+                }
+            }
         }
+        
     }
-    
-    
-    ll ans = 0;
-    FOR(i, m, n) ans = (ans+dp[0][i])%MOD;
-    cout << ans << endl;
     return 0;
 }
