@@ -66,8 +66,10 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 1<<20;
-
+const int N = 15;
+int dp[N+1][1<<N][N+1]; // the minimum possible value of the previous element in the array, states are current count of numbers that are left, current bitmask of elements used, and current index
+pi p[N+1][1<<N][N+1]; // this is to restore the answer from the dp, it stores the mask and the previous position that it came from
+int maskSum[1<<N];
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
@@ -78,22 +80,50 @@ int main() {
         cin >> n;
         int a[n];
         F0R(i, n) cin >> a[i];
-        int dp[n+1][1<<n][n+1]; // the minimum possible value of the previous element in the array, states are current index, previous index, and current bitmask of elements used
-        pi p[n+1][1<<n][n+1];
-        memset(dp, INF, sizeof dp);
-        
+        F0R(cnt, n+1) F0R(mask, 1<<n) F0R(pos, n+1) dp[cnt][mask][pos] = INF;
+        F0R(i, 1<<n) {
+            maskSum[i] = 0;
+            F0R(j, n) if (i & (1<<j)) maskSum[i] += a[j];
+        }
         dp[0][0][0] = 0;
-        F0R(i, n) {
+        F0R(cnt, n) {
             F0R(mask, 1<<n) {
-                F0R(prev, n) {
-                    if (dp[i][mask][prev] == INF) continue;
+                F0R(pos, n) {
+                    if (dp[cnt][mask][pos] == INF) continue;
                     int newMask = mask ^ ((1<<n)-1);
                     for (int m = newMask; m != 0; m = (m-1)&newMask) {
-                        dp[i+1][mask|m][prev];
+                        if (maskSum[m] <= dp[cnt][mask][pos]) continue; // if the sum is smaller than current one, we can't use it
+                        if (m >> pos == 0) continue; // if the new mask doesn't use anything past the current position, then we can't add everything in the mask to something past the current position
+                        // we greedily choose the leftmost position after pos as the element that aggregates the whole mask
+                        // we can do this with counting trailing zeros of the mask after pos
+                        int npos = pos + __builtin_ctz(m>>pos)+1;
+                        if (ckmin(dp[cnt+1][mask|m][npos], maskSum[m]))
+                            p[cnt+1][mask|m][npos] = {m, pos};
                     }
                 }
             }
         }
+        int maxCnt = 0, ansPos = 0;
+        F0R(cnt, n+1) F0R(pos, n+1) if (dp[cnt][(1<<n)-1][pos] != INF) {
+            maxCnt = cnt; ansPos = pos;
+        }
+        vpi ans;
+        int curMask = (1<<n)-1, curPos = ansPos;
+        FORd(cnt, 1, maxCnt) { // this is restoring the answer with the p array
+            int nMask = p[cnt][curMask][curPos].f;
+            F0R(i, n) if (nMask & (1<<i)) if (i != curPos-1) ans.pb({i, curPos-1});
+            curPos = p[cnt][curMask][curPos].s;
+            curMask = curMask^nMask;
+        }
+        cout << sz(ans) << nl;
+        int idx[n]; // indices change as u delete stuff so this has the correct index
+        F0R(i, n) idx[i] = i;
+        trav(a, ans) {
+            int i = idx[a.f], j = idx[a.s];
+            FOR(k, a.f, n-1) idx[k]--; // deleting a.f so adjust indices
+            cout << i+1 << " " << j+1 << nl;
+        }
+        
         
     }
     return 0;

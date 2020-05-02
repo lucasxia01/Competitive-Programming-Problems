@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C66EC432458EC3E00211777 /* F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C66EC422458EC3D00211777 /* F.cpp */; };
+		8C66EC54245CD3F500211777 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C66EC53245CD3F500211777 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8C66EC282455613E00211777 /* CopyFiles */ = {
+		8C66EC4E245CD3F500211777 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,17 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C66EC2A2455613E00211777 /* Ed CF 86 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Ed CF 86"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C66EC2D2455613E00211777 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
-		8C66EC342455615800211777 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
-		8C66EC362455616000211777 /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
-		8C66EC382455616800211777 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
-		8C66EC3A2455617200211777 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
-		8C66EC422458EC3D00211777 /* F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F.cpp; sourceTree = "<group>"; };
+		8C66EC50245CD3F500211777 /* Segment Tree Training Problem Set */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Segment Tree Training Problem Set"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C66EC53245CD3F500211777 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8C66EC272455613E00211777 /* Frameworks */ = {
+		8C66EC4D245CD3F500211777 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,70 +38,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C66EC212455613E00211777 = {
+		8C66EC47245CD3F500211777 = {
 			isa = PBXGroup;
 			children = (
-				8C66EC2C2455613E00211777 /* Ed CF 86 */,
-				8C66EC2B2455613E00211777 /* Products */,
+				8C66EC52245CD3F500211777 /* Segment Tree Training Problem Set */,
+				8C66EC51245CD3F500211777 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8C66EC2B2455613E00211777 /* Products */ = {
+		8C66EC51245CD3F500211777 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C66EC2A2455613E00211777 /* Ed CF 86 */,
+				8C66EC50245CD3F500211777 /* Segment Tree Training Problem Set */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C66EC2C2455613E00211777 /* Ed CF 86 */ = {
+		8C66EC52245CD3F500211777 /* Segment Tree Training Problem Set */ = {
 			isa = PBXGroup;
 			children = (
-				8C66EC2D2455613E00211777 /* A.cpp */,
-				8C66EC342455615800211777 /* B.cpp */,
-				8C66EC362455616000211777 /* C.cpp */,
-				8C66EC382455616800211777 /* D.cpp */,
-				8C66EC3A2455617200211777 /* E.cpp */,
-				8C66EC422458EC3D00211777 /* F.cpp */,
+				8C66EC53245CD3F500211777 /* main.cpp */,
 			);
-			path = "Ed CF 86";
+			path = "Segment Tree Training Problem Set";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C66EC292455613E00211777 /* Ed CF 86 */ = {
+		8C66EC4F245CD3F500211777 /* Segment Tree Training Problem Set */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C66EC312455613E00211777 /* Build configuration list for PBXNativeTarget "Ed CF 86" */;
+			buildConfigurationList = 8C66EC57245CD3F500211777 /* Build configuration list for PBXNativeTarget "Segment Tree Training Problem Set" */;
 			buildPhases = (
-				8C66EC262455613E00211777 /* Sources */,
-				8C66EC272455613E00211777 /* Frameworks */,
-				8C66EC282455613E00211777 /* CopyFiles */,
+				8C66EC4C245CD3F500211777 /* Sources */,
+				8C66EC4D245CD3F500211777 /* Frameworks */,
+				8C66EC4E245CD3F500211777 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Ed CF 86";
-			productName = "Ed CF 86";
-			productReference = 8C66EC2A2455613E00211777 /* Ed CF 86 */;
+			name = "Segment Tree Training Problem Set";
+			productName = "Segment Tree Training Problem Set";
+			productReference = 8C66EC50245CD3F500211777 /* Segment Tree Training Problem Set */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8C66EC222455613E00211777 /* Project object */ = {
+		8C66EC48245CD3F500211777 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lucas Xia";
 				TargetAttributes = {
-					8C66EC292455613E00211777 = {
+					8C66EC4F245CD3F500211777 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8C66EC252455613E00211777 /* Build configuration list for PBXProject "Ed CF 86" */;
+			buildConfigurationList = 8C66EC4B245CD3F500211777 /* Build configuration list for PBXProject "Segment Tree Training Problem Set" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -114,29 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 8C66EC212455613E00211777;
-			productRefGroup = 8C66EC2B2455613E00211777 /* Products */;
+			mainGroup = 8C66EC47245CD3F500211777;
+			productRefGroup = 8C66EC51245CD3F500211777 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C66EC292455613E00211777 /* Ed CF 86 */,
+				8C66EC4F245CD3F500211777 /* Segment Tree Training Problem Set */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8C66EC262455613E00211777 /* Sources */ = {
+		8C66EC4C245CD3F500211777 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C66EC432458EC3E00211777 /* F.cpp in Sources */,
+				8C66EC54245CD3F500211777 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8C66EC2F2455613E00211777 /* Debug */ = {
+		8C66EC55245CD3F500211777 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -194,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		8C66EC302455613E00211777 /* Release */ = {
+		8C66EC56245CD3F500211777 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -245,7 +235,7 @@
 			};
 			name = Release;
 		};
-		8C66EC322455613E00211777 /* Debug */ = {
+		8C66EC58245CD3F500211777 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -253,7 +243,7 @@
 			};
 			name = Debug;
 		};
-		8C66EC332455613E00211777 /* Release */ = {
+		8C66EC59245CD3F500211777 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -264,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C66EC252455613E00211777 /* Build configuration list for PBXProject "Ed CF 86" */ = {
+		8C66EC4B245CD3F500211777 /* Build configuration list for PBXProject "Segment Tree Training Problem Set" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C66EC2F2455613E00211777 /* Debug */,
-				8C66EC302455613E00211777 /* Release */,
+				8C66EC55245CD3F500211777 /* Debug */,
+				8C66EC56245CD3F500211777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C66EC312455613E00211777 /* Build configuration list for PBXNativeTarget "Ed CF 86" */ = {
+		8C66EC57245CD3F500211777 /* Build configuration list for PBXNativeTarget "Segment Tree Training Problem Set" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C66EC322455613E00211777 /* Debug */,
-				8C66EC332455613E00211777 /* Release */,
+				8C66EC58245CD3F500211777 /* Debug */,
+				8C66EC59245CD3F500211777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8C66EC222455613E00211777 /* Project object */;
+	rootObject = 8C66EC48245CD3F500211777 /* Project object */;
 }
