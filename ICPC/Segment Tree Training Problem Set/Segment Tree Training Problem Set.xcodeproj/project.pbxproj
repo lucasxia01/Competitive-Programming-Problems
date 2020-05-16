@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C66EC54245CD3F500211777 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C66EC53245CD3F500211777 /* main.cpp */; };
+		8C66EC8424626C5F00211777 /* D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C66EC8324626C5F00211777 /* D.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,10 @@
 
 /* Begin PBXFileReference section */
 		8C66EC50245CD3F500211777 /* Segment Tree Training Problem Set */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Segment Tree Training Problem Set"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C66EC53245CD3F500211777 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8C66EC53245CD3F500211777 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
+		8C66EC7E245FF54A00211777 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
+		8C66EC80246145EE00211777 /* F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F.cpp; sourceTree = "<group>"; };
+		8C66EC8324626C5F00211777 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +60,10 @@
 		8C66EC52245CD3F500211777 /* Segment Tree Training Problem Set */ = {
 			isa = PBXGroup;
 			children = (
-				8C66EC53245CD3F500211777 /* main.cpp */,
+				8C66EC53245CD3F500211777 /* A.cpp */,
+				8C66EC7E245FF54A00211777 /* B.cpp */,
+				8C66EC8324626C5F00211777 /* D.cpp */,
+				8C66EC80246145EE00211777 /* F.cpp */,
 			);
 			path = "Segment Tree Training Problem Set";
 			sourceTree = "<group>";
@@ -119,7 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C66EC54245CD3F500211777 /* main.cpp in Sources */,
+				8C66EC8424626C5F00211777 /* D.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

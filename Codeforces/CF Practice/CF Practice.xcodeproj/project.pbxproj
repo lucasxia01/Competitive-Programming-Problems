@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CF3F7102411882700A01E78 /* LazySegTree Practice - 52C.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3F70F2411882600A01E78 /* LazySegTree Practice - 52C.cpp */; };
+		8C66ECBE2467C86F00211777 /* SegTree Practice - 145E Lucky Queries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C66ECBD2467C86F00211777 /* SegTree Practice - 145E Lucky Queries.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +26,7 @@
 		8C15A3D4213F6685007FC8D4 /* CF Practice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CF Practice"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C15A3D7213F6685007FC8D4 /* SegTree Practice - 339D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "SegTree Practice - 339D.cpp"; sourceTree = "<group>"; };
 		8C2D75D12345750B002E658F /* 71E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 71E.cpp; sourceTree = "<group>"; };
+		8C66ECBD2467C86F00211777 /* SegTree Practice - 145E Lucky Queries.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "SegTree Practice - 145E Lucky Queries.cpp"; sourceTree = "<group>"; };
 		8CF3F70F2411882600A01E78 /* LazySegTree Practice - 52C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "LazySegTree Practice - 52C.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +63,7 @@
 				8C15A3D7213F6685007FC8D4 /* SegTree Practice - 339D.cpp */,
 				8C2D75D12345750B002E658F /* 71E.cpp */,
 				8CF3F70F2411882600A01E78 /* LazySegTree Practice - 52C.cpp */,
+				8C66ECBD2467C86F00211777 /* SegTree Practice - 145E Lucky Queries.cpp */,
 			);
 			path = "CF Practice";
 			sourceTree = "<group>";
@@ -122,7 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CF3F7102411882700A01E78 /* LazySegTree Practice - 52C.cpp in Sources */,
+				8C66ECBE2467C86F00211777 /* SegTree Practice - 145E Lucky Queries.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

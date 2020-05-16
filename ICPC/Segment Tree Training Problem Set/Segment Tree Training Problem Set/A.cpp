@@ -136,11 +136,9 @@ struct LazySegTree {
 vi edges[MX];
 int ti[MX], to[MX];
 int t = 0;
-vi order; // create the preorder traversal to create the segtree on
 
 void dfs(int v = 1) {
     ti[v] = t++;
-    order.pb(v);
     trav(u, edges[v]) dfs(u);
     to[v] = t;
 }
