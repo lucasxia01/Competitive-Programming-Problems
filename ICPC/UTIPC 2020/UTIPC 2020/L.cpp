@@ -54,25 +54,43 @@ const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
 
+const ll MX = 1e15+5;
+const ll sqrtMX = sqrt(MX);
+ll m;
+ll gcd(ll a, ll b) {
+    if (a > b) return gcd(b, a);
+    if (a == 0) return b;
+    return gcd(b%a, a);
+}
+
+ll calc(ll b) {
+    ll t = b;
+    ll count = 1;
+    while (2*t < m) t*=2, count++;
+    ll ret = count*m - ((t/b)*2-1)*b;
+    // cout << b << " " << ret << endl;
+    return ret;
+}
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n = 8;
-    string b[n];
-    bool r[8] = {}, c[8] = {};
+    int n; cin >> n >> m;
+    ll g = 0;
+    ll a[n];
     F0R(i, n) {
-        cin >> b[i];
-        F0R(j, n) {
-            if (b[i][j] == 'R') {
-                r[i] = 1;
-                c[j] = 1;
-            }
-        }
+        cin >> a[i];
+        g = gcd(g, a[i]-1);
     }
-    int ans = 0;
-    F0R(i, n) F0R(j, n) {
-        if (!r[i] && !c[j]) ans++;
+    ll d = g;
+    while (d%2==0) d/=2;
+    ll ans = 0;
+    for (ll i = 1; i <= min(m-1, (ll)sqrt(d)+1); i+=2) {
+        if (d%i) continue;
+        ans += calc(i);
+        if (i*i == d) continue;
+        ans += calc(d/i);
     }
-    cout << ans << endl;
+    cout << ans << '\n';
     return 0;
 }

@@ -21,6 +21,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cassert>
+#include <climits>
 
 using namespace std;
 
@@ -65,38 +66,69 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 const int MX = 105;
 
-int cost[MX][2];
-int vis[MX];
-ll gr[MX][MX];
-int n;
+struct Dinic {
+    struct Edge {
+        int to, rev;
+        ll c, oc;
+        ll flow() { return max(oc - c, 0LL); } // if you need flows
+    };
+    vi lvl, ptr, q;
+    vector<vector<Edge>> adj;
+    Dinic(int n) : lvl(n), ptr(n), q(n), adj(n) {}
+    void addEdge(int a, int b, ll c, int rcap = 0) {
+        adj[a].push_back({b, sz(adj[b]), c, c});
+        adj[b].push_back({a, sz(adj[a]) - 1, rcap, rcap});
+    }
+    ll dfs(int v, int t, ll f) {
+        if (v == t || !f) return f;
+        for (int& i = ptr[v]; i < sz(adj[v]); i++) {
+            Edge& e = adj[v][i];
+            if (lvl[e.to] == lvl[v] + 1)
+                if (ll p = dfs(e.to, t, min(f, e.c))) {
+                    e.c -= p, adj[e.to][e.rev].c += p;
+                    return p;
+                }
+        }
+        return 0;
+    }
+    ll calc(int s, int t) {
+        ll flow = 0; q[0] = s;
+        F0R(L,31) do { // 'int L=30' maybe faster for random data
+            lvl = ptr = vi(sz(q));
+            int qi = 0, qe = lvl[s] = 1;
+            while (qi < qe && !lvl[t]) {
+                int v = q[qi++];
+                for (Edge e : adj[v])
+                    if (!lvl[e.to] && e.c >> (30 - L))
+                        q[qe++] = e.to, lvl[e.to] = lvl[v] + 1;
+            }
+            while (ll p = dfs(s, t, LLONG_MAX)) flow += p;
+        } while (lvl[t]);
+        return flow;
+    }
+    bool leftOfMinCut(int a) { return lvl[a] != 0; }
+};
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    cin >> n;
-    int c;
+    int n; cin >> n;
+    int c, a, j;
+    Dinic dnc(n+2);
+    ll ans = 0;
     F0R(i, n) {
-        cin >> c >> cost[i][0] >> cost[i][1];
-        cost[i][0] -= c;
-        cost[i][1] -= c;
+        cin >> c >> a >> j;
+        if (j > a) dnc.addEdge(0, i+1, j-a);
+        else dnc.addEdge(i+1, n+1, a-j);
+        ans += c - max(a, j);
     }
-    int u, v;
-    
     int b; cin >> b;
+    int x, y;
     F0R(i, b) {
-        cin >> u >> v >> c;
-        gr[u][v] += c;
-        gr[v][u] += c;
+        cin >> x >> y >> c;
+        dnc.addEdge(x, y, c);
+        dnc.addEdge(y, x, c);
     }
-    F0R(i, n) F0R(j, n) if (gr[i][j] == 0) gr[i][j] = INF;
-    F0R(i, n) {
-        if (!vis[i]) {
-            vis[i] = 1;
-            ll ans = dfs(i);
-            vis[i] = 2;
-            if (ckmin(ans, dfs(i))) vis[i] = 2;
-            else vis[i] = 1;
-        }
-    }
+    cout << ans + dnc.calc(0, n+1) << nl;
     return 0;
 }
