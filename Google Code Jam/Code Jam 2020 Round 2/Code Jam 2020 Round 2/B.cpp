@@ -97,7 +97,6 @@ void solve() {
         if (sz(t[count]) == 0) {
             int t = times[curT].f;
             int v = times[curT].s;
-            cout << count << " " << t << " " << v << nl;
             trav(u, vis) {
                 if (adj[u][v] == 0) {
                     assert(visTime[u] != -1);
@@ -125,11 +124,9 @@ void solve() {
         maxTime++;
         count+=sz(t[count]);
     }
-    cout << adj[e[0].f][e[0].s];
-    for (int i = 1; i < sz(e); i++) {
-        pi a = e[i];
+    trav(a, e) {
         if (adj[a.f][a.s] == 0) adj[a.f][a.s] = INF;
-        cout << " " << adj[a.f][a.s];
+        cout << adj[a.f][a.s] << " ";
     } cout << nl;
     
 }
