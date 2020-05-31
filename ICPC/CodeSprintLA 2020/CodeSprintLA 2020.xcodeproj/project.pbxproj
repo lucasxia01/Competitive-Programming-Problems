@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CD7CBF924803CA700F6B351 /* M.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CD7CBE4247F878B00F6B351 /* M.cpp */; };
+		8CBE5927247AE339008C803D /* dininghallDilemma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C66ECB9246762D900211777 /* dininghallDilemma.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8C66EC64245DE13300211777 /* CopyFiles */ = {
+		8C66EC8C2465057900211777 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,21 +23,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C66EC66245DE13300211777 /* UTIPC 2020 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "UTIPC 2020"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C66EC69245DE13300211777 /* L.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = L.cpp; sourceTree = "<group>"; };
-		8C66EC70245DE26900211777 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
-		8C66EC72245DEDB100211777 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
-		8C66EC75245DF9FA00211777 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
-		8C66EC77245E019100211777 /* K.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = K.cpp; sourceTree = "<group>"; };
-		8C66EC79245E0D6900211777 /* J.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = J.cpp; sourceTree = "<group>"; };
-		8C66EC7B245E1FB500211777 /* G.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = G.cpp; sourceTree = "<group>"; };
-		8C66ED0A24788F4800211777 /* I.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = I.cpp; sourceTree = "<group>"; };
-		8CD7CBE2247DD31A00F6B351 /* F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F.cpp; sourceTree = "<group>"; };
-		8CD7CBE4247F878B00F6B351 /* M.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = M.cpp; sourceTree = "<group>"; };
+		8C66EC8E2465057900211777 /* CodeSprintLA 2020 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CodeSprintLA 2020"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C66EC912465057900211777 /* sleepy_alarms_sol.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sleepy_alarms_sol.cpp; sourceTree = "<group>"; };
+		8C66EC982465061300211777 /* sleepy_test_gen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sleepy_test_gen.cpp; sourceTree = "<group>"; };
+		8C66EC9C2465097000211777 /* testlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testlib.h; sourceTree = "<group>"; };
+		8C66EC9D2465195200211777 /* sleepy_validator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sleepy_validator.cpp; sourceTree = "<group>"; };
+		8C66ECB52467568800211777 /* bruinwalk.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = bruinwalk.cpp; sourceTree = "<group>"; };
+		8C66ECB724675ECD00211777 /* miningGold.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = miningGold.cpp; sourceTree = "<group>"; };
+		8C66ECB9246762D900211777 /* dininghallDilemma.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dininghallDilemma.cpp; sourceTree = "<group>"; };
+		8C66ECBB246764B300211777 /* numberGame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = numberGame.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8C66EC63245DE13300211777 /* Frameworks */ = {
+		8C66EC8B2465057900211777 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -47,74 +45,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C66EC5D245DE13300211777 = {
+		8C66EC852465057900211777 = {
 			isa = PBXGroup;
 			children = (
-				8C66EC68245DE13300211777 /* UTIPC 2020 */,
-				8C66EC67245DE13300211777 /* Products */,
+				8C66EC902465057900211777 /* CodeSprintLA 2020 */,
+				8C66EC8F2465057900211777 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8C66EC67245DE13300211777 /* Products */ = {
+		8C66EC8F2465057900211777 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C66EC66245DE13300211777 /* UTIPC 2020 */,
+				8C66EC8E2465057900211777 /* CodeSprintLA 2020 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C66EC68245DE13300211777 /* UTIPC 2020 */ = {
+		8C66EC902465057900211777 /* CodeSprintLA 2020 */ = {
 			isa = PBXGroup;
 			children = (
-				8C66EC72245DEDB100211777 /* A.cpp */,
-				8C66EC70245DE26900211777 /* D.cpp */,
-				8C66EC75245DF9FA00211777 /* E.cpp */,
-				8CD7CBE2247DD31A00F6B351 /* F.cpp */,
-				8C66EC7B245E1FB500211777 /* G.cpp */,
-				8C66ED0A24788F4800211777 /* I.cpp */,
-				8C66EC79245E0D6900211777 /* J.cpp */,
-				8C66EC77245E019100211777 /* K.cpp */,
-				8C66EC69245DE13300211777 /* L.cpp */,
-				8CD7CBE4247F878B00F6B351 /* M.cpp */,
+				8C66EC9C2465097000211777 /* testlib.h */,
+				8C66EC912465057900211777 /* sleepy_alarms_sol.cpp */,
+				8C66EC982465061300211777 /* sleepy_test_gen.cpp */,
+				8C66EC9D2465195200211777 /* sleepy_validator.cpp */,
+				8C66ECB52467568800211777 /* bruinwalk.cpp */,
+				8C66ECB724675ECD00211777 /* miningGold.cpp */,
+				8C66ECB9246762D900211777 /* dininghallDilemma.cpp */,
+				8C66ECBB246764B300211777 /* numberGame.cpp */,
 			);
-			path = "UTIPC 2020";
+			path = "CodeSprintLA 2020";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C66EC65245DE13300211777 /* UTIPC 2020 */ = {
+		8C66EC8D2465057900211777 /* CodeSprintLA 2020 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C66EC6D245DE13300211777 /* Build configuration list for PBXNativeTarget "UTIPC 2020" */;
+			buildConfigurationList = 8C66EC952465057900211777 /* Build configuration list for PBXNativeTarget "CodeSprintLA 2020" */;
 			buildPhases = (
-				8C66EC62245DE13300211777 /* Sources */,
-				8C66EC63245DE13300211777 /* Frameworks */,
-				8C66EC64245DE13300211777 /* CopyFiles */,
+				8C66EC8A2465057900211777 /* Sources */,
+				8C66EC8B2465057900211777 /* Frameworks */,
+				8C66EC8C2465057900211777 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "UTIPC 2020";
-			productName = "UTIPC 2020";
-			productReference = 8C66EC66245DE13300211777 /* UTIPC 2020 */;
+			name = "CodeSprintLA 2020";
+			productName = "CodeSprintLA 2020";
+			productReference = 8C66EC8E2465057900211777 /* CodeSprintLA 2020 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8C66EC5E245DE13300211777 /* Project object */ = {
+		8C66EC862465057900211777 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lucas Xia";
 				TargetAttributes = {
-					8C66EC65245DE13300211777 = {
+					8C66EC8D2465057900211777 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8C66EC61245DE13300211777 /* Build configuration list for PBXProject "UTIPC 2020" */;
+			buildConfigurationList = 8C66EC892465057900211777 /* Build configuration list for PBXProject "CodeSprintLA 2020" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -122,29 +118,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 8C66EC5D245DE13300211777;
-			productRefGroup = 8C66EC67245DE13300211777 /* Products */;
+			mainGroup = 8C66EC852465057900211777;
+			productRefGroup = 8C66EC8F2465057900211777 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C66EC65245DE13300211777 /* UTIPC 2020 */,
+				8C66EC8D2465057900211777 /* CodeSprintLA 2020 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8C66EC62245DE13300211777 /* Sources */ = {
+		8C66EC8A2465057900211777 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CD7CBF924803CA700F6B351 /* M.cpp in Sources */,
+				8CBE5927247AE339008C803D /* dininghallDilemma.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8C66EC6B245DE13300211777 /* Debug */ = {
+		8C66EC932465057900211777 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -202,7 +198,7 @@
 			};
 			name = Debug;
 		};
-		8C66EC6C245DE13300211777 /* Release */ = {
+		8C66EC942465057900211777 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -253,7 +249,7 @@
 			};
 			name = Release;
 		};
-		8C66EC6E245DE13300211777 /* Debug */ = {
+		8C66EC962465057900211777 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -261,7 +257,7 @@
 			};
 			name = Debug;
 		};
-		8C66EC6F245DE13300211777 /* Release */ = {
+		8C66EC972465057900211777 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -272,25 +268,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C66EC61245DE13300211777 /* Build configuration list for PBXProject "UTIPC 2020" */ = {
+		8C66EC892465057900211777 /* Build configuration list for PBXProject "CodeSprintLA 2020" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C66EC6B245DE13300211777 /* Debug */,
-				8C66EC6C245DE13300211777 /* Release */,
+				8C66EC932465057900211777 /* Debug */,
+				8C66EC942465057900211777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C66EC6D245DE13300211777 /* Build configuration list for PBXNativeTarget "UTIPC 2020" */ = {
+		8C66EC952465057900211777 /* Build configuration list for PBXNativeTarget "CodeSprintLA 2020" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C66EC6E245DE13300211777 /* Debug */,
-				8C66EC6F245DE13300211777 /* Release */,
+				8C66EC962465057900211777 /* Debug */,
+				8C66EC972465057900211777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8C66EC5E245DE13300211777 /* Project object */;
+	rootObject = 8C66EC862465057900211777 /* Project object */;
 }

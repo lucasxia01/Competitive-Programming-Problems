@@ -65,43 +65,43 @@ template <typename T> bool ckmax(T& a, const T& b) {
 }
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-const int MX = 1e7+5;
-const ld eps = 1e-5;
+const int MX = 100;
 
-struct Point {
-    ld x, y;
-};
-
-// angle between vectors (a-c) and (b-c)
-ld angle(Point a, Point b, Point c) {
-    a.x -= c.x; a.y -= c.y;
-    b.x -= c.x; b.y -= c.y;
-    // dot product
-    return acosl((a.x*b.x+a.y*b.y)/(sqrtl(a.x*a.x+a.y*a.y)*sqrtl(b.x*b.x+b.y*b.y)));
+ll cm[MX][MX];
+ll comb(ll n, ll r) {
+    if (r == 0 || n == r) return 1;
+    if (n < r || n < 0 || r < 0) return 0LL;
+    if (cm[n][r]) return cm[n][r];
+    return comb(n-1, r) + comb(n-1, r-1);
 }
 
-// check angle*n close enough to integer
-bool check(ld angle, int n) {
-    return (fabsl(angle*n - round(angle*n)) < eps);
+ld win(ld p, int n) {
+    ld pn = powl(p, n);
+    ld ret = 0;
+    F0R(i, n-1) ret += pn*comb(n-1+i, i)*powl(1-p, i);
+    ret += comb(2*n-2, n-1)*powl(p, n-1)*powl(1-p, n-1)*(p*p)/(1 - 2*p*(1-p));
+    return ret;
+}
+
+ld win_set(ld p, ld point) {
+    int n = 6;
+    ld pn = powl(p, n);
+    ld ret = 0;
+    F0R(i, n-1) ret += pn*comb(n-1+i, i)*powl(1-p, i);
+    ret += comb(2*n-2, n-1)*powl(p, n-1)*powl(1-p, n-1)*2*p*(1-p)*win(point, 7);
+    ret += comb(2*n-2, n-1)*powl(p, n-1)*powl(1-p, n-1)*p*p;
+    return ret;
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    Point p[3];
-    for (;;) {
-        F0R(i, 3) if (scanf("%Lf %Lf", &p[i].x, &p[i].y) != 2) return 0;
-        // calculate the 2 angles between two pairs of points
-        ld a1 = angle(p[0], p[1], p[2])/PI;
-        ld a2 = angle(p[1], p[2], p[0])/PI;
-        for (int n = 3; n <= 1000; n++) { // n is number of sides
-            // we want to check if the angle theta * n is close enough to some integer k
-            if (check(a1, n) && check(a2, n)) {
-                cout << n << nl;
-                break;
-            }
-        }
-        
+    for (ld n; cin >> n && n != -1;) {
+        ld game = win(n, 4);
+        ld set = win_set(game, n);
+        ld match = set*set + 2*set*(1-set)*set;
+        cout << setprecision(10);
+        cout << fixed << game << " " << set << " " << match << nl;
     }
     return 0;
 }

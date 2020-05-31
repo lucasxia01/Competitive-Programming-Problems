@@ -54,7 +54,7 @@ typedef vector<pl> vpl;
 const char nl = '\n';
 const int MAX_N = 100011;
 const ll INF = (1<<29) + 123;
-const ll MOD = 1000000007; // 998244353
+const ll MOD = 100000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
 template <typename T> bool ckmin(T& a, const T& b) {
@@ -65,43 +65,59 @@ template <typename T> bool ckmax(T& a, const T& b) {
 }
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-const int MX = 1e7+5;
-const ld eps = 1e-5;
+const int MX = 360000;
 
-struct Point {
-    ld x, y;
-};
-
-// angle between vectors (a-c) and (b-c)
-ld angle(Point a, Point b, Point c) {
-    a.x -= c.x; a.y -= c.y;
-    b.x -= c.x; b.y -= c.y;
-    // dot product
-    return acosl((a.x*b.x+a.y*b.y)/(sqrtl(a.x*a.x+a.y*a.y)*sqrtl(b.x*b.x+b.y*b.y)));
+ll binpow(ll a, ll b) {
+    ll res = 1;
+    while (b > 0) {
+        if (b & 1)
+            res = (res * a)%MOD;
+        a = (a * a)%MOD;
+        b >>= 1;
+    }
+    return res;
 }
 
-// check angle*n close enough to integer
-bool check(ld angle, int n) {
-    return (fabsl(angle*n - round(angle*n)) < eps);
+ll gcd(ll a, ll b) {
+    if (a < b) return gcd(b, a);
+    if (b == 0) return a;
+    return gcd(a%b, b);
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    Point p[3];
-    for (;;) {
-        F0R(i, 3) if (scanf("%Lf %Lf", &p[i].x, &p[i].y) != 2) return 0;
-        // calculate the 2 angles between two pairs of points
-        ld a1 = angle(p[0], p[1], p[2])/PI;
-        ld a2 = angle(p[1], p[2], p[0])/PI;
-        for (int n = 3; n <= 1000; n++) { // n is number of sides
-            // we want to check if the angle theta * n is close enough to some integer k
-            if (check(a1, n) && check(a2, n)) {
-                cout << n << nl;
-                break;
+    for (int s, p; cin >> s >> p && s != -1;) {
+        int f[MX] = {};
+        int a[MX];
+        F0R(i, p) {
+            cin >> a[i];
+            f[a[i]] = 1;
+        }
+        int minPer = MX;
+        FOR(i, 1, MX) {
+            if (MX%i != 0) continue;
+            bool ok = 1;
+            F0R(j, p) if (f[a[j]] && !f[(a[j]+i)%MX]) {
+                ok = 0; break;
+            }
+            if (ok) {
+                minPer = i; break;
             }
         }
-        
+        ll count = 0;
+        F0R(i, minPer) if (f[i]) count++;
+        assert(p%count==0);
+        int g = p/count;
+        ll ans = 0;
+        ll t = binpow((ll)s, count);
+        // burnsides
+        FOR(i, 1, g) {
+            ll add = binpow(t, gcd(i, g));
+            ans = (ans + add)%MOD;
+        }
+        ll invg = binpow(g, MOD-2);
+        cout << (ans*invg)%MOD << nl;
     }
     return 0;
 }

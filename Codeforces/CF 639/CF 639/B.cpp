@@ -65,43 +65,73 @@ template <typename T> bool ckmax(T& a, const T& b) {
 }
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-const int MX = 1e7+5;
-const ld eps = 1e-5;
-
-struct Point {
-    ld x, y;
-};
-
-// angle between vectors (a-c) and (b-c)
-ld angle(Point a, Point b, Point c) {
-    a.x -= c.x; a.y -= c.y;
-    b.x -= c.x; b.y -= c.y;
-    // dot product
-    return acosl((a.x*b.x+a.y*b.y)/(sqrtl(a.x*a.x+a.y*a.y)*sqrtl(b.x*b.x+b.y*b.y)));
-}
-
-// check angle*n close enough to integer
-bool check(ld angle, int n) {
-    return (fabsl(angle*n - round(angle*n)) < eps);
+const int MX = 1005;
+int n, m;
+string g[MX];
+bool vis[MX][MX];
+int dx[4] = {0, 0, 1, -1}, dy[4] = {1, -1, 0, 0};
+void dfs(int x, int y) {
+    if (x < 0 || x >= n || y < 0 || y >= m || vis[x][y] || g[x][y] == '.') return;
+    vis[x][y] = 1;
+    F0R(d, 4) dfs(x+dx[d], y+dy[d]);
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    Point p[3];
-    for (;;) {
-        F0R(i, 3) if (scanf("%Lf %Lf", &p[i].x, &p[i].y) != 2) return 0;
-        // calculate the 2 angles between two pairs of points
-        ld a1 = angle(p[0], p[1], p[2])/PI;
-        ld a2 = angle(p[1], p[2], p[0])/PI;
-        for (int n = 3; n <= 1000; n++) { // n is number of sides
-            // we want to check if the angle theta * n is close enough to some integer k
-            if (check(a1, n) && check(a2, n)) {
-                cout << n << nl;
-                break;
+    cin >> n >> m;
+    F0R(i, n) cin >> g[i];
+//    bool r[n], c[m];
+//    F0R(i, n) r[i] = 1; F0R(i, m) c[i] = 1;
+    int blackCount = 0;
+    F0R(i, n) F0R(j, m) {
+        if (g[i][j] == '#') blackCount++;
+    }
+    if (blackCount == 0) {
+        cout << 0 << nl;
+        return 0;
+    }
+    bool ok = true;
+    bool empty1 = 0, empty2 = 0;
+    F0R(i, n) {
+        int lo = m, hi = -1;
+        F0R(j, m) {
+            if (g[i][j] == '#') {
+                ckmin(lo, j);
+                ckmax(hi, j);
             }
         }
-        
+        if (lo > hi) empty1 = 1;
+        FOR(j, lo, hi-1) {
+            if (g[i][j] == '.') ok = false;
+        }
     }
+    F0R(j, m) {
+        int lo = n, hi = -1;
+        F0R(i, n) {
+            if (g[i][j] == '#') {
+                ckmin(lo, i);
+                ckmax(hi, i);
+            }
+        }
+        if (lo > hi) empty2 = 1;
+        FOR(i, lo, hi-1) {
+            if (g[i][j] == '.') ok = false;
+        }
+    }
+    if (!ok || (empty1^empty2)) {
+        cout << -1 << nl;
+        return 0;
+    }
+    int ans = 0;
+    F0R(i, n) F0R(j, m) {
+        if (g[i][j] == '#' && !vis[i][j]) {
+            ans++;
+            dfs(i, j);
+
+        }
+    }
+    cout << ans << nl;
+
     return 0;
 }

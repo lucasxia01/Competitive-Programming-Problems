@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CD7CBF924803CA700F6B351 /* M.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CD7CBE4247F878B00F6B351 /* M.cpp */; };
+		8CD7CBF324802B2D00F6B351 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CD7CBF224802B2D00F6B351 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8C66EC64245DE13300211777 /* CopyFiles */ = {
+		8CD7CBED24802B2D00F6B351 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,21 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C66EC66245DE13300211777 /* UTIPC 2020 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "UTIPC 2020"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C66EC69245DE13300211777 /* L.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = L.cpp; sourceTree = "<group>"; };
-		8C66EC70245DE26900211777 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
-		8C66EC72245DEDB100211777 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
-		8C66EC75245DF9FA00211777 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
-		8C66EC77245E019100211777 /* K.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = K.cpp; sourceTree = "<group>"; };
-		8C66EC79245E0D6900211777 /* J.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = J.cpp; sourceTree = "<group>"; };
-		8C66EC7B245E1FB500211777 /* G.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = G.cpp; sourceTree = "<group>"; };
-		8C66ED0A24788F4800211777 /* I.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = I.cpp; sourceTree = "<group>"; };
-		8CD7CBE2247DD31A00F6B351 /* F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F.cpp; sourceTree = "<group>"; };
-		8CD7CBE4247F878B00F6B351 /* M.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = M.cpp; sourceTree = "<group>"; };
+		8CD7CBEF24802B2D00F6B351 /* Ed CF 88 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Ed CF 88"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CD7CBF224802B2D00F6B351 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8C66EC63245DE13300211777 /* Frameworks */ = {
+		8CD7CBEC24802B2D00F6B351 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -47,74 +38,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C66EC5D245DE13300211777 = {
+		8CD7CBE624802B2C00F6B351 = {
 			isa = PBXGroup;
 			children = (
-				8C66EC68245DE13300211777 /* UTIPC 2020 */,
-				8C66EC67245DE13300211777 /* Products */,
+				8CD7CBF124802B2D00F6B351 /* Ed CF 88 */,
+				8CD7CBF024802B2D00F6B351 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8C66EC67245DE13300211777 /* Products */ = {
+		8CD7CBF024802B2D00F6B351 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C66EC66245DE13300211777 /* UTIPC 2020 */,
+				8CD7CBEF24802B2D00F6B351 /* Ed CF 88 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C66EC68245DE13300211777 /* UTIPC 2020 */ = {
+		8CD7CBF124802B2D00F6B351 /* Ed CF 88 */ = {
 			isa = PBXGroup;
 			children = (
-				8C66EC72245DEDB100211777 /* A.cpp */,
-				8C66EC70245DE26900211777 /* D.cpp */,
-				8C66EC75245DF9FA00211777 /* E.cpp */,
-				8CD7CBE2247DD31A00F6B351 /* F.cpp */,
-				8C66EC7B245E1FB500211777 /* G.cpp */,
-				8C66ED0A24788F4800211777 /* I.cpp */,
-				8C66EC79245E0D6900211777 /* J.cpp */,
-				8C66EC77245E019100211777 /* K.cpp */,
-				8C66EC69245DE13300211777 /* L.cpp */,
-				8CD7CBE4247F878B00F6B351 /* M.cpp */,
+				8CD7CBF224802B2D00F6B351 /* main.cpp */,
 			);
-			path = "UTIPC 2020";
+			path = "Ed CF 88";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C66EC65245DE13300211777 /* UTIPC 2020 */ = {
+		8CD7CBEE24802B2D00F6B351 /* Ed CF 88 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C66EC6D245DE13300211777 /* Build configuration list for PBXNativeTarget "UTIPC 2020" */;
+			buildConfigurationList = 8CD7CBF624802B2D00F6B351 /* Build configuration list for PBXNativeTarget "Ed CF 88" */;
 			buildPhases = (
-				8C66EC62245DE13300211777 /* Sources */,
-				8C66EC63245DE13300211777 /* Frameworks */,
-				8C66EC64245DE13300211777 /* CopyFiles */,
+				8CD7CBEB24802B2D00F6B351 /* Sources */,
+				8CD7CBEC24802B2D00F6B351 /* Frameworks */,
+				8CD7CBED24802B2D00F6B351 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "UTIPC 2020";
-			productName = "UTIPC 2020";
-			productReference = 8C66EC66245DE13300211777 /* UTIPC 2020 */;
+			name = "Ed CF 88";
+			productName = "Ed CF 88";
+			productReference = 8CD7CBEF24802B2D00F6B351 /* Ed CF 88 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8C66EC5E245DE13300211777 /* Project object */ = {
+		8CD7CBE724802B2C00F6B351 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lucas Xia";
 				TargetAttributes = {
-					8C66EC65245DE13300211777 = {
+					8CD7CBEE24802B2D00F6B351 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8C66EC61245DE13300211777 /* Build configuration list for PBXProject "UTIPC 2020" */;
+			buildConfigurationList = 8CD7CBEA24802B2C00F6B351 /* Build configuration list for PBXProject "Ed CF 88" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -122,29 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 8C66EC5D245DE13300211777;
-			productRefGroup = 8C66EC67245DE13300211777 /* Products */;
+			mainGroup = 8CD7CBE624802B2C00F6B351;
+			productRefGroup = 8CD7CBF024802B2D00F6B351 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C66EC65245DE13300211777 /* UTIPC 2020 */,
+				8CD7CBEE24802B2D00F6B351 /* Ed CF 88 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8C66EC62245DE13300211777 /* Sources */ = {
+		8CD7CBEB24802B2D00F6B351 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CD7CBF924803CA700F6B351 /* M.cpp in Sources */,
+				8CD7CBF324802B2D00F6B351 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8C66EC6B245DE13300211777 /* Debug */ = {
+		8CD7CBF424802B2D00F6B351 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -202,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		8C66EC6C245DE13300211777 /* Release */ = {
+		8CD7CBF524802B2D00F6B351 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -253,7 +235,7 @@
 			};
 			name = Release;
 		};
-		8C66EC6E245DE13300211777 /* Debug */ = {
+		8CD7CBF724802B2D00F6B351 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -261,7 +243,7 @@
 			};
 			name = Debug;
 		};
-		8C66EC6F245DE13300211777 /* Release */ = {
+		8CD7CBF824802B2D00F6B351 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -272,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C66EC61245DE13300211777 /* Build configuration list for PBXProject "UTIPC 2020" */ = {
+		8CD7CBEA24802B2C00F6B351 /* Build configuration list for PBXProject "Ed CF 88" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C66EC6B245DE13300211777 /* Debug */,
-				8C66EC6C245DE13300211777 /* Release */,
+				8CD7CBF424802B2D00F6B351 /* Debug */,
+				8CD7CBF524802B2D00F6B351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C66EC6D245DE13300211777 /* Build configuration list for PBXNativeTarget "UTIPC 2020" */ = {
+		8CD7CBF624802B2D00F6B351 /* Build configuration list for PBXNativeTarget "Ed CF 88" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C66EC6E245DE13300211777 /* Debug */,
-				8C66EC6F245DE13300211777 /* Release */,
+				8CD7CBF724802B2D00F6B351 /* Debug */,
+				8CD7CBF824802B2D00F6B351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8C66EC5E245DE13300211777 /* Project object */;
+	rootObject = 8CD7CBE724802B2C00F6B351 /* Project object */;
 }

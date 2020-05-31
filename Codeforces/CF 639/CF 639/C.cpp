@@ -65,43 +65,67 @@ template <typename T> bool ckmax(T& a, const T& b) {
 }
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-const int MX = 1e7+5;
-const ld eps = 1e-5;
-
-struct Point {
-    ld x, y;
-};
-
-// angle between vectors (a-c) and (b-c)
-ld angle(Point a, Point b, Point c) {
-    a.x -= c.x; a.y -= c.y;
-    b.x -= c.x; b.y -= c.y;
-    // dot product
-    return acosl((a.x*b.x+a.y*b.y)/(sqrtl(a.x*a.x+a.y*a.y)*sqrtl(b.x*b.x+b.y*b.y)));
+const int MX = 2e5+5;
+bool ok[MX];
+vi edges[MX];
+vi redges[MX];
+bool vis1[MX], vis2[MX];
+void dfs1(int v) {
+    trav(u, edges[v]) {
+        if (!vis1[u]) {
+            vis1[u] = 1;
+            dfs1(u);
+        }
+    }
 }
-
-// check angle*n close enough to integer
-bool check(ld angle, int n) {
-    return (fabsl(angle*n - round(angle*n)) < eps);
+void dfs2(int v) {
+    trav(u, redges[v]) {
+        if (!vis2[u]) {
+            vis2[u] = 1;
+            dfs2(u);
+        }
+    }
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    Point p[3];
-    for (;;) {
-        F0R(i, 3) if (scanf("%Lf %Lf", &p[i].x, &p[i].y) != 2) return 0;
-        // calculate the 2 angles between two pairs of points
-        ld a1 = angle(p[0], p[1], p[2])/PI;
-        ld a2 = angle(p[1], p[2], p[0])/PI;
-        for (int n = 3; n <= 1000; n++) { // n is number of sides
-            // we want to check if the angle theta * n is close enough to some integer k
-            if (check(a1, n) && check(a2, n)) {
-                cout << n << nl;
-                break;
-            }
-        }
-        
+    int n, m; cin >> n >> m;
+    
+    int j, k;
+    queue<int> zeros;
+    int inCount[n+1]; F0R(i, n+1) inCount[i] = 0;
+    F0R(i, n+1) ok[i] = 1;
+    F0R(i, m) {
+        cin >> j >> k;
+        inCount[k]++;
+        edges[j].pb(k);
+        redges[k].pb(j);
     }
+    FOR(i, 1, n) if (!inCount[i]) zeros.push(i);
+    //top sort
+    int c = 0;
+    while (!zeros.empty()) {
+        int v = zeros.front(); zeros.pop();
+        c++;
+        trav(u, edges[v]) {
+            inCount[u]--;
+            if (!inCount[u]) zeros.push(u);
+        }
+    }
+    if (c != n) {
+        cout << -1 << nl;
+        return 0;
+    }
+    int ans = 0;
+    string str = "";
+    FOR(i, 1, n) {
+        if(!vis1[i] && !vis2[i])ans++, str += 'A';
+        else str += 'E';
+        dfs1(i);
+        dfs2(i);
+    }
+    assert(ans);
+    cout << ans << nl << str << nl;
     return 0;
 }
