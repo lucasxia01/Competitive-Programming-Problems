@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CD7CC072482D6B800F6B351 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CD7CC062482D6B800F6B351 /* main.cpp */; };
+		8C2A25A62483083D00F56468 /* J.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A25A52483083D00F56468 /* J.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C2A259C2482DE9A00F56468 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
+		8C2A259E2482E5F600F56468 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
+		8C2A25A22482ECCF00F56468 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
+		8C2A25A52483083D00F56468 /* J.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = J.cpp; sourceTree = "<group>"; };
 		8CD7CC032482D6B800F6B351 /* SWERC 2012 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SWERC 2012"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CD7CC062482D6B800F6B351 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8CD7CC062482D6B800F6B351 /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,11 @@
 		8CD7CC052482D6B800F6B351 /* SWERC 2012 */ = {
 			isa = PBXGroup;
 			children = (
-				8CD7CC062482D6B800F6B351 /* main.cpp */,
+				8C2A259C2482DE9A00F56468 /* A.cpp */,
+				8C2A259E2482E5F600F56468 /* B.cpp */,
+				8CD7CC062482D6B800F6B351 /* C.cpp */,
+				8C2A25A22482ECCF00F56468 /* E.cpp */,
+				8C2A25A52483083D00F56468 /* J.cpp */,
 			);
 			path = "SWERC 2012";
 			sourceTree = "<group>";
@@ -119,7 +127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CD7CC072482D6B800F6B351 /* main.cpp in Sources */,
+				8C2A25A62483083D00F56468 /* J.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
