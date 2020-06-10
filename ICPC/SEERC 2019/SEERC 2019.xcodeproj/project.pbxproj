@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C130842248C112E00207F74 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C130841248C112E00207F74 /* main.cpp */; };
+		8CFA963E24908E5C00748D03 /* E.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA963D24908E5C00748D03 /* E.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,14 @@
 
 /* Begin PBXFileReference section */
 		8C13083E248C112E00207F74 /* SEERC 2019 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SEERC 2019"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C130841248C112E00207F74 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8C130841248C112E00207F74 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
+		8C130848248C1AAB00207F74 /* I.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = I.cpp; sourceTree = "<group>"; };
+		8C13084B248C246F00207F74 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
+		8C13084D248C29AC00207F74 /* G.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = G.cpp; sourceTree = "<group>"; };
+		8CFA9635248C4E6B00748D03 /* J.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = J.cpp; sourceTree = "<group>"; };
+		8CFA9637248C4FC700748D03 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
+		8CFA963A248DB7E700748D03 /* F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F.cpp; sourceTree = "<group>"; };
+		8CFA963D24908E5C00748D03 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +64,14 @@
 		8C130840248C112E00207F74 /* SEERC 2019 */ = {
 			isa = PBXGroup;
 			children = (
-				8C130841248C112E00207F74 /* main.cpp */,
+				8C130841248C112E00207F74 /* A.cpp */,
+				8CFA9637248C4FC700748D03 /* B.cpp */,
+				8C13084B248C246F00207F74 /* D.cpp */,
+				8CFA963D24908E5C00748D03 /* E.cpp */,
+				8CFA963A248DB7E700748D03 /* F.cpp */,
+				8C13084D248C29AC00207F74 /* G.cpp */,
+				8C130848248C1AAB00207F74 /* I.cpp */,
+				8CFA9635248C4E6B00748D03 /* J.cpp */,
 			);
 			path = "SEERC 2019";
 			sourceTree = "<group>";
@@ -119,7 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C130842248C112E00207F74 /* main.cpp in Sources */,
+				8CFA963E24908E5C00748D03 /* E.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

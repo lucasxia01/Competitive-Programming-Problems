@@ -65,30 +65,75 @@ template <typename T> bool ckmax(T& a, const T& b) {
 }
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+int n;
+struct Node {
+    int res[2][2] = {{INF, INF}, {INF, INF}};
+    Node operator+(const Node& o) const {
+        Node ret;
+        F0R(i, 2) F0R(j, 2) F0R(ii, 2) F0R(jj, 2)
+            ckmin(ret.res[i][j], res[i][ii] + (ii != jj) + o.res[jj][j]);
+        return ret;
+    }
+};
 
-const int MX = 1<<20;
+template <class T>
+struct SegTree {
+    int SZ;
+    vector<Node> t;
+    SegTree(int n) {
+        SZ = n;
+        Node temp;
+        F0R(i, 2*SZ) t.pb(temp);
+    }
+    void pull(int p) {
+        while (p > 1) p>>=1, t[p] = t[p<<1]+t[p<<1|1];
+    }
+    void set(int p, T v) {
+        p+=SZ;
+        Node newP; newP.res[v][v] = 0, newP.res[!v][!v] = 1;
+        t[p] = newP;
+        pull(p);
+    }
+    Node query(int l, int r) {
+        Node ans;
+        F0R(i, 2)  ans.res[i][i] = 0;
+        vi rSegs;
+        for (l+=SZ, r+=SZ; l<r; l>>=1, r>>=1) {
+            if (l&1) ans = ans + t[l++];
+            if (r&1) rSegs.pb(--r);
+        }
+        F0Rd(i, sz(rSegs)) ans = ans + t[rSegs[i]]; // this is for correct order of merge
+        return ans;
+    }
+};
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n, m; cin >> n >> m;
+    int m; cin >> n >> m;
+    vi v[m+1]; // positions of values of type i
     int a[n];
-    int freq[m+1]; memset(freq, 0, sizeof freq);
     F0R(i, n) {
         cin >> a[i];
-        freq[a[i]]++;
+        v[a[i]].pb(i);
     }
-    int diff[m+1]; memset(diff, 0, sizeof diff);
-    F0R(i, n) {
-        if (a[i] == a[(i+1)%n]) continue;
-        diff[min(a[i], a[(i+1)%n])+1]++;
-        diff[max(a[i], a[(i+1)%n])]--;
-    }
+    SegTree<int> st(n);
+    F0R(i, n) st.set(i, 1);
     FOR(i, 1, m) {
-        diff[i] += diff[i-1];
-        cout << freq[i] << " " << diff[i] << nl;
-        if (!freq[i]) cout << -1 << nl;
-        else cout << n-freq[i]+diff[i] << nl;
+        trav(p, v[i-1]) st.set(p, 0);
+        int SZ = sz(v[i]);
+        int ans = n-SZ;
+        F0R(j, SZ) {
+            Node ret;
+            int l = v[i][j], r = v[i][(j+1)%SZ];
+            if (l < r) ret = st.query(l+1, r);
+            else ret = st.query(l+1, n)+st.query(0, r);
+            int add = INF;
+            F0R(ii, 2) F0R(jj, 2) ckmin(add, ret.res[ii][jj]);
+            ans += add;
+        }
+        cout << (!SZ ? -1 : ans) << " ";
     }
+    cout << nl;
     return 0;
 }
