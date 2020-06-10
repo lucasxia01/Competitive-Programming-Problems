@@ -66,38 +66,29 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int N = 500;
-
-int gr[N][N];
+const int MX = 1<<20;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
     int n, m; cin >> n >> m;
-    int v, u;
-    F0R(i, m) {
-        cin >> v >> u;
-        gr[v][u] = gr[u][v] = 1;
-    }
-    int ans = INF;
+    int a[n];
+    int freq[m+1]; memset(freq, 0, sizeof freq);
     F0R(i, n) {
-        queue<int> q; q.push(i);
-        int d[n], par[n]; F0R(i, n) d[i] = par[i] = -1;
-        d[i] = 0;
-        while (!q.empty()) {
-            v = q.front(); q.pop();
-            F0R(j, n) {
-                if (gr[v][j] && d[j] > 0 && par[v] != j) {
-                    ckmin(ans, d[v]+d[j]+1);
-                } else if (gr[v][j] && d[j] == -1) {
-                    q.push(j);
-                    d[j] = d[v]+1;
-                    par[j] = v;
-                }
-            }
-        }
+        cin >> a[i];
+        freq[a[i]]++;
     }
-    if (ans == INF) cout << "impossible" << nl;
-    else cout << ans << nl;
+    int diff[m+1]; memset(diff, 0, sizeof diff);
+    F0R(i, n) {
+        if (a[i] == a[(i+1)%n]) continue;
+        diff[min(a[i], a[(i+1)%n])+1]++;
+        diff[max(a[i], a[(i+1)%n])]--;
+    }
+    FOR(i, 1, m) {
+        diff[i] += diff[i-1];
+        cout << freq[i] << " " << diff[i] << nl;
+        if (!freq[i]) cout << -1 << nl;
+        else cout << n-freq[i]+diff[i] << nl;
+    }
     return 0;
 }

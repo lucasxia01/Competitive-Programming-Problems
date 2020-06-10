@@ -66,52 +66,19 @@ template <typename T> bool ckmax(T& a, const T& b) {
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 const int MX = 1<<20;
+struct oper{
+    int a, b, v;
+    char op;
+};
+
+struct State {
+    vi cur;
+    int a, b; char op;
+    vector<oper> hist;
+};
 
 char ops[4] = {'+', '-', '*', '/'};
-int a[6], t, best;
-vi best_eval;
-
-stack<int> s;
-deque<int> curOps;
-void evaluate(int n) {
-    if (n == -1) return;
-    s.push(a[6-n]);
-    F0R(i, 4) {
-        stack<int> s_copy = s;
-        curOps.pb(i);
-        evaluate(n-1);
-        F0R(i, sz(curOps)) {
-            int op = curOps[i];
-            int v = s.top(); s.pop();
-            int w = s.top(); s.pop();
-            if (op==0) s.push(w+v);
-            else if (op == 1) {
-                if (w<=v) break;
-                s.push(w-v);
-            } else if (op == 2) {
-                s.push(w*v);
-            } else if (op == 3) {
-                if (v==0 || w%v) break;
-                s.push(w/v);
-            }
-            if (abs(s.top()-t) < abs(best-t)) {
-                best = s.top();
-                best_eval = 
-            }
-            evaluate(n-1);
-        }
-        s = s_copy;
-    }
-}
-void solve() {
-    sort(a, a+6);
-    do {
-        stack<int> s;
-        s.push(a[0]);
-        evaluate(5);
-    } while (next_permutation(a, a+6));
-}
-
+int a[6], t;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
@@ -120,30 +87,59 @@ int main() {
         F0R(i, 6) cin >> a[i];
         cin >> t;
         cout << "Target: " << t << nl;
-        best = 0;
-        solve();
-        stack<int> s;
-        trav(u, best_eval) {
-            if (u < 0) {
-                int v = s.top(); s.pop();
-                int w = s.top(); s.pop();
-                if (u == -4) {
-                    cout << w << " + " << v << " = " << w+v << nl;
-                    s.push(w+v);
-                } else if (u == -3) {
-                    cout << w << " - " << v << " = " << w-v << nl;
-                    assert(w > v);
-                    s.push(w-v);
-                } else if (u == -2) {
-                    cout << w << " * " << v << " = " << w*v << nl;
-                    s.push(w*v);
-                } else if (u == -1) {
-                    cout << w << " / " << v << " = " << w/v << nl;
-                    assert(w%v==0);
-                    s.push(w/v);
+        queue<State> q;
+        int best = INF;
+        State bestState;
+        State temp;
+        F0R(i, 6) {
+            temp.cur.pb(a[i]);
+            if (abs(a[i]-t) < abs(best-t)) best = a[i];
+        }
+        q.push(temp);
+        while (!q.empty()) {
+            State s = q.front(); q.pop();
+//            trav(u, s.cur) cout << u << ' '; cout << nl;
+            F0R(o, 4) {
+                F0R(i, sz(s.cur)) {
+                    bool ok = 1;
+                    F0R(j, sz(s.cur)) {
+                        if (i == j) continue;
+                        if ((o == 0 || o == 2) && j >= i) continue;
+                        State st;
+                        st.a = s.cur[i]; st.b = s.cur[j];
+                        st.op = ops[o];
+                        oper move; move.a = st.a; move.b = st.b; move.op = ops[o];
+                        if (o == 0) {
+                            move.v = st.a+st.b;
+                        } else if (o == 1) {
+                            if (st.a <= st.b) continue;
+                            move.v = st.a-st.b;
+                        } else if (o == 2) {
+                            if (1LL*st.a*st.b >= MX) continue;
+                            move.v = st.a*st.b;
+                        } else {
+                            if (st.a%st.b) continue;
+                            move.v = st.a/st.b;
+                        }
+                        if (move.v >= MX) continue;
+                        F0R(k, sz(s.cur)) if (k != i && k != j) st.cur.pb(s.cur[k]);
+                        st.cur.pb(move.v);
+                        st.hist.pb(move);
+                        trav(m, s.hist) st.hist.pb(m);
+                        if (abs(move.v-t) < abs(best-t)) {
+                            best = move.v;
+                            bestState = st;
+                        }
+                        if (sz(st.cur) == 1) continue;
+                        q.push(st);
+                    }
+                    if (!ok) break;
                 }
-            } else s.push(u);
-            if (s.top() == best) break;
+            }
+        }
+        reverse(bestState.hist.begin(), bestState.hist.end());
+        trav(m, bestState.hist) {
+            cout << m.a << " " << m.op << " " << m.b << " = " << m.v << nl;
         }
         cout << "Best approx: " << best << nl;
         cout << nl;
