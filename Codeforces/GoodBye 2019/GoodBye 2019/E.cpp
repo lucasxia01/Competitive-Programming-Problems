@@ -66,23 +66,17 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 10;
+const int MX = 1e6;
 
 struct P {
     ll x, y;
     ll dist(P o) { return (x-o.x)*(x-o.x)+(y-o.y)*(y-o.y);}
 };
 
-vi edges[MX];
-int vis[MX];
-int color[MX];
-void dfs(int v, int c, bool diff) {
-    vis[v] = 1;
-    cout << v << " " << c << nl;
-    color[v] = c;
-    trav(u, edges[v]) {
-        if (!vis[u]) dfs(u, c^diff, diff);
-    }
+ll gcd(ll a, ll b) {
+    if (a < b) return gcd(b, a);
+    if (b == 0) return a;
+    return gcd(b, a%b);
 }
 
 int main() {
@@ -91,48 +85,35 @@ int main() {
     int n;
     cin >> n;
     P p[n];
-    F0R(i, n) cin >> p[i].x >> p[i].y;
-    F0R(i, n) color[i] = -1;
-    map<ll, vector<pi> > m;
-    F0R(i, n) F0R(j, i) {
-        m[p[i].dist(p[j])].pb({i, j});
-    }
-    trav(a, m) {
-        cout << a.f << nl;
-        set<int> ps;
-        set<int> colored;
-        bool diff = 1;
-        trav(e, a.s) {
-            edges[e.f].pb(e.s);
-            edges[e.s].pb(e.f);
-            if (color[e.f] != -1 && color[e.s] != -1)
-                if (color[e.f] == color[e.s]) diff = 0;
-            ps.insert(e.f);
-            ps.insert(e.s);
-            if (color[e.f] != -1) colored.insert(e.f);
-            if (color[e.s] != -1) colored.insert(e.s);
-        }
-        cout << diff << nl;
-        trav(v, colored) {
-            dfs(v, color[v], diff);
-            cout << nl;
-        }
-        trav(v, ps) {
-            if (!vis[v] && color[v] == -1) dfs(v, 1, diff);
-        }
-        trav(e, a.s) {
-            edges[e.f].clear();
-            edges[e.s].clear();
-        }
-        trav(v, ps) vis[v] = 0;
-    }
-    int ans = 0;
-    F0R(i, n) ans += color[i];
-    assert(ans != 0 && ans != n);
-    cout << ans << nl;
+    int count = 0, count1 = 0, count2 = 0;
+    ll g = 0;
     F0R(i, n) {
-        assert(color[i] != -1);
-        if (color[i]) cout << i+1 << " ";
+        cin >> p[i].x >> p[i].y;
+        if (i) {
+            p[i].x -= p[0].x; p[i].y -= p[0].y;
+            g = gcd(gcd(g, abs(p[i].x)), abs(p[i].y));
+        }
+    }
+    p[0].x = 0; p[0].y = 0;
+
+    F0R(i, n) {
+        p[i].x /= g; p[i].y /= g;
+        if ((p[i].x+p[i].y)%2==0) count++;
+        if (p[i].x%2==0&&p[i].y%2==0) count1++;
+        if (p[i].x%2==0&&p[i].y&1) count2++;
+    }
+    if (count > 0 && count < n) {
+        cout << count << nl;
+        F0R(i, n) if ((p[i].x+p[i].y)%2==0) cout << i+1 << " "; cout << nl;
+        return 0;
+    } else if (count == n) {
+        cout << count1 << nl;
+        F0R(i, n) if (p[i].x%2==0&&p[i].y%2==0) cout << i+1 << " "; cout << nl;
+        return 0;
+    } else {
+        cout << count2 << nl;
+        F0R(i, n) if (p[i].x%2==0&&p[i].y&1) cout << i+1 << " "; cout << nl;
+        return 0;
     }
     return 0;
 }
