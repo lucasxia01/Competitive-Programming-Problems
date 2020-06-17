@@ -66,31 +66,41 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 1e5+5;
-vi edges[MX];
-int dp[MX];
-
-void dfs(int v, int p) {
-    trav(u, edges[v]) {
-        if (u == p) continue;
-        dfs(u, v);
-        dp[v] += dp[u];
+int query2Range(int lo, int hi) {
+    cout << "2 " << hi-lo+1;
+    FOR(i, lo, hi) cout << " " << i+1;
+    fflush(stdout);
+    int count = (hi-lo)*(hi-lo+1)/2;
+    int maxDiff = 0, x;
+    F0R(i, count) {
+        cin >> x;
+        ckmax(maxDiff, x);
     }
-    if (dp[v]) dp[v]--;
-    else dp[v] = 1;
+    return maxDiff;
+}
+
+int query1(int p) {
+    cout << "1 " << p+1 << nl;
+    int x; cin >> x;
+    return x;
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
     int n; cin >> n;
-    int u, v;
-    F0R(i, n-1) {
-        cin >> u >> v;
-        edges[u].pb(v);
-        edges[v].pb(u);
+    // binary search to find min/max
+    int lo = 0, hi = n-1;
+    int diff = query2Range(0, hi);
+    while (lo < hi) {
+        int mid = (lo+hi)/2;
+        int curDiff = query2Range(0, mid);
+        if (curDiff != diff) lo = mid+1;
+        else hi = mid;
     }
-    dfs(1, 0);
-    cout << (dp[1]?"Alice":"Bob") << nl;
+    int val = query1(hi);
+    int val2 = query1(0); // for comparison
+    
+    
     return 0;
 }

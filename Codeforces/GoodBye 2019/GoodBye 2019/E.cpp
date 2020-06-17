@@ -53,7 +53,7 @@ typedef vector<pl> vpl;
 
 const char nl = '\n';
 const int MAX_N = 100011;
-const ll INF = 2e9+1;
+const ll INF = (1<<29) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
@@ -66,31 +66,73 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 1e5+5;
-vi edges[MX];
-int dp[MX];
+const int MX = 10;
 
-void dfs(int v, int p) {
+struct P {
+    ll x, y;
+    ll dist(P o) { return (x-o.x)*(x-o.x)+(y-o.y)*(y-o.y);}
+};
+
+vi edges[MX];
+int vis[MX];
+int color[MX];
+void dfs(int v, int c, bool diff) {
+    vis[v] = 1;
+    cout << v << " " << c << nl;
+    color[v] = c;
     trav(u, edges[v]) {
-        if (u == p) continue;
-        dfs(u, v);
-        dp[v] += dp[u];
+        if (!vis[u]) dfs(u, c^diff, diff);
     }
-    if (dp[v]) dp[v]--;
-    else dp[v] = 1;
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n; cin >> n;
-    int u, v;
-    F0R(i, n-1) {
-        cin >> u >> v;
-        edges[u].pb(v);
-        edges[v].pb(u);
+    int n;
+    cin >> n;
+    P p[n];
+    F0R(i, n) cin >> p[i].x >> p[i].y;
+    F0R(i, n) color[i] = -1;
+    map<ll, vector<pi> > m;
+    F0R(i, n) F0R(j, i) {
+        m[p[i].dist(p[j])].pb({i, j});
     }
-    dfs(1, 0);
-    cout << (dp[1]?"Alice":"Bob") << nl;
+    trav(a, m) {
+        cout << a.f << nl;
+        set<int> ps;
+        set<int> colored;
+        bool diff = 1;
+        trav(e, a.s) {
+            edges[e.f].pb(e.s);
+            edges[e.s].pb(e.f);
+            if (color[e.f] != -1 && color[e.s] != -1)
+                if (color[e.f] == color[e.s]) diff = 0;
+            ps.insert(e.f);
+            ps.insert(e.s);
+            if (color[e.f] != -1) colored.insert(e.f);
+            if (color[e.s] != -1) colored.insert(e.s);
+        }
+        cout << diff << nl;
+        trav(v, colored) {
+            dfs(v, color[v], diff);
+            cout << nl;
+        }
+        trav(v, ps) {
+            if (!vis[v] && color[v] == -1) dfs(v, 1, diff);
+        }
+        trav(e, a.s) {
+            edges[e.f].clear();
+            edges[e.s].clear();
+        }
+        trav(v, ps) vis[v] = 0;
+    }
+    int ans = 0;
+    F0R(i, n) ans += color[i];
+    assert(ans != 0 && ans != n);
+    cout << ans << nl;
+    F0R(i, n) {
+        assert(color[i] != -1);
+        if (color[i]) cout << i+1 << " ";
+    }
     return 0;
 }

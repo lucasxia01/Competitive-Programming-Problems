@@ -53,7 +53,7 @@ typedef vector<pl> vpl;
 
 const char nl = '\n';
 const int MAX_N = 100011;
-const ll INF = 2e9+1;
+const ll INF = (1<<29) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
@@ -66,31 +66,14 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 1e5+5;
-vi edges[MX];
-int dp[MX];
-
-void dfs(int v, int p) {
-    trav(u, edges[v]) {
-        if (u == p) continue;
-        dfs(u, v);
-        dp[v] += dp[u];
-    }
-    if (dp[v]) dp[v]--;
-    else dp[v] = 1;
-}
+const int MX = 1<<20;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n; cin >> n;
-    int u, v;
-    F0R(i, n-1) {
-        cin >> u >> v;
-        edges[u].pb(v);
-        edges[v].pb(u);
-    }
-    dfs(1, 0);
-    cout << (dp[1]?"Alice":"Bob") << nl;
+    int n;
+    cin >> n;
+    int a[n];
+    F0R(i, n) cin >> a[i];
     return 0;
 }

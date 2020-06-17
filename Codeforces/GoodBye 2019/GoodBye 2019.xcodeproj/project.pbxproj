@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CFA96542494CE4800748D03 /* C.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA96532494CE4800748D03 /* C.cpp */; };
+		8CFA964D2494BC5D00748D03 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA964C2494BC5D00748D03 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8C13083C248C112D00207F74 /* CopyFiles */ = {
+		8CFA96472494BC5D00748D03 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,20 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C13083E248C112E00207F74 /* SEERC 2019 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SEERC 2019"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C130841248C112E00207F74 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
-		8C130848248C1AAB00207F74 /* I.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = I.cpp; sourceTree = "<group>"; };
-		8C13084B248C246F00207F74 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
-		8C13084D248C29AC00207F74 /* G.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = G.cpp; sourceTree = "<group>"; };
-		8CFA9635248C4E6B00748D03 /* J.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = J.cpp; sourceTree = "<group>"; };
-		8CFA9637248C4FC700748D03 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
-		8CFA963A248DB7E700748D03 /* F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F.cpp; sourceTree = "<group>"; };
-		8CFA963D24908E5C00748D03 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
-		8CFA96532494CE4800748D03 /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
+		8CFA96492494BC5D00748D03 /* GoodBye 2019 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "GoodBye 2019"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CFA964C2494BC5D00748D03 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8C13083B248C112D00207F74 /* Frameworks */ = {
+		8CFA96462494BC5D00748D03 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,73 +38,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C130835248C112D00207F74 = {
+		8CFA96402494BC5D00748D03 = {
 			isa = PBXGroup;
 			children = (
-				8C130840248C112E00207F74 /* SEERC 2019 */,
-				8C13083F248C112E00207F74 /* Products */,
+				8CFA964B2494BC5D00748D03 /* GoodBye 2019 */,
+				8CFA964A2494BC5D00748D03 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8C13083F248C112E00207F74 /* Products */ = {
+		8CFA964A2494BC5D00748D03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C13083E248C112E00207F74 /* SEERC 2019 */,
+				8CFA96492494BC5D00748D03 /* GoodBye 2019 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C130840248C112E00207F74 /* SEERC 2019 */ = {
+		8CFA964B2494BC5D00748D03 /* GoodBye 2019 */ = {
 			isa = PBXGroup;
 			children = (
-				8C130841248C112E00207F74 /* A.cpp */,
-				8CFA9637248C4FC700748D03 /* B.cpp */,
-				8CFA96532494CE4800748D03 /* C.cpp */,
-				8C13084B248C246F00207F74 /* D.cpp */,
-				8CFA963D24908E5C00748D03 /* E.cpp */,
-				8CFA963A248DB7E700748D03 /* F.cpp */,
-				8C13084D248C29AC00207F74 /* G.cpp */,
-				8C130848248C1AAB00207F74 /* I.cpp */,
-				8CFA9635248C4E6B00748D03 /* J.cpp */,
+				8CFA964C2494BC5D00748D03 /* main.cpp */,
 			);
-			path = "SEERC 2019";
+			path = "GoodBye 2019";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C13083D248C112D00207F74 /* SEERC 2019 */ = {
+		8CFA96482494BC5D00748D03 /* GoodBye 2019 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C130845248C112E00207F74 /* Build configuration list for PBXNativeTarget "SEERC 2019" */;
+			buildConfigurationList = 8CFA96502494BC5D00748D03 /* Build configuration list for PBXNativeTarget "GoodBye 2019" */;
 			buildPhases = (
-				8C13083A248C112D00207F74 /* Sources */,
-				8C13083B248C112D00207F74 /* Frameworks */,
-				8C13083C248C112D00207F74 /* CopyFiles */,
+				8CFA96452494BC5D00748D03 /* Sources */,
+				8CFA96462494BC5D00748D03 /* Frameworks */,
+				8CFA96472494BC5D00748D03 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "SEERC 2019";
-			productName = "SEERC 2019";
-			productReference = 8C13083E248C112E00207F74 /* SEERC 2019 */;
+			name = "GoodBye 2019";
+			productName = "GoodBye 2019";
+			productReference = 8CFA96492494BC5D00748D03 /* GoodBye 2019 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8C130836248C112D00207F74 /* Project object */ = {
+		8CFA96412494BC5D00748D03 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lucas Xia";
 				TargetAttributes = {
-					8C13083D248C112D00207F74 = {
+					8CFA96482494BC5D00748D03 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8C130839248C112D00207F74 /* Build configuration list for PBXProject "SEERC 2019" */;
+			buildConfigurationList = 8CFA96442494BC5D00748D03 /* Build configuration list for PBXProject "GoodBye 2019" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -120,29 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 8C130835248C112D00207F74;
-			productRefGroup = 8C13083F248C112E00207F74 /* Products */;
+			mainGroup = 8CFA96402494BC5D00748D03;
+			productRefGroup = 8CFA964A2494BC5D00748D03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C13083D248C112D00207F74 /* SEERC 2019 */,
+				8CFA96482494BC5D00748D03 /* GoodBye 2019 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8C13083A248C112D00207F74 /* Sources */ = {
+		8CFA96452494BC5D00748D03 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CFA96542494CE4800748D03 /* C.cpp in Sources */,
+				8CFA964D2494BC5D00748D03 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8C130843248C112E00207F74 /* Debug */ = {
+		8CFA964E2494BC5D00748D03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -200,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		8C130844248C112E00207F74 /* Release */ = {
+		8CFA964F2494BC5D00748D03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -251,7 +235,7 @@
 			};
 			name = Release;
 		};
-		8C130846248C112E00207F74 /* Debug */ = {
+		8CFA96512494BC5D00748D03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -259,7 +243,7 @@
 			};
 			name = Debug;
 		};
-		8C130847248C112E00207F74 /* Release */ = {
+		8CFA96522494BC5D00748D03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -270,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C130839248C112D00207F74 /* Build configuration list for PBXProject "SEERC 2019" */ = {
+		8CFA96442494BC5D00748D03 /* Build configuration list for PBXProject "GoodBye 2019" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C130843248C112E00207F74 /* Debug */,
-				8C130844248C112E00207F74 /* Release */,
+				8CFA964E2494BC5D00748D03 /* Debug */,
+				8CFA964F2494BC5D00748D03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C130845248C112E00207F74 /* Build configuration list for PBXNativeTarget "SEERC 2019" */ = {
+		8CFA96502494BC5D00748D03 /* Build configuration list for PBXNativeTarget "GoodBye 2019" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C130846248C112E00207F74 /* Debug */,
-				8C130847248C112E00207F74 /* Release */,
+				8CFA96512494BC5D00748D03 /* Debug */,
+				8CFA96522494BC5D00748D03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8C130836248C112D00207F74 /* Project object */;
+	rootObject = 8CFA96412494BC5D00748D03 /* Project object */;
 }
