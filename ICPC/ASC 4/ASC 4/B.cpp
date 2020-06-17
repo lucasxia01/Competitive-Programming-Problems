@@ -66,14 +66,58 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 1<<20;
+const int MX = 1e4+5;
+
+vi g[MX];
+bool vis[MX];
+int tin[MX], low[MX];
+int t;
+int mark[(int)1e5+5];
+map<pi, int> s;
+
+void dfs(int v, int p) {
+    vis[v] = 1;
+    tin[v] = ++t;
+    low[v] = INF;
+    trav(u, g[v]) {
+        if (u == p) continue;
+        if (vis[u]) ckmin(low[v], tin[u]);
+        else {
+            dfs(u, v);
+            ckmin(low[v], low[u]);
+            if (low[u] > tin[v]) {
+                if (mark[s[{v, u}]] == -1) continue;
+                mark[s[{v, u}]] = 1;
+            }
+        }
+    }
+}
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n;
-    cin >> n;
-    int a[n];
-    F0R(i, n) cin >> a[i];
+//    freopen("bridges.in", "r", stdin);
+//    freopen("bridges.out", "w", stdout);
+    int n, m; cin >> n >> m;
+    int v, u;
+    F0R(i, m) {
+        cin >> v >> u;
+        if (s.find({v, u}) != s.end()) {
+            mark[i] = -1;
+            mark[s[{v, u}]] = -1;
+            continue;
+        }
+        s.insert({{v, u}, i});
+        s.insert({{u, v}, i});
+        g[v].pb(u);
+        g[u].pb(v);
+    }
+    dfs(1, 0);
+    int ans = 0;
+    vi idx;
+    F0R(i, m) if (mark[i] == 1) ans++, idx.pb(i);
+    cout << ans << nl;
+    trav(i, idx) cout << i+1 << " "; cout << nl;
+    
     return 0;
 }
