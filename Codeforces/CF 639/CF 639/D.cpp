@@ -53,7 +53,7 @@ typedef vector<pl> vpl;
 
 const char nl = '\n';
 const int MAX_N = 100011;
-const ll INF = (1<<29) + 123;
+const ll INF = (1LL<<61)+(1LL<<60);
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
@@ -65,43 +65,64 @@ template <typename T> bool ckmax(T& a, const T& b) {
 }
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+const int MX = 1e5+5;
+ll a[MX];
+ll ans[MX];
+int n; ll k;
 
-const int N = 500;
-
-int gr[N][N];
+ll check(ll b) {
+    ll total = 0;
+    F0R(i, n) {
+        ll C = b+1-a[i];
+        if (C > 0) {
+            ans[i] = 0;
+            continue;
+        }
+        ll root = (ll)((ld)-0.5 + sqrtl((ld)1.0/4-(ld)C/3)); // directly calculate how much based on the bound of minimum change of adding 1
+        assert(root >= 0);
+        ans[i] = min(root+1, a[i]);
+        total += min(root+1, a[i]);
+        if (total > k) return total;
+    }
+    return total;
+}
 
 int main() {
+    
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int t; scanf("%d",&t);
-    F0R(T, t) {
-        int n, m; scanf("%d%d",&n,&m);
-        int v, u;
-        F0R(i, m) {
-            scanf("%d%d",&u,&v);
-            gr[v][u] = gr[u][v] = 1;
-        }
-        int ans = INF;
-        F0R(i, n) {
-            queue<int> q; q.push(i);
-            int d[n], par[n]; F0R(i, n) d[i] = par[i] = -1;
-            d[i] = 0;
-            while (!q.empty()) {
-                v = q.front(); q.pop();
-                F0R(j, n) {
-                    if (gr[v][j] && d[j] > 0 && par[v] != j) {
-                        ckmin(ans, d[v]+d[j]+1);
-                    } else if (gr[v][j] && d[j] == -1) {
-                        q.push(j);
-                        d[j] = d[v]+1;
-                        par[j] = v;
-                    }
-                }
-            }
-        }
-        printf("Case %d: ", T+1);
-        if (ans == INF) printf("impossible\n");
-        else printf("%d\n", ans);
+    cin >> n >> k;
+    F0R(i, n) cin >> a[i];
+    ll lo = -INF, hi = INF;
+    ll ret = 0;
+    while (lo < hi) { // because of monotonicity of the change of value, we can binary search for when we stop
+        ll mid = (lo+hi)/2;
+        if (lo+hi < 0) mid = (lo+hi-1)/2;
+        assert(mid >= lo && mid <= hi && lo >= -INF && hi <= INF);
+        ret = check(mid);
+        if (ret > k) lo = mid+1;
+        else if (ret < k) hi = mid;
+        else break;
     }
+    
+    ll cur = (lo+hi)/2;
+    ret = check(cur);
+    if (ret > k) {
+        cur++;
+        ret = check(cur);
+    }
+    ll b[n];
+    F0R(i, n) b[i] = ans[i];
+    assert (ret <= k && check(cur-1) >= k);
+    ll diff = k - ret;
+    F0R(i, n) {
+        if (diff == 0) break;
+        if (b[i] < ans[i]) {
+            assert(b[i]+1 == ans[i]);
+            b[i]++;
+            diff--;
+        } else assert(b[i] == ans[i]);
+    }
+    F0R(i, n) cout << b[i] << " "; cout << nl;
     return 0;
 }

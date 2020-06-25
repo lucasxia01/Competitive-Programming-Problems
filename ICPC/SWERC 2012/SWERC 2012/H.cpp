@@ -66,7 +66,7 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 63e6;
+const int MX = 30e6;
 
 ll gcd(ll a, ll b) {
     if (a < b) return gcd(b, a);
@@ -104,7 +104,7 @@ int main() {
     assert(c <= MX);
     ll sum = 0;
     FOR(i, 1, N) {
-        cout << pack[i].f << " " << pack[i].s << nl;
+//        cout << pack[i].f << " " << pack[i].s << nl;
         sum += pack[i].f;
         for (ll j = min(sum, c); j >= pack[i].f; j--) dp[j] = max(dp[j], dp[j-pack[i].f]+pack[i].s);
     }

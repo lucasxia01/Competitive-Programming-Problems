@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C99A27C24A2E48200FC52FE /* A.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A259C2482DE9A00F56468 /* A.cpp */; };
+		8C99A28A24A303B800FC52FE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C99A28924A303B800FC52FE /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8CD7CC012482D6B800F6B351 /* CopyFiles */ = {
+		8C99A28424A303B800FC52FE /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,19 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C1308152485BF5500207F74 /* H.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = H.cpp; sourceTree = "<group>"; };
-		8C1308172485D05900207F74 /* F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F.cpp; sourceTree = "<group>"; };
-		8C1308202487384900207F74 /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
-		8C2A259C2482DE9A00F56468 /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
-		8C2A259E2482E5F600F56468 /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
-		8C2A25A22482ECCF00F56468 /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
-		8C2A25A52483083D00F56468 /* J.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = J.cpp; sourceTree = "<group>"; };
-		8CD7CC032482D6B800F6B351 /* SWERC 2012 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SWERC 2012"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CD7CC062482D6B800F6B351 /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
+		8C99A28624A303B800FC52FE /* ASC 9 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ASC 9"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C99A28924A303B800FC52FE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8CD7CC002482D6B800F6B351 /* Frameworks */ = {
+		8C99A28324A303B800FC52FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,72 +38,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8CD7CBFA2482D6B800F6B351 = {
+		8C99A27D24A303B800FC52FE = {
 			isa = PBXGroup;
 			children = (
-				8CD7CC052482D6B800F6B351 /* SWERC 2012 */,
-				8CD7CC042482D6B800F6B351 /* Products */,
+				8C99A28824A303B800FC52FE /* ASC 9 */,
+				8C99A28724A303B800FC52FE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8CD7CC042482D6B800F6B351 /* Products */ = {
+		8C99A28724A303B800FC52FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8CD7CC032482D6B800F6B351 /* SWERC 2012 */,
+				8C99A28624A303B800FC52FE /* ASC 9 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8CD7CC052482D6B800F6B351 /* SWERC 2012 */ = {
+		8C99A28824A303B800FC52FE /* ASC 9 */ = {
 			isa = PBXGroup;
 			children = (
-				8C2A259C2482DE9A00F56468 /* A.cpp */,
-				8C2A259E2482E5F600F56468 /* B.cpp */,
-				8CD7CC062482D6B800F6B351 /* C.cpp */,
-				8C1308202487384900207F74 /* D.cpp */,
-				8C2A25A22482ECCF00F56468 /* E.cpp */,
-				8C1308172485D05900207F74 /* F.cpp */,
-				8C1308152485BF5500207F74 /* H.cpp */,
-				8C2A25A52483083D00F56468 /* J.cpp */,
+				8C99A28924A303B800FC52FE /* main.cpp */,
 			);
-			path = "SWERC 2012";
+			path = "ASC 9";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8CD7CC022482D6B800F6B351 /* SWERC 2012 */ = {
+		8C99A28524A303B800FC52FE /* ASC 9 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8CD7CC0A2482D6B800F6B351 /* Build configuration list for PBXNativeTarget "SWERC 2012" */;
+			buildConfigurationList = 8C99A28D24A303B800FC52FE /* Build configuration list for PBXNativeTarget "ASC 9" */;
 			buildPhases = (
-				8CD7CBFF2482D6B800F6B351 /* Sources */,
-				8CD7CC002482D6B800F6B351 /* Frameworks */,
-				8CD7CC012482D6B800F6B351 /* CopyFiles */,
+				8C99A28224A303B800FC52FE /* Sources */,
+				8C99A28324A303B800FC52FE /* Frameworks */,
+				8C99A28424A303B800FC52FE /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "SWERC 2012";
-			productName = "SWERC 2012";
-			productReference = 8CD7CC032482D6B800F6B351 /* SWERC 2012 */;
+			name = "ASC 9";
+			productName = "ASC 9";
+			productReference = 8C99A28624A303B800FC52FE /* ASC 9 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8CD7CBFB2482D6B800F6B351 /* Project object */ = {
+		8C99A27E24A303B800FC52FE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lucas Xia";
 				TargetAttributes = {
-					8CD7CC022482D6B800F6B351 = {
+					8C99A28524A303B800FC52FE = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8CD7CBFE2482D6B800F6B351 /* Build configuration list for PBXProject "SWERC 2012" */;
+			buildConfigurationList = 8C99A28124A303B800FC52FE /* Build configuration list for PBXProject "ASC 9" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,29 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 8CD7CBFA2482D6B800F6B351;
-			productRefGroup = 8CD7CC042482D6B800F6B351 /* Products */;
+			mainGroup = 8C99A27D24A303B800FC52FE;
+			productRefGroup = 8C99A28724A303B800FC52FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8CD7CC022482D6B800F6B351 /* SWERC 2012 */,
+				8C99A28524A303B800FC52FE /* ASC 9 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8CD7CBFF2482D6B800F6B351 /* Sources */ = {
+		8C99A28224A303B800FC52FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C99A27C24A2E48200FC52FE /* A.cpp in Sources */,
+				8C99A28A24A303B800FC52FE /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8CD7CC082482D6B800F6B351 /* Debug */ = {
+		8C99A28B24A303B800FC52FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -198,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		8CD7CC092482D6B800F6B351 /* Release */ = {
+		8C99A28C24A303B800FC52FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -249,7 +235,7 @@
 			};
 			name = Release;
 		};
-		8CD7CC0B2482D6B800F6B351 /* Debug */ = {
+		8C99A28E24A303B800FC52FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -257,7 +243,7 @@
 			};
 			name = Debug;
 		};
-		8CD7CC0C2482D6B800F6B351 /* Release */ = {
+		8C99A28F24A303B800FC52FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -268,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8CD7CBFE2482D6B800F6B351 /* Build configuration list for PBXProject "SWERC 2012" */ = {
+		8C99A28124A303B800FC52FE /* Build configuration list for PBXProject "ASC 9" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8CD7CC082482D6B800F6B351 /* Debug */,
-				8CD7CC092482D6B800F6B351 /* Release */,
+				8C99A28B24A303B800FC52FE /* Debug */,
+				8C99A28C24A303B800FC52FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8CD7CC0A2482D6B800F6B351 /* Build configuration list for PBXNativeTarget "SWERC 2012" */ = {
+		8C99A28D24A303B800FC52FE /* Build configuration list for PBXNativeTarget "ASC 9" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8CD7CC0B2482D6B800F6B351 /* Debug */,
-				8CD7CC0C2482D6B800F6B351 /* Release */,
+				8C99A28E24A303B800FC52FE /* Debug */,
+				8C99A28F24A303B800FC52FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8CD7CBFB2482D6B800F6B351 /* Project object */;
+	rootObject = 8C99A27E24A303B800FC52FE /* Project object */;
 }

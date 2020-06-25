@@ -66,42 +66,14 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int N = 500;
-
-int gr[N][N];
+const int MX = 1<<20;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int t; scanf("%d",&t);
-    F0R(T, t) {
-        int n, m; scanf("%d%d",&n,&m);
-        int v, u;
-        F0R(i, m) {
-            scanf("%d%d",&u,&v);
-            gr[v][u] = gr[u][v] = 1;
-        }
-        int ans = INF;
-        F0R(i, n) {
-            queue<int> q; q.push(i);
-            int d[n], par[n]; F0R(i, n) d[i] = par[i] = -1;
-            d[i] = 0;
-            while (!q.empty()) {
-                v = q.front(); q.pop();
-                F0R(j, n) {
-                    if (gr[v][j] && d[j] > 0 && par[v] != j) {
-                        ckmin(ans, d[v]+d[j]+1);
-                    } else if (gr[v][j] && d[j] == -1) {
-                        q.push(j);
-                        d[j] = d[v]+1;
-                        par[j] = v;
-                    }
-                }
-            }
-        }
-        printf("Case %d: ", T+1);
-        if (ans == INF) printf("impossible\n");
-        else printf("%d\n", ans);
-    }
+    int n;
+    cin >> n;
+    int a[n];
+    F0R(i, n) cin >> a[i];
     return 0;
 }

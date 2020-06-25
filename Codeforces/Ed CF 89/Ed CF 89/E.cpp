@@ -54,7 +54,7 @@ typedef vector<pl> vpl;
 const char nl = '\n';
 const int MAX_N = 100011;
 const ll INF = (1<<29) + 123;
-const ll MOD = 1000000007; // 998244353
+const ll MOD = 998244353;
 const ld PI = 4*atan((ld)1);
 
 template <typename T> bool ckmin(T& a, const T& b) {
@@ -66,42 +66,31 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int N = 500;
-
-int gr[N][N];
+const int MX = 1<<20;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int t; scanf("%d",&t);
-    F0R(T, t) {
-        int n, m; scanf("%d%d",&n,&m);
-        int v, u;
-        F0R(i, m) {
-            scanf("%d%d",&u,&v);
-            gr[v][u] = gr[u][v] = 1;
-        }
-        int ans = INF;
-        F0R(i, n) {
-            queue<int> q; q.push(i);
-            int d[n], par[n]; F0R(i, n) d[i] = par[i] = -1;
-            d[i] = 0;
-            while (!q.empty()) {
-                v = q.front(); q.pop();
-                F0R(j, n) {
-                    if (gr[v][j] && d[j] > 0 && par[v] != j) {
-                        ckmin(ans, d[v]+d[j]+1);
-                    } else if (gr[v][j] && d[j] == -1) {
-                        q.push(j);
-                        d[j] = d[v]+1;
-                        par[j] = v;
-                    }
-                }
-            }
-        }
-        printf("Case %d: ", T+1);
-        if (ans == INF) printf("impossible\n");
-        else printf("%d\n", ans);
+    int n, m; cin >> n >> m;
+    int a[n]; F0R(i, n) cin >> a[i];
+    int b[m]; F0R(i, m) cin >> b[i];
+    int last[m]; F0R(i, m) last[i] = -1;
+    int first[m]; F0R(i, m) first[i] = -1;
+    int M = -1;
+    F0Rd(i, n) {
+        if (M == -1 && a[i] < b[0]) M = i;
+        ll idx = upper_bound(b, b+m, a[i])-b-1;
+        if (idx == -1) continue;
+        if (b[idx] == a[i] && last[idx] == -1) last[idx] = i;
+        if (first[idx] == -1) first[idx] = i;
     }
+    ll ans = 1;
+    F0R(i, m) if (last[i] == -1 || first[i] == -1) ans = 0;
+    if (M != -1) ans = 0;
+    FOR(i, 1, m-1) {
+        if (last[i]-first[i-1] <= 0) ans = 0;
+        ans = (ans * (last[i]-first[i-1]))%MOD;
+    }
+    cout << ans << nl;
     return 0;
 }

@@ -67,32 +67,32 @@ template <typename T> bool ckmax(T& a, const T& b) {
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 const int MX = 55;
+const ld eps = 1e-5;
 
 int par[MX], sze[MX];
-
 int find(int p) {
     return (p == par[p] ? p : (par[p]=find(par[p])));
 }
 
-bool merge(int a, int b) {
+void merge(int a, int b) {
     a = find(a); b = find(b);
-    if (a == b) return 1;
+    if (a == b) return;
     if (sze[a] < sze[b]) swap(a, b);
-    par[b] = a;
     sze[a] += sze[b];
-    return 0;
+    par[b] = a;
 }
+
 
 struct Circle {
     ll x, y, r;
     bool intersect(const Circle& o) const {
-        return ((x-o.x)*(x-o.x)+(y-o.y)*(y-o.y) < (r+o.r)*(r+o.r) &&
-                (x-o.x)*(x-o.x)+(y-o.y)*(y-o.y) > (r-o.r)*(r-o.r));
+        return ((x-o.x)*(x-o.x)+(y-o.y)*(y-o.y) <= (r+o.r)*(r+o.r) &&
+                (x-o.x)*(x-o.x)+(y-o.y)*(y-o.y) >= (r-o.r)*(r-o.r));
     }
     bool touch(const Circle& o) const {
-        return ((x-o.x)*(x-o.x)+(y-o.y)*(y-o.y) <= (r+o.r)*(r+o.r) &&
-        (x-o.x)*(x-o.x)+(y-o.y)*(y-o.y) >= (r-o.r)*(r-o.r));
+        return ((x-o.x)*(x-o.x)+(y-o.y)*(y-o.y) == (r+o.r)*(r+o.r));
     }
+
 };
 
 int main() {
@@ -101,20 +101,48 @@ int main() {
 //    freopen("circles.in", "r", stdin);
 //    freopen("circles.out", "w", stdout);
     int n; cin >> n;
-    Circle c[n];
-    int ans = 1;
+    Circle c[n]; F0R(i, n) cin >> c[i].x >> c[i].y >> c[i].r;
+    int e = 0;
+    vector<pair<ld, ld> > pts;
     F0R(i, n) {
-        cin >> c[i].x >> c[i].y >> c[i].r;
         par[i] = i;
         sze[i] = 1;
-        bool inter = 0;
-        F0R(j, i) { // count intersection points
-            if (c[i].intersect(c[j])) ans += 2, inter = 1;
-            if (c[i].touch(c[j])) if (merge(i, j)) ans++;
-        }
-        if (!inter) ans++;
-        cout << ans << nl;
     }
-    cout << ans << nl;
+    F0R(i, n) {
+        vector<pair<ld, ld> > v;
+        F0R(j, n) { // find intersection points
+            if (i == j || !c[i].intersect(c[j])) continue;
+            merge(i, j);
+            ld d, a, h;
+            d = sqrtl((c[i].x-c[j].x)*(c[i].x-c[j].x)+(c[i].y-c[j].y)*(c[i].y-c[j].y));
+            assert(d);
+            a = (c[i].r*c[i].r - c[j].r*c[j].r + d*d)/(2*d);
+            h = sqrt(c[i].r*c[i].r - a*a);
+            ld p2x = (c[j].x-c[i].x)*a/d+c[i].x;
+            ld p2y = (c[j].y-c[i].y)*a/d+c[i].y;
+            ld x3, y3, x4, y4;
+            x3 = p2x + h*(c[j].y - c[i].y)/d;
+            y3 = p2y - h*(c[j].x - c[i].x)/d;
+            x4 = p2x - h*(c[j].y - c[i].y)/d;
+            y4 = p2y + h*(c[j].x - c[i].x)/d;
+//            cout << i << " " << x3 << " " << y3 << " " << x4 << " " << y4 << nl;
+            bool ok = 1;
+            trav(p, v) if (fabsl(p.f-x3) < eps && fabsl(p.s-y3) < eps) ok = 0;
+            if (ok) v.pb({x3, y3});
+            ok = 1;
+            trav(p, v) if (fabsl(p.f-x4) < eps && fabsl(p.s-y4) < eps) ok = 0;
+            if (ok) v.pb({x4, y4});
+        }
+        e += sz(v);
+        trav(p, v) {
+            bool ok = 1;
+            trav(p2, pts) if (fabsl(p.f-p2.f) < eps && fabsl(p.s-p2.s) < eps) ok = 0;
+            if (ok) pts.pb(p);
+        }
+    }
+    int comps = 0;
+    F0R(i, n) if (par[i] == i) comps++;
+//    cout << comps << " " << e << " " << sz(pts) << nl;
+    cout << e+2-sz(pts)+comps-1 << nl;
     return 0;
 }
