@@ -26,7 +26,7 @@
 
 using namespace std;
 
-typedef long long ll;
+typedef __int128 ll;
 typedef long double ld;
 
 typedef pair<int, int> pi;
@@ -66,10 +66,38 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 101;
+std::ostream&
+operator<<( std::ostream& dest, __int128_t value )
+{
+    std::ostream::sentry s( dest );
+    if ( s ) {
+        __uint128_t tmp = value < 0 ? -value : value;
+        char buffer[ 128 ];
+        char* d = std::end( buffer );
+        do
+        {
+            -- d;
+            *d = "0123456789"[ tmp % 10 ];
+            tmp /= 10;
+        } while ( tmp != 0 );
+        if ( value < 0 ) {
+            -- d;
+            *d = '-';
+        }
+        int len = std::end( buffer ) - d;
+        if ( dest.rdbuf()->sputn( d, len ) != len ) {
+            dest.setstate( std::ios_base::badbit );
+        }
+    }
+    return dest;
+}
 
-vi gr[MX];
+const int MX = 105;
+
+vi gr[MX], revgr[MX];
 int vis[MX];
+vi cgr[MX]; // compressed SCC graph
+int csz[MX]; // size of each component
 vi order;
 void dfs1(int v) {
     vis[v] = 1;
@@ -79,14 +107,25 @@ void dfs1(int v) {
     }
     order.pb(v);
 }
-int out, in, mark = 0, comp = 0;
+int mark = 0, comp = 0;
 void dfs2(int v) {
     vis[v] = mark;
     comp++;
-    trav(u, gr[v]) {
+    trav(u, revgr[v]) {
         if (vis[u]) continue;
         dfs2(u);
     }
+}
+
+bool in[MX];
+bool out[MX];
+
+ll comb[MX][MX];
+ll calc(int n, int k) {
+    if (k < 0 || k > n) return 0;
+    if (k == 0 || k == n) return 1;
+    if (comb[n][k]) return comb[n][k];
+    return (comb[n][k]=calc(n-1, k)+calc(n-1, k-1));
 }
 
 int main() {
@@ -99,29 +138,39 @@ int main() {
     F0R(i, m) {
         cin >> u >> v;
         gr[u].pb(v);
+        revgr[v].pb(u);
     }
     FOR(i, 1, n) if (!vis[i]) dfs1(i);
     reverse(order.begin(), order.end());
     memset(vis, 0, sizeof vis);
     vi policeComps;
+    int rest = 0;
     trav(a, order) {
         if (!vis[a]) {
             ++mark;
-            comp = 0; in = 0; out = 0;
+            comp = 0;
             dfs2(a);
-            if (!in || !out) policeComps.pb(comp);
+            csz[mark] = comp;
         }
     }
+    FOR(i, 1, n) trav(v, gr[i]) if (vis[v] != vis[i]) in[vis[v]] = 1, out[vis[i]] = 1;
+    FOR(i, 1, mark) if (!in[i] || !out[i]) policeComps.pb(csz[i]); else rest += csz[i];
     int SZ = sz(policeComps);
-    __int128 dp[SZ+1][k+1]; F0R(i, SZ+1) F0R(j, k+1) dp[i][j] = 0;
+    ll dp[SZ+1][k+1]; F0R(i, SZ+1) F0R(j, k+1) dp[i][j] = 0;
     dp[0][0] = 1;
     F0R(i, SZ) {
-        F0R(j, k) {
+        F0R(j, k+1) {
             FOR(l, 1, policeComps[i]) {
                 if (j+l > k) break;
-                dp[i+1][j+l] += dp[i][j];
+                dp[i+1][j+l] += (ll)calc(policeComps[i], l)*dp[i][j];
             }
         }
     }
+    ll ans = 0;
+    F0R(j, k+1) {
+//        cout << dp[SZ][j] << " " << calc(rest, k-j) << nl;
+        ans += (ll)calc(rest, k-j)*dp[SZ][j];
+    }
+    cout << ans << nl;
     return 0;
 }
