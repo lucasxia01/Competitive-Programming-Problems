@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C64BFC424A8E21800017D4C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C64BFC324A8E21800017D4C /* main.cpp */; };
+		8C64BFD724AB9A8F00017D4C /* E2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C64BFD624AB9A8F00017D4C /* E2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,13 @@
 
 /* Begin PBXFileReference section */
 		8C64BFC024A8E21800017D4C /* CF 653 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CF 653"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C64BFC324A8E21800017D4C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8C64BFC324A8E21800017D4C /* A.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = A.cpp; sourceTree = "<group>"; };
+		8C64BFCA24A8E32300017D4C /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
+		8C64BFCC24A8E46700017D4C /* C.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = C.cpp; sourceTree = "<group>"; };
+		8C64BFCE24A8E55C00017D4C /* D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = D.cpp; sourceTree = "<group>"; };
+		8C64BFD024A8E8EA00017D4C /* E1.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E1.cpp; sourceTree = "<group>"; };
+		8C64BFD224A8EC7100017D4C /* F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F.cpp; sourceTree = "<group>"; };
+		8C64BFD624AB9A8F00017D4C /* E2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E2.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +63,13 @@
 		8C64BFC224A8E21800017D4C /* CF 653 */ = {
 			isa = PBXGroup;
 			children = (
-				8C64BFC324A8E21800017D4C /* main.cpp */,
+				8C64BFC324A8E21800017D4C /* A.cpp */,
+				8C64BFCA24A8E32300017D4C /* B.cpp */,
+				8C64BFCC24A8E46700017D4C /* C.cpp */,
+				8C64BFCE24A8E55C00017D4C /* D.cpp */,
+				8C64BFD024A8E8EA00017D4C /* E1.cpp */,
+				8C64BFD624AB9A8F00017D4C /* E2.cpp */,
+				8C64BFD224A8EC7100017D4C /* F.cpp */,
 			);
 			path = "CF 653";
 			sourceTree = "<group>";
@@ -119,7 +131,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C64BFC424A8E21800017D4C /* main.cpp in Sources */,
+				8C64BFD724AB9A8F00017D4C /* E2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
