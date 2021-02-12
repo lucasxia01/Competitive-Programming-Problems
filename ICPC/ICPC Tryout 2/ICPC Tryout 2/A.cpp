@@ -52,6 +52,10 @@ const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
 #define sz(x) (int)x.size()
+template <typename T> bool ckmax(T& a, const T& b) { return b > a ? a=b, 1 : 0; }
+
+
+const int MX = 450*100/2+5;
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -59,7 +63,29 @@ int main() {
     int n;
     cin >> n;
     int a[n];
-    F0R(i, n) cin >> a[i];
-    int dp[n][45000];
+    int total = 0;
+    F0R(i, n) { cin >> a[i]; total += a[i]; }
+    bool dp[n+1][n/2+2][MX]; F0R(i, n+1) F0R(j, n/2+2) F0R(k, MX) dp[i][j][k] = 0;
+    dp[0][0][0] = 1;
+    F0R(i, n) F0R(j, n/2+2) F0R(k, MX) {
+        if (dp[i][j][k] == 0) continue;
+        dp[i+1][j][k] = 1;
+        if (a[i]+k >= MX || j+1 >= n/2+2) continue;
+        dp[i+1][j+1][k+a[i]] = 1;
+    }
+    int ans = 0;
+    F0R(k, MX) {
+        if (dp[n][n/2][k]) {
+            if (k*2 > total) continue;
+            else ckmax(ans, k*2);
+        }
+        if (n%2) {
+            if (dp[n][n/2+1][k]) {
+                if (k*2 > total) continue;
+                else ckmax(ans, k*2);
+            }
+        }
+    }
+    cout << ans/2 << " " << total-ans/2 << '\n';
     return 0;
 }

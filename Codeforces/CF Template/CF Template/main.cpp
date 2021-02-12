@@ -23,6 +23,7 @@
 #include <random>
 #include <chrono>
 #include <cassert>
+#include <climits>
 
 using namespace std;
 
@@ -47,9 +48,11 @@ typedef vector<pl> vpl;
 #define s second
 #define mp make_pair
 #define pb push_back
+#define ins insert
 #define lb lower_bound
 #define ub upper_bound
 #define sz(x) (int)x.size()
+#define all(x) x.begin(), x.end()
 
 const char nl = '\n';
 const int MAX_N = 100011;
@@ -57,12 +60,17 @@ const ll INF = (1<<29) + 123;
 const ll MOD = 1000000007; // 998244353
 const ld PI = 4*atan((ld)1);
 
-template <typename T> bool ckmin(T& a, const T& b) {
-    return a > b ? a=b, 1 : 0;
-}
-template <typename T> bool ckmax(T& a, const T& b) {
-    return b > a ? a=b, 1 : 0;
-}
+template <typename T> bool ckmin(T& a, const T& b) { return a > b ? a=b, 1 : 0; }
+template <typename T> bool ckmax(T& a, const T& b) { return b > a ? a=b, 1 : 0; }
+
+void dbg_out () { cerr << endl; }
+template<typename Head, typename... Tail> void dbg_out (Head H, Tail... T) { cerr << H << " "; dbg_out(T...); }
+
+#ifdef DBG
+#define dbg(desc, ...) cerr << '(' << desc << "): "; dbg_out(__VA_ARGS__);
+#else
+#define dbg(...) dbg_out(__VA_ARGS__);
+#endif
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
@@ -71,9 +79,7 @@ const int MX = 1<<20;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n;
-    cin >> n;
-    int a[n];
-    F0R(i, n) cin >> a[i];
+    int n; cin >> n;
+    int a[n]; F0R(i, n) cin >> a[i];
     return 0;
 }
