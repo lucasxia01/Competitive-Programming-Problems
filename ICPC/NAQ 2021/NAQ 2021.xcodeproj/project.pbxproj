@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C9CE55825D60A58001437BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C9CE55725D60A58001437BB /* main.cpp */; };
+		8C9CE56825D62062001437BB /* B.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C9CE55725D60A58001437BB /* B.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,8 @@
 
 /* Begin PBXFileReference section */
 		8C9CE55425D60A58001437BB /* NAQ 2021 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "NAQ 2021"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C9CE55725D60A58001437BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8C9CE55725D60A58001437BB /* B.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = B.cpp; sourceTree = "<group>"; };
+		8C9CE55F25D60A6F001437BB /* E.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = E.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +58,8 @@
 		8C9CE55625D60A58001437BB /* NAQ 2021 */ = {
 			isa = PBXGroup;
 			children = (
-				8C9CE55725D60A58001437BB /* main.cpp */,
+				8C9CE55725D60A58001437BB /* B.cpp */,
+				8C9CE55F25D60A6F001437BB /* E.cpp */,
 			);
 			path = "NAQ 2021";
 			sourceTree = "<group>";
@@ -118,7 +120,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C9CE55825D60A58001437BB /* main.cpp in Sources */,
+				8C9CE56825D62062001437BB /* B.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
