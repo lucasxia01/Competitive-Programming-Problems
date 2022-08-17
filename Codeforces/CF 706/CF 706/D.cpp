@@ -57,7 +57,7 @@ typedef vector<pl> vpl;
 const char nl = '\n';
 const int MAX_N = 100011;
 const ll INF = (1<<29) + 123;
-const ll MOD = 1000000007; // 998244353
+const ll MOD = 998244353;
 const ld PI = 4*atan((ld)1);
 
 template <typename T> bool ckmin(T& a, const T& b) { return a > b ? a=b, 1 : 0; }
@@ -66,60 +66,55 @@ template <typename T> bool ckmax(T& a, const T& b) { return b > a ? a=b, 1 : 0; 
 void dbg_out () { cerr << endl; }
 template<typename Head, typename... Tail> void dbg_out (Head H, Tail... T) { cerr << H << " "; dbg_out(T...); }
 
-// from @jacob.b.zhang :)
-template<typename T> class SafeVector : public vector<T> {
-    public:
-        using vector<T>::vector;
- 
-        typename vector<T>::reference operator[](size_t n) {
-            return vector<T>::at(n);
-        }
- 
-        typename vector<T>::const_reference operator[](size_t n) const {
-            return vector<T>::at(n);
-        }
-};
-
 #ifdef DBG
 #define dbg(desc, ...) cerr << '(' << desc << "): "; dbg_out(__VA_ARGS__);
-#define vector SafeVector
 #else
-#define dbg(...)
+#define dbg(...) dbg_out(__VA_ARGS__);
 #endif
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 const int MX = 400+5;
+int n, m;
 vi gr[MX];
-bool mark[MX];
+int dist[MX];
+int cnt[MX];
 
-bool dfs1(int v, int p) {
-    trav(u, gr[v]) {
-        if (u == p) continue;
-        if (mark[u]) return 1;
+void bfs(int v) {
+    queue<pi> q;
+    q.push({v, 0});
+    while (!q.empty()) {
+        pi cur = q.front(); q.pop();
+        if (dist[cur.f] != -1 && dist[cur.f] != cur.s) continue;
+        dist[cur.f] = cur.s;
+        cnt[cur.f]++;
+        if (cnt[cur.f] > 1) continue;
+        trav(u, gr[cur.f])
+            q.push({u, cur.s+1});
     }
-}
-
-int solve(int x, int y) {
-    // first find the connections between x and y;
-    memset(mark, 0, sizeof mark);
-    mark[x] = mark[y] = 1;
-    dfs1(x, -1);
-    return 0;
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n, m; cin >> n >> m;
+    cin >> n >> m;
     F0R(i, m) {
-        int a, b; cin >> a >> b;
-        a--; b--;
-        gr[a].pb(b);
-        gr[b].pb(a);
+        int u, v; cin >> u >> v;
+        u--; v--;
+        gr[u].pb(v);
+        gr[v].pb(u);
     }
-    F0R(i, n) F0R(j, n) {
-        cout << solve(i, j) << nl;
+    F0R(i, n) {
+        // first bfs and count # trees from node i
+        F0R(j, n) dist[j] = -1;
+        memset(cnt, 0, sizeof cnt);
+        bfs(i);
+        ll total = 1;
+        F0R(j, n) total = (total * cnt[j])%MOD;
+//        F0R(j, n) cout << cnt[j] << " "; cout << nl;
+        F0R(j, n) if (cnt[j] == 1) cout << total << " "; else cout << 0 << " ";
+        cout << nl;
     }
+    
     return 0;
 }

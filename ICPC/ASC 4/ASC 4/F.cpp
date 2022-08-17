@@ -1,0 +1,96 @@
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <algorithm>
+#include <functional>
+#include <stdlib.h>
+#include <time.h>
+#include <complex>
+#include <iterator>
+#include <regex>
+#include <fstream>
+#include <utility>
+#include <vector>
+#include <string>
+#include <cstring>
+#include <stack>
+#include <queue>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+#include <random>
+#include <chrono>
+#include <cassert>
+
+using namespace std;
+
+typedef long long ll;
+typedef long double ld;
+
+typedef pair<int, int> pi;
+typedef pair<ll,ll> pl;
+
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef vector<pi> vpi;
+typedef vector<pl> vpl;
+
+#define F0R(i,n) for (int i = 0; i < n; i++)
+#define FOR(i,a,b) for (int i = a; i <= b; i++)
+#define F0Rd(i,a) for (int i = (a)-1; i >= 0; i--)
+#define FORd(i,a,b) for (int i = (b); i >= (a); i--)
+#define trav(a, x) for (auto& a : x)
+
+#define f first
+#define s second
+#define mp make_pair
+#define pb push_back
+#define lb lower_bound
+#define ub upper_bound
+#define sz(x) (int)x.size()
+
+const char nl = '\n';
+const int MAX_N = 100011;
+const ll INF = (1<<29) + 123;
+const ll MOD = 1000000007; // 998244353
+const ld PI = 4*atan((ld)1);
+
+template <typename T> bool ckmin(T& a, const T& b) {
+    return a > b ? a=b, 1 : 0;
+}
+template <typename T> bool ckmax(T& a, const T& b) {
+    return b > a ? a=b, 1 : 0;
+}
+
+mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+const int MX = 2e5+5;
+
+int t[2*MX];
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+    freopen("positive.in", "r", stdin);
+    freopen("positive.out", "w", stdout);
+    int n; cin >> n;
+//    int total = 0;
+//    int a[n]; F0R(i, n) cin >> a[i], total += a[i];
+//    t[n-1] = 0; F0R(i, n) t[i+n] = t[i+n-1] + a[i];
+//    F0Rd(i, n) t[i] = min(t[i<<1], t[i<<1|1]);
+//    int ans = 0;
+//    int sum = 0;
+//    F0R(i, n) {
+//        if (t[1]+sum > 0) ans++;
+//        t[i+n] = total-sum;
+//        for (int p = (i+n)>>1; p; p>>=1) t[p] = min(t[p<<1], t[p<<1|1]);
+//        sum -= a[i];
+//    }
+//    cout << ans << nl;
+    int x, total = 0;
+    F0R(i, n) cin >> x, total += x;
+    cout << max(total, 0) << nl;
+    return 0;
+}
