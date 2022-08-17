@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "random": "cpp",
+        "compare": "cpp",
+        "tuple": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "ranges": "cpp",
+        "regex": "cpp",
+        "bitset": "cpp",
+        "memory": "cpp",
+        "optional": "cpp",
+        "iostream": "cpp"
+    }
+}

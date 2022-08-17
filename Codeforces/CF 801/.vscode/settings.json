@@ -1,0 +1,22 @@
+{
+    "files.associations": {
+        "random": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "valarray": "cpp",
+        "bitset": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "any": "cpp",
+        "system_error": "cpp",
+        "numbers": "cpp",
+        "chrono": "cpp",
+        "limits": "cpp",
+        "ranges": "cpp",
+        "tuple": "cpp"
+    }
+}

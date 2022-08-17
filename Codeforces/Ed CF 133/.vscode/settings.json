@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "random": "cpp",
+        "chrono": "cpp",
+        "limits": "cpp",
+        "ranges": "cpp",
+        "valarray": "cpp",
+        "*.tcc": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp"
+    }
+}

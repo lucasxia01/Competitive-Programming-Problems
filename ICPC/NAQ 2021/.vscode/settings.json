@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "random": "cpp",
+        "iostream": "cpp",
+        "tuple": "cpp",
+        "string": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "ranges": "cpp",
+        "regex": "cpp",
+        "chrono": "cpp",
+        "complex": "cpp"
+    }
+}

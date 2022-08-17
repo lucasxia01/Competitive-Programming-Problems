@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "string": "cpp",
+        "map": "cpp",
+        "chrono": "cpp",
+        "tuple": "cpp",
+        "random": "cpp",
+        "valarray": "cpp"
+    }
+}
