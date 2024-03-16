@@ -121,30 +121,9 @@ const int MX = 3e5+5;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    pi p(0, 0);
-    dbg(p);
-    vi v = {1, 2, 3};
-    dbg(v);
-    string s = "abc";
-    dbg(s);
-    vector<string> vs = {"a", "b", "c"};
-    dbg(vs);
-    array<int, 3> a = {1, 2, 3};
-    dbg(a);
-    priority_queue<int> pq;
-    pq.push(1);
-    pq.push(2);
-    dbg(pq);
-    stack<int> st;
-    st.push(1);
-    st.push(2);
-    dbg(st);
-    queue<int> que;
-    que.push(1);
-    que.push(2);
-    dbg(que);
-    int arr[3] = {1, 2, 3};
-    dbg_array(arr, 3);
-
+    int t; cin >> t;
+    while (t--) {
+        int n; cin >> n;
+    }
     return 0;
 }
