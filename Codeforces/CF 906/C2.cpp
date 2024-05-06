@@ -79,13 +79,14 @@ int main() {
         }
         sort(all(v));
         // find the k latest things that are active in each thing
-        map<vector<pi>, int> dp[n+2][k+1];
+        map<vector<pi>, int> dp[2][k+1];
         dp[1][0][{}] = 0;
         set<int> cur;
         int ptr = 0;
         FOR(i, 1, n) {
-            int ii = i+1;
-            // clear i
+            int ii = 1 - (i%2);
+            // clear ii
+            F0R(j, k+1) dp[ii][j].clear();
             while (ptr < 2*m && v[ptr][0] == i) {
                 if (v[ptr][1]==0) cur.erase(v[ptr][2]);
                 else cur.insert(v[ptr][2]);
@@ -100,9 +101,9 @@ int main() {
             dbg(i, sz(cur));
             F0R(j, k+1) {
                 // do nothing
-                dbg(i, j, sz(dp[i][j]));
-                assert(sz(dp[i][j]) <= k+1);
-                trav(s, dp[i][j]) {
+                dbg(i, j, sz(dp[i%2][j]));
+                assert(sz(dp[i%2][j]) <= k+1);
+                trav(s, dp[i%2][j]) {
                     // dbg(i, j, s.s, sz(cur));
                     // trav(p, s.f) {
                     //     cerr << p.s << " " << p.f << ' ';
@@ -127,11 +128,10 @@ int main() {
                     ckmax(dp[ii][j+cost][new_s2], s.s+1);
                 }
             }
-            F0R(j, k+1) dp[i][j].clear();
         }
         int ans = 0;
         F0R(j, k+1) {
-            trav(s, dp[n+1][j]) {
+            trav(s, dp[(n+1)%2][j]) {
                 ckmax(ans, s.s);
             }
         }

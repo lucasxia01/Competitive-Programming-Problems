@@ -81,11 +81,15 @@ int dist[MX];
 int cnt[MX];
 
 void bfs(int v) {
-    queue<pi> q;
-    q.push({v, 0});
+    queue<array<int, 3> > q;
+    q.push({v, -1, 0});
     while (!q.empty()) {
-        pi cur = q.front(); q.pop();
-        if (dist[cur.f] != -1 && dist[cur.f] != cur.s) continue;
+        array<int, 3> cur = q.front(); q.pop();
+        if (dist[cur[0]] != -1 && dist[cur[0]] != cur[2]) continue;
+        else if (dist[cur.f] == cur.s) {
+
+            continue;
+        }
         dist[cur.f] = cur.s;
         cnt[cur.f]++;
         if (cnt[cur.f] > 1) continue;
