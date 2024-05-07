@@ -64,7 +64,7 @@ template <typename T> bool ckmax(T& a, const T& b) {
 
 /*
  String Hashing class
- Finds prefix and suffix hashes and uses this to compute a prefix/suffix hash for any substring
+ Finds prefix and rev hashes and uses this to compute a prefix/rev hash for any substring
  Tested on Codeforces Global Round 7 D1/D2 (3/19/2020)
  */
 struct stringHash {
@@ -72,7 +72,7 @@ struct stringHash {
     int mod;
     int len;
     string s;
-    vector<int> prefixHash, suffixHash, basePowers;
+    vector<int> prefixHash, revHash, basePowers;
     stringHash(int b, int m, string s) : base(b), mod(m), s(s) {
         len = (int) s.length();
         int hash = 0;
@@ -83,11 +83,11 @@ struct stringHash {
             prefixHash.push_back(hash);
         }
         hash = 0;
-        suffixHash.push_back(0);
+        revHash.push_back(0);
         for (int i = len-1; i >= 0; i--) {
             hash = (1LL * hash * base) % mod;
             hash = (hash + s[i]) % mod;
-            suffixHash.push_back(hash);
+            revHash.push_back(hash);
         }
         int pow = 1;
         for (int i = 0; i <= len; i++) { // can be changed to len/2 for optimization
@@ -96,13 +96,13 @@ struct stringHash {
         }
     }
     
-    int getPrefixHash(int a, int b) { // b is larger than a, the range is [a, b]
+    int getHash(int a, int b) { // b is larger than a, the range is [a, b]
         return ((prefixHash[b+1] - 1LL*basePowers[b-a+1]*prefixHash[a]) % mod + mod) % mod;
     }
-    int getSuffixHash(int a, int b) { // b is larger than a the range is [a, b]
+    int getRevHash(int a, int b) { // b is larger than a the range is [a, b]
         a = len-1-a;
         b = len-1-b;
-        return ((suffixHash[a+1] - 1LL*basePowers[a-b+1]*suffixHash[b]) % mod + mod) % mod;
+        return ((revHash[a+1] - 1LL*basePowers[a-b+1]*revHash[b]) % mod + mod) % mod;
     }
     
 };
@@ -115,7 +115,7 @@ int main() {
     stringHash SH(101, MOD, s); // initializing the string hash
     int len = (int)s.length();
     /* checks if the string is a palindrome */
-    cout << (SH.getPrefixHash(0, len/2-1) == SH.getSuffixHash(len-len/2, len-1)) << endl;
+    cout << (SH.getHash(0, len/2-1) == SH.getRevHash(len-len/2, len-1)) << endl;
     return 0;
 }
 

@@ -1,100 +1,109 @@
-#include <iostream>
-#include <iomanip>
-#include <cstdio>
-#include <cmath>
-#include <algorithm>
-#include <functional>
-#include <stdlib.h>
-#include <time.h>
-#include <complex>
-#include <iterator>
-#include <regex>
-#include <fstream>
-#include <utility>
-#include <vector>
-#include <string>
-#include <cstring>
-#include <stack>
-#include <queue>
-#include <map>
-#include <set>
-#include <unordered_map>
-#include <unordered_set>
-#include <random>
-#include <chrono>
-#include <cassert>
-#include <climits>
-
+#include <bits/stdc++.h>
 using namespace std;
-
+#define rep(i, a, b) for(int i = a; i < (b); ++i)
+#define all(x) begin(x), end(x)
+#define sz(x) (int)(x).size()
 typedef long long ll;
-typedef long double ld;
-
-typedef pair<int, int> pi;
-typedef pair<ll,ll> pl;
-
+typedef pair<int, int> pii;
 typedef vector<int> vi;
-typedef vector<ll> vl;
-typedef vector<pi> vpi;
-typedef vector<pl> vpl;
-
-#define F0R(i,n) for (int i = 0; i < n; i++)
-#define FOR(i,a,b) for (int i = a; i <= b; i++)
-#define F0Rd(i,a) for (int i = (a)-1; i >= 0; i--)
-#define FORd(i,a,b) for (int i = (b); i >= (a); i--)
+// added by Lucas
 #define trav(a, x) for (auto& a : x)
-
 #define f first
 #define s second
-#define mp make_pair
 #define pb push_back
-#define ins insert
-#define lb lower_bound
-#define ub upper_bound
-#define sz(x) (int)x.size()
-#define all(x) x.begin(), x.end()
-
 const char nl = '\n';
-const int MAX_N = 100011;
-const ll INF = (1<<29) + 123;
-const ll MOD = 1000000007; // 998244353
-const ld PI = 4*atan((ld)1);
-
+// stretching it a little
 template <typename T> bool ckmin(T& a, const T& b) { return a > b ? a=b, 1 : 0; }
 template <typename T> bool ckmax(T& a, const T& b) { return b > a ? a=b, 1 : 0; }
-
-void dbg_out () { cerr << endl; }
-template<typename Head, typename... Tail> void dbg_out (Head H, Tail... T) { cerr << H << " "; dbg_out(T...); }
-
-// from @jacob.b.zhang :)
-template<typename T> class SafeVector : public vector<T> {
-    public:
-        using vector<T>::vector;
- 
-        typename vector<T>::reference operator[](size_t n) {
-            return vector<T>::at(n);
-        }
- 
-        typename vector<T>::const_reference operator[](size_t n) const {
-            return vector<T>::at(n);
-        }
-};
-
 #ifdef DBG
-#define dbg(desc, ...) cerr << '(' << desc << "): "; dbg_out(__VA_ARGS__);
-#define vector SafeVector
+void dbg_out() { cerr << endl; }
+template<typename Head, typename... Tail>
+void dbg_out(Head H, Tail... T) {
+    cerr << ' ' << H;
+    dbg_out(T...);
+}
+#define dbg(...) cerr << #__VA_ARGS__ << ":", dbg_out(__VA_ARGS__);
 #else
 #define dbg(...)
 #endif
 
+// seems like kactl is missing rng
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 1<<20;
+const int MX = 301;
 
+bool naive_check(int a, int b, int x, int y) {
+    if (abs(a-x)+abs(b-y) == 1) return 1;
+    if (abs(a-x) <= 1 || abs(b-y) <= 1) return 0;
+    return 1;
+}
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int n; cin >> n;
-    int a[n]; F0R(i, n) cin >> a[i];
+    // precompute the nimbers
+    int nimber[MX][MX]; rep(i, 0, MX) rep(j, 0, MX) nimber[i][j] = -1;
+    rep(i,1,MX) {
+        rep(j,1,MX) {
+            if (nimber[i][j] != -1) continue;
+            if (abs(i-j) <= 1) continue;
+            // try move either one
+            vector<bool> seen(2*MX, 0);
+            rep(ii, 1, i) {
+                if (abs(ii-j) <= 1) continue;
+                assert(nimber[ii][j] != -1);
+                seen[nimber[ii][j]] = 1;
+            }
+            rep(jj, 1, j) {
+                if (abs(i-jj) <= 1) continue;
+                seen[nimber[i][jj]] = 1;
+            }
+            nimber[i][j] = 0;
+            while (seen[nimber[i][j]]) nimber[i][j]++;
+            dbg(i, j, nimber[i][j]);
+        }
+    }
+    int t; cin >> t;
+    while (t--) {
+        int a, b, x, y; cin >> a >> b >> x >> y;
+        // handle specially if within 1 in either coordinate
+        int ii = a-1;
+        int ans = 0;
+        while (ii > 0) {
+            if (ii == x && b == y) break;
+            int val = nimber[ii][x];
+            int val2 = nimber[b][y];
+            dbg(ii, x, b, y, val, val2, (val^val2), naive_check(ii, b, x, y));
+            if (naive_check(ii, b, x, y) && !(val^val2)) ans++;
+            ii--;
+        }
+        ii = x-1;
+        while (ii > 0) {
+            if (a == ii && b == y) break;
+            int val = nimber[a][ii];
+            int val2 = nimber[b][y];
+            dbg(a, b, ii, y, val, val2, (val^val2), naive_check(a, b, ii, y));
+            if (naive_check(a, b, ii, y) && !(val^val2)) ans++;
+            ii--;
+        }
+        int jj = b-1;
+        while (jj > 0) {
+            if (a == x && jj == y) break;
+            int val = nimber[a][x];
+            int val2 = nimber[jj][y];
+            dbg(a, jj, x, y, val, val2, (val^val2), naive_check(a, jj, x, y));
+            if (naive_check(a, jj, x, y) && !(val^val2)) ans++;
+            jj--;
+        }
+        jj = y-1;
+        while (jj > 0) {
+            if (a == x && b == jj) break;
+            int val = nimber[a][x];
+            int val2 = nimber[b][jj];
+            dbg(a, x, b, jj, val, val2, (val^val2), naive_check(a, b, x, jj));
+            if (naive_check(a, b, x, jj) && !(val^val2)) ans++;
+            jj--;
+        }
+        cout << ans << nl;
+    }
     return 0;
 }
