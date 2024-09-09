@@ -116,8 +116,8 @@ void dbg_out(Head H, Tail... T) {
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 3e5+5;
-const int SQRTN = 100;
+const int MX = 5e5+5;
+const int SQRTN = 1200;
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -132,55 +132,137 @@ int main() {
         F0R(j, 3) cin >> cur[j];
         cur[0]--; cur[1]--;
         cur[3] = i;
-        if (cur[2] < SQRTN) smallqs.pb(cur);
+        if (cur[2] <= SQRTN) smallqs.pb(cur);
         else largeqs.pb(cur);
     }
-    // for things with k < SQRTN, we will just store the next k things of every value A[i]
-    set<pi> vals[SQRTN];
-    vi pos[n+1];
-    F0R(i, n) pos[a[i]].pb(i);
-    int ptr[n+1]; FOR(i, 1, n) ptr[i] = 0;
-    FOR(i, 1, n) {
-        // up to SQRTN
-        F0R(j, min(SQRTN, sz(pos[i]))) {
-            dbg("inserting", j, pos[i][j], i);
-            vals[j].insert({pos[i][j], i});
-        }
-    }
-    sort(all(smallqs));
     int ans[q]; F0R(i, q) ans[i] = -2;
-    // now go through them
-    int p = 0;
-    F0R(i, n) {
-        while (p < sz(smallqs) && smallqs[p][0] == i) {
-            dbg(smallqs[p][0], smallqs[p][1], smallqs[p][2], smallqs[p][3]);
-            int k = smallqs[p][2]-1;
-            assert(k < SQRTN);
-            // check the min of this set and compare it to r
-            auto it = vals[k].begin();
-            if (it == vals[k].end() || it->f > smallqs[p][1]) {
-                dbg("setting ans", smallqs[p][3], -1);
-                ans[smallqs[p][3]] = -1;
-            } else {
-                dbg("setting ans", smallqs[p][3], it->s);
-                ans[smallqs[p][3]] = it->s;
-            }
-            p++;
-        }
-        // now we must transition to i+1, so we lose a[i]
-        int val = a[i];
-        int pt = ptr[a[i]];
-        auto& v = pos[val];
-        FOR(j, pt, min(pt+SQRTN, sz(v))-1) {
-            auto& s = vals[j-pt];
-            dbg(i, j, val, pt);
-            auto it = s.find({v[j], val});
-            s.erase(it);
-            if (j+1 < sz(v)) s.insert({v[j+1], val});
-        }
-        ptr[a[i]]++;
-    }
 
+    {
+        // for things with k <= SQRTN, we will just store the next k things of every value A[i]
+        pi vals[SQRTN]; F0R(i, SQRTN) vals[i] = {MX, -1};
+        vi pos[n+1];
+        F0R(i, n) pos[a[i]].pb(i);
+        int ptr[n+1]; FOR(i, 1, n) ptr[i] = sz(pos[i])-1;
+        sort(all(smallqs));
+        reverse(all(smallqs));
+        // now go through them
+        int p = 0; // pointer into smallqs
+        F0Rd(i, n) {
+            // include i now
+            int val = a[i];
+            int pt = ptr[val];
+            auto& v = pos[val];
+            FOR(j, pt, min(pt+SQRTN, sz(v))-1) {
+                if (ckmin(vals[j-pt].f, v[j])) {
+                    vals[j-pt].s = val;
+                }
+            }
+            ptr[val]--;
+            while (p < sz(smallqs) && smallqs[p][0] == i) {
+                dbg(smallqs[p][0], smallqs[p][1], smallqs[p][2], smallqs[p][3]);
+                int k = smallqs[p][2]-1;
+                assert(k+1 <= SQRTN);
+                // check the min of this set and compare it to r
+                auto x = vals[k];
+                if (x.f > smallqs[p][1]) {
+                    dbg("setting ans", smallqs[p][3], -1);
+                    ans[smallqs[p][3]] = -1;
+                } else {
+                    dbg("setting ans", smallqs[p][3], x.s);
+                    ans[smallqs[p][3]] = x.s;
+                }
+                p++;
+            }
+        }
+        // for things with k < SQRTN, we will just store the next k things of every value A[i]
+        // set<pi> vals[SQRTN];
+        // vi pos[n+1];
+        // F0R(i, n) pos[a[i]].pb(i);
+        // int ptr[n+1]; FOR(i, 1, n) ptr[i] = 0;
+        // FOR(i, 1, n) {
+        //     // up to SQRTN
+        //     F0R(j, min(SQRTN, sz(pos[i]))) {
+        //         dbg("inserting", j, pos[i][j], i);
+        //         vals[j].insert({pos[i][j], i});
+        //     }
+        // }
+        // sort(all(smallqs));
+        // // now go through them
+        // int p = 0;
+        // F0R(i, n) {
+        //     while (p < sz(smallqs) && smallqs[p][0] == i) {
+        //         dbg(smallqs[p][0], smallqs[p][1], smallqs[p][2], smallqs[p][3]);
+        //         int k = smallqs[p][2]-1;
+        //         assert(k+1 <= SQRTN);
+        //         // check the min of this set and compare it to r
+        //         auto it = vals[k].begin();
+        //         if (it == vals[k].end() || it->f > smallqs[p][1]) {
+        //             dbg("setting ans", smallqs[p][3], -1);
+        //             ans[smallqs[p][3]] = -1;
+        //         } else {
+        //             dbg("setting ans", smallqs[p][3], it->s);
+        //             ans[smallqs[p][3]] = it->s;
+        //         }
+        //         p++;
+        //     }
+        //     // now we must transition to i+1, so we lose a[i]
+        //     int val = a[i];
+        //     int pt = ptr[a[i]];
+        //     auto& v = pos[val];
+        //     FOR(j, pt, min(pt+SQRTN, sz(v))-1) {
+        //         auto& s = vals[j-pt];
+        //         dbg(i, j, val, pt);
+        //         auto it = s.find({v[j], val});
+        //         s.erase(it);
+        //         if (j+1 < sz(v)) s.insert({v[j+1], val});
+        //     }
+        //     ptr[a[i]]++;
+        // }
+
+    }
+    {
+        // for things with k > SQRTN, we can look only at the highest SQRTN frequency things
+        int freq[n+1]; F0R(i, n+1) freq[i] = 0;
+        F0R(i, n) freq[a[i]]++;
+        int mapping[n+1];
+        vi revmapping;
+        int cnt = 0;
+        FOR(i, 1, n) if (freq[i] > SQRTN) { revmapping.pb(i); mapping[i] = cnt++;} else mapping[i] = -1;
+        F0R(i, n) a[i] = mapping[a[i]];
+        // coord compress the things with freq > SQRTN, turn the rest to garbage
+        vi pos[cnt];
+        F0R(i, n) if (a[i] != -1) pos[a[i]].pb(i);
+        int ptr[cnt]; F0R(i, cnt) ptr[i] = sz(pos[i])-1;
+        sort(all(largeqs));
+        reverse(all(largeqs));
+        // now go through the array from right to left
+        int p = 0; // ptr into largeqs
+        F0Rd(i, n) {
+            // include i now
+            int val = a[i];
+            if (val != -1) {
+                ptr[val]--;
+            }
+            while (p < sz(largeqs) && largeqs[p][0] == i) {
+                dbg(largeqs[p][0], largeqs[p][1], largeqs[p][2], largeqs[p][3]);
+                int k = largeqs[p][2]-1;
+                assert(k+1 > SQRTN);
+                // check the min of this set and compare it to r
+                pi x = {MX, -1};
+                F0R(j, cnt) if (ptr[j]+1+k < sz(pos[j])) {
+                    if (ckmin(x.f, pos[j][ptr[j]+1+k])) x.s = j;
+                }
+                if (x.f > largeqs[p][1]) {
+                    dbg("setting ans", largeqs[p][3], -1);
+                    ans[largeqs[p][3]] = -1;
+                } else {
+                    dbg("setting ans", largeqs[p][3], revmapping[x.s]);
+                    ans[largeqs[p][3]] = revmapping[x.s];
+                }
+                p++;
+            }
+        }
+    }
     F0R(i, q) cout << ans[i] << nl;
     
     return 0;
