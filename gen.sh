@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the template
-TEMPLATE_PATH="Codeforces/CF Template/template.cpp"
+TEMPLATE_PATH="template.cpp"
 
 # Function to create files A.cpp to X.cpp in a given directory
 generate_files() {
