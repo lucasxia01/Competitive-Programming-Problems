@@ -41,8 +41,8 @@ class Modular {
   template <typename U> Modular& operator-=(const U& other) { return *this -= Modular(other); }
   Modular& operator++() { return *this += 1; }
   Modular& operator--() { return *this -= 1; }
-  Modular operator++(int) { Modular result(*this); *this += 1; return result; }
-  Modular operator--(int) { Modular result(*this); *this -= 1; return result; }
+  Modular operator++(int32_t) { Modular result(*this); *this += 1; return result; }
+  Modular operator--(int32_t) { Modular result(*this); *this -= 1; return result; }
   Modular operator-() const { return Modular(-value); }
 
   template <typename U = T>
