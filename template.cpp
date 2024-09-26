@@ -39,7 +39,7 @@ template <typename T> bool ckmin(T& a, const T& b) { return a > b ? a=b, 1 : 0; 
 template <typename T> bool ckmax(T& a, const T& b) { return b > a ? a=b, 1 : 0; }
 
 #ifdef DBG
-#include "/Users/lucasxia/Competitive-Programming-Problems/debug.hpp"
+#include "/Users/lucasxia/Competitive-Programming-Problems/Library/debug.hpp"
 #else
 #define dbg(...)
 #define dbg_array(a, n)
