@@ -31,9 +31,9 @@ typedef vector<pl> vpl;
 #define all(x) x.begin(), x.end()
 
 const char nl = '\n';
-const ll INF = (1LL<<55) + 123;
-const ll MOD = 1000000007; // 998244353
-const ld PI = 4*atan((ld)1);
+// const ll INF = (1LL<<55) + 123;
+// const ll MOD = 998244353; // 1000000007;
+// const ld PI = 4*atan((ld)1);
 
 template <typename T> bool ckmin(T& a, const T& b) { return a > b ? a=b, 1 : 0; }
 template <typename T> bool ckmax(T& a, const T& b) { return b > a ? a=b, 1 : 0; }
@@ -47,7 +47,7 @@ template <typename T> bool ckmax(T& a, const T& b) { return b > a ? a=b, 1 : 0; 
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-const int MX = 3e5+5;
+// const int MX = 3e5+5;
 
 signed main() {
     ios_base::sync_with_stdio(false);
